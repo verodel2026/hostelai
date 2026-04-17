@@ -1387,11 +1387,6 @@ export default function App() {
             <p className="text-brand-bg/30 text-[10px] uppercase tracking-[0.2em] font-medium">
               © {new Date().getFullYear()} HostelAI. Todos los derechos reservados.
             </p>
-
-            <div className="flex gap-8">
-              <span className="text-brand-bg/20 text-[9px] uppercase tracking-widest">Diseño Editorial</span>
-              <span className="text-brand-bg/20 text-[9px] uppercase tracking-widest">Criterio Operativo</span>
-            </div>
           </div>
         </div>
       </footer>
