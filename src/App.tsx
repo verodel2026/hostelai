@@ -71,7 +71,10 @@ const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: ()
         className="relative bg-brand-bg w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col border border-brand-border/40 shadow-2xl"
       >
         <div className="p-6 md:p-8 border-b border-brand-border/20 flex justify-between items-center bg-white">
-          <h2 className="text-2xl md:text-3xl font-serif font-bold text-brand-primary">
+          <h2 
+            className={`text-2xl md:text-3xl font-serif font-bold text-brand-primary ${content.title.includes('COOKIES') ? 'notranslate' : ''}`}
+            translate={content.title.includes('COOKIES') ? 'no' : undefined}
+          >
             {content.title}
           </h2>
           <button 
@@ -86,10 +89,16 @@ const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: ()
           <div className="space-y-12">
             {content.sections.map((section: any, idx: number) => (
               <div key={idx} className="space-y-6">
-                <h3 className="text-lg font-serif font-bold text-brand-primary border-l-4 border-brand-accent pl-4">
+                <h3 
+                  className={`text-lg font-serif font-bold text-brand-primary border-l-4 border-brand-accent pl-4 ${section.title.toLowerCase().includes('cookies') ? 'notranslate' : ''}`}
+                  translate={section.title.toLowerCase().includes('cookies') ? 'no' : undefined}
+                >
                   {section.title}
                 </h3>
-                <div className="text-brand-secondary leading-relaxed font-light whitespace-pre-wrap text-sm md:text-base">
+                <div 
+                  className={`text-brand-secondary leading-relaxed font-light whitespace-pre-wrap text-sm md:text-base ${section.content.toLowerCase().includes('cookies') ? 'notranslate' : ''}`}
+                  translate={section.content.toLowerCase().includes('cookies') ? 'no' : undefined}
+                >
                   {section.content}
                 </div>
               </div>
@@ -1367,7 +1376,8 @@ export default function App() {
               <button 
                 key={item}
                 onClick={() => setActiveLegal(item)}
-                className="text-[10px] uppercase tracking-[0.2em] text-brand-bg/40 hover:text-brand-accent transition-colors font-medium"
+                className={`text-[10px] uppercase tracking-[0.2em] text-brand-bg/40 hover:text-brand-accent transition-colors font-medium ${item === 'Cookies' ? 'notranslate' : ''}`}
+                translate={item === 'Cookies' ? 'no' : undefined}
               >
                 {item === 'Legal' ? 'Aviso Legal' : item}
               </button>
