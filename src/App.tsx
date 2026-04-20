@@ -716,8 +716,8 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <header id="inicio" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-brand-bg">
-        <div className="absolute inset-0 z-0 bg-brand-primary">
+      <header id="inicio" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-brand-primary">
+        <div className="absolute inset-0 z-0">
           <motion.img 
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.3 }}
@@ -727,7 +727,7 @@ export default function App() {
             className="w-full h-full object-cover grayscale brightness-[0.4]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-transparent to-brand-primary/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/20 via-transparent to-brand-primary" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
@@ -741,11 +741,11 @@ export default function App() {
                 initial={{ width: 0 }}
                 animate={{ width: 60 }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="h-1 bg-brand-accent mb-12"
+                className="h-1 bg-brand-vibrant mb-12"
               />
 
               <h1 className="text-[clamp(2.5rem,6vw,8rem)] font-serif font-light text-white mb-12 leading-[1.1] tracking-tight italic">
-                <span className="text-brand-accent not-italic font-medium">Google</span> {PROJECT_DATA.heroTitle.split('Google')[1]}
+                <span className="text-brand-vibrant not-italic font-medium">Google</span> {PROJECT_DATA.heroTitle.split('Google')[1]}
               </h1>
 
               <p className="text-lg md:text-xl text-white/50 leading-relaxed font-light mb-16 max-w-2xl mt-16">
@@ -755,7 +755,7 @@ export default function App() {
               <div className="flex flex-col sm:flex-row gap-6">
                 <button 
                   onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
-                  className="flex items-center justify-center gap-6 bg-brand-accent text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-accent/90 hover:shadow-[0_20px_50px_rgba(182,93,59,0.3)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
+                  className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
                 >
                   <Calendar className="w-5 h-5 text-white" />
                   Quiero mis 15 minutos gratis
@@ -765,15 +765,8 @@ export default function App() {
           </div>
         </div>
         
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-6"
-        >
-          <div className="w-px h-24 bg-gradient-to-b from-brand-border to-transparent" />
-        </motion.div>
+        {/* Section Transition: Hero -> Problemas */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#001f3f]" />
       </header>
 
       {/* Problemas Section */}
@@ -786,6 +779,8 @@ export default function App() {
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-[#001f3f]/70" />
+          {/* Top Transition Mask */}
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#001f3f]" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
@@ -870,10 +865,13 @@ export default function App() {
             ))}
           </div>
         </div>
+
+        {/* Section Transition: Problemas -> Sobre Mi */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#fdfbf7]" />
       </section>
 
       {/* Sobre Mí Section */}
-      <section id="sobre-mi" className="relative py-24 md:py-32 overflow-hidden border-b border-brand-border/20">
+      <section id="sobre-mi" className="relative py-24 md:py-32 overflow-hidden bg-[#fdfbf7]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000" 
@@ -882,6 +880,8 @@ export default function App() {
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-[#fdfbf7]/60" />
+          {/* Top Transition Mask */}
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#fdfbf7]" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-8 md:px-12">
@@ -986,11 +986,14 @@ export default function App() {
             </div>
           </motion.div>
         </div>
+
+        {/* Section Transition: Sobre Mi -> Servicios */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#001f3f]" />
       </section>
 
 
       {/* Servicios y Tarifas Section */}
-      <section id="servicios" className="relative py-24 md:py-32 overflow-hidden">
+      <section id="servicios" className="relative py-24 md:py-32 overflow-hidden bg-[#001f3f]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=2000" 
@@ -998,7 +1001,9 @@ export default function App() {
             className="w-full h-full object-cover blur-[5px]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-[#1a252f]/65" />
+          <div className="absolute inset-0 bg-[#001f3f]/65" />
+          {/* Top Transition Mask */}
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#001f3f]" />
         </div>
 
         <div className="max-w-[1200px] mx-auto px-8 md:px-12 relative z-10">
@@ -1146,10 +1151,13 @@ export default function App() {
             </motion.div>
           </div>
         </div>
+
+        {/* Section Transition: Servicios -> Blog */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="relative py-24 md:py-40 overflow-hidden">
+      <section id="blog" className="relative py-24 md:py-40 overflow-hidden bg-white">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://i.imgur.com/9CVEOSH.jpeg" 
@@ -1158,6 +1166,8 @@ export default function App() {
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-white/40" />
+          {/* Top Transition Mask */}
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#ffffff]" />
         </div>
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">
           <SectionTitle 
@@ -1205,10 +1215,13 @@ export default function App() {
             ))}
           </div>
         </div>
+
+        {/* Section Transition: Blog -> Contacto */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#b65d3b]" />
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="relative pt-24 md:pt-40 pb-12 overflow-hidden">
+      <section id="contacto" className="relative pt-24 md:pt-40 pb-12 overflow-hidden bg-[#b65d3b]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=2000" 
@@ -1217,6 +1230,8 @@ export default function App() {
             referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-[#b65d3b]/60" />
+          {/* Top Transition Mask */}
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#b65d3b]" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12">
@@ -1357,10 +1372,12 @@ export default function App() {
             </div>
           </div>
         </div>
+        {/* Section Transition: Contacto -> Footer */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#001f3f]" />
       </section>
 
       {/* Footer */}
-      <footer className="bg-brand-primary text-brand-bg pt-12 pb-8 border-t border-white/5">
+      <footer className="bg-brand-primary text-brand-bg pt-12 pb-8 relative z-20">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 text-center">
           {/* Bloque de Frases */}
           <div className="max-w-3xl mx-auto mb-8">
