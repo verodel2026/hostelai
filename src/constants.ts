@@ -435,6 +435,10 @@ export const PROJECT_DATA = {
         {
           title: "Conclusión",
           content: "WhatsApp Business puede ser una herramienta muy útil para bares, cafeterías y pequeños restaurantes.\n\nPero hay una diferencia enorme entre usarlo y usarlo bien.\n\nSi lo montas sin estructura, se convierte en otro foco de interrupciones, errores y mensajes mal gestionados.\n\nSi lo organizas con criterio, puede ayudarte a:\n- responder mejor\n- ahorrar tiempo\n- transmitir más profesionalidad\n- mejorar la experiencia del cliente\n\nNo necesitas montar un sistema gigante. Necesitas una estructura simple, clara y usable."
+        },
+        {
+          type: "cta",
+          content: "Si sientes que el WhatsApp de tu local es un caos de mensajes sin responder o reservas mal anotadas, puedo ayudarte a organizarlo con criterio profesional.\n\nPuedes empezar por una sesión 1:1 o por la auditoría inicial."
         }
       ]
     },

@@ -279,28 +279,13 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
                       {section.content}
                       
                       {section.type === 'cta' && (
-                        <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                          {post.id === 'responder-resenas-google-hosteleria' ? (
-                            <button 
-                              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
-                              className="flex items-center justify-center gap-6 bg-white text-brand-primary border border-brand-accent px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-soft/10 hover:shadow-xl active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group flex-1"
-                            >
-                              <Star className="w-5 h-5 fill-[#F5C518] text-[#F5C518]" />
-                              Gestiona tus reseñas
-                            </button>
-                          ) : (
-                            <button 
-                              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
-                              className="btn-primary flex-1 py-4 text-base"
-                            >
-                              Solicitar auditoría inicial
-                            </button>
-                          )}
+                        <div className="mt-10 flex justify-center">
                           <button 
                             onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
-                            className="btn-accent flex-1 py-4 text-base"
+                            className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto"
                           >
-                            Reservar sesión 1:1
+                            <Calendar className="w-5 h-5 text-white" />
+                            QUIERO MIS 15 MINUTOS GRATIS
                           </button>
                         </div>
                       )}
@@ -1124,31 +1109,6 @@ export default function App() {
                 </AnimatePresence>
               </motion.div>
             ))}
-
-            {/* Locked Services Block (Acceso a Clientes) */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="mt-12 p-8 md:p-12 bg-[#fdfbf7] border border-brand-accent/20 rounded-sm text-center relative group"
-            >
-              <div className="max-w-2xl mx-auto">
-                <div className="relative inline-block w-full">
-                  <div 
-                    className="w-full py-4 px-6 bg-white border border-brand-accent/30 text-[#b65d3b] rounded-sm flex items-center justify-center gap-4 transition-all"
-                  >
-                    <Lock className="w-4 h-4 opacity-70 stroke-[1.5px]" />
-                    <span className="text-sm md:text-base font-bold tracking-tight">
-                      Área exclusiva para clientes. Si ya hemos trabajado juntos, recibirás tu acceso por email.
-                    </span>
-                  </div>
-                </div>
-                
-                <p className="mt-12 py-8 border-y border-[#b65d3b]/30 text-[15px] md:text-[16px] text-[#1a252f] leading-[1.8] font-normal italic max-w-2xl mx-auto text-center">
-                  Para garantizar que cada euro que inviertas sea rentable, este área es para negocios que ya he auditado personalmente.
-                </p>
-              </div>
-            </motion.div>
           </div>
         </div>
 
