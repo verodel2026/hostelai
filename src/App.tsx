@@ -808,7 +808,7 @@ export default function App() {
                     <img 
                       src={step.img} 
                       alt={step.title}
-                      className="relative w-full aspect-[4/3] object-cover rounded-[16px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.02]"
+                      className="relative w-full aspect-video object-contain rounded-[16px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.02]"
                     />
                   </div>
                 </div>
