@@ -19,7 +19,8 @@ import {
   Star,
   Calendar,
   Check,
-  Lock
+  Lock,
+  ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECT_DATA } from './constants';
@@ -760,7 +761,7 @@ export default function App() {
             light={true}
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+          <div className="hidden md:grid md:grid-cols-4 gap-8">
             {PROJECT_DATA.problems.map((problem, idx) => {
               const icons = [
                 <Clock className="w-8 h-8" />,
@@ -797,6 +798,70 @@ export default function App() {
                       {problem.solution}
                     </p>
                   </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Accordion */}
+          <div className="md:hidden space-y-4">
+            {PROJECT_DATA.problems.map((problem, idx) => {
+              const icons = [
+                <Clock className="w-6 h-6" />,
+                <MessageSquare className="w-6 h-6" />,
+                <Star className="w-6 h-6" />,
+                <ClipboardCheck className="w-6 h-6" />,
+                <Zap className="w-6 h-6" />,
+                <BarChart3 className="w-6 h-6" />,
+                <Smartphone className="w-6 h-6" />,
+                <Target className="w-6 h-6" />
+              ];
+              const isOpen = activeProblemIndex === idx;
+
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white rounded-sm shadow-md overflow-hidden border border-brand-accent/5"
+                >
+                  <button
+                    onClick={() => setActiveProblemIndex(isOpen ? null : idx)}
+                    className="w-full p-6 flex items-center justify-between text-left transition-colors hover:bg-brand-soft/10"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="text-brand-accent">
+                        {icons[idx]}
+                      </div>
+                      <h3 className="text-lg font-serif italic text-brand-primary leading-tight">
+                        {problem.title}
+                      </h3>
+                    </div>
+                    <ChevronDown 
+                      className={`w-5 h-5 text-brand-accent transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} 
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <div className="px-6 pb-6 pt-2 space-y-6">
+                          <div className="w-12 h-px bg-brand-accent/30" />
+                          <p className="text-sm font-sans italic text-brand-primary/80 leading-relaxed">
+                            {problem.copy}
+                          </p>
+                          <div className="pt-4 border-t border-brand-border/40">
+                            <p className="text-[10px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight text-center">
+                              {problem.solution}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
