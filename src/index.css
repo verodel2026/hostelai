@@ -5,13 +5,13 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-  --color-brand-bg: #fdfbf7; /* User requested cream */
+  --color-brand-bg: #fdfbf7;
   --color-brand-soft: #F0EDE4;
-  --color-brand-text: #001f3f; /* User requested blue */
-  --color-brand-secondary: #5C646D; /* Warm Gray */
-  --color-brand-primary: #001f3f; /* User requested blue */
-  --color-brand-accent: #D95D39; /* Oxide Orange */
-  --color-brand-vibrant: #FF5722; /* Luminous Terracota */
+  --color-brand-text: #1E2A4A;
+  --color-brand-secondary: #5C646D;
+  --color-brand-primary: #1E2A4A;
+  --color-brand-accent: #E85D25;
+  --color-brand-vibrant: #E85D25;
   --color-brand-border: #E5E1D8;
   --color-brand-digital: #8E9AAF; /* Muted Digital Blue */
 }

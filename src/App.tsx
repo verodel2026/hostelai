@@ -20,7 +20,9 @@ import {
   Calendar,
   Check,
   Lock,
-  ChevronDown
+  ChevronDown,
+  GraduationCap,
+  Headset
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECT_DATA } from './constants';
@@ -736,139 +738,112 @@ export default function App() {
           </div>
         </div>
         
-        {/* Section Transition: Hero -> Problemas */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#001f3f]" />
+        {/* Section Transition: Hero -> Mi Método */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
       </header>
 
-      {/* Problemas Section */}
-      <section id="problemas" className="relative py-16 md:py-24 overflow-hidden flex flex-col justify-center">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=2000" 
-            alt="Professional Kitchen" 
-            className="w-full h-full object-cover blur-[3px]"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-[#001f3f]/70" />
-          {/* Top Transition Mask */}
-          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#001f3f]" />
-        </div>
-
+      {/* Mi Método Section */}
+      <section id="metodo" className="relative py-24 md:py-40 bg-white overflow-hidden">
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
-          <SectionTitle 
-            title="Puntos de Fuga" 
-            subtitle="El diagnóstico"
-            light={true}
-          />
-          
-          <div className="hidden md:grid md:grid-cols-4 gap-8">
-            {PROJECT_DATA.problems.map((problem, idx) => {
-              const icons = [
-                <Clock className="w-8 h-8" />,
-                <MessageSquare className="w-8 h-8" />,
-                <Star className="w-8 h-8" />,
-                <ClipboardCheck className="w-8 h-8" />,
-                <Zap className="w-8 h-8" />,
-                <BarChart3 className="w-8 h-8" />,
-                <Smartphone className="w-8 h-8" />,
-                <Target className="w-8 h-8" />
-              ];
+          <div className="text-center mb-24">
+            <p className="text-brand-accent font-semibold tracking-[0.4em] uppercase text-[10px] mb-4">MI MÉTODO</p>
+            <div className="w-10 h-[2px] bg-brand-accent mx-auto mb-6" />
+            <h2 className="text-5xl md:text-7xl font-serif font-light text-brand-primary mb-6 leading-[1.1] tracking-tight italic">
+              Tres pasos. Sin humo.
+            </h2>
+            <p className="text-brand-secondary text-lg md:text-xl font-sans max-w-2xl mx-auto">
+              Así trabajo con cada hostelero que me contrata. Nada de teoría. Nada de promesas vacías.
+            </p>
+          </div>
 
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white p-8 rounded-sm shadow-xl flex flex-col items-center text-center group hover:translate-y-[-8px] transition-all duration-500 border border-brand-accent/5 hover:border-brand-accent/20"
-                >
-                  <div className="text-brand-accent mb-6 bg-brand-soft/30 p-4 rounded-full group-hover:scale-110 transition-transform duration-500">
-                    {icons[idx]}
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-serif italic text-brand-primary leading-tight mb-4 min-h-[3rem] flex items-center">
-                    {problem.title}
-                  </h3>
-
-                  <div className="w-12 h-px bg-brand-accent/30 mb-4" />
-                  
-                  <p className="text-sm font-sans italic text-brand-primary/80 leading-relaxed mb-6">
-                    {problem.copy}
-                  </p>
-                  
-                  <div className="mt-auto pt-6 border-t border-brand-border/40 w-full">
-                    <p className="text-[10px] md:text-[11px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight">
-                      {problem.solution}
+          <div className="space-y-32 md:space-y-48">
+            {[
+              {
+                id: '01',
+                tag: 'PASO 01 · ESCUCHAR',
+                title: 'Escucho',
+                desc: '15 minutos contigo para entender qué te quita el sueño. Sin vender, sin teoría. Solo preguntas y tu realidad.',
+                img: '/images/metodo/paso1-escucho.webp'
+              },
+              {
+                id: '02',
+                tag: 'PASO 02 · DIAGNOSTICAR',
+                title: 'Diagnostico',
+                desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.',
+                img: '/images/metodo/paso2-diagnostico.webp'
+              },
+              {
+                id: '03',
+                tag: 'PASO 03 · ACTUAR',
+                title: 'Actúo',
+                desc: 'Implemento las soluciones que tu negocio necesita. Tú sigues atendiendo tu local, yo me encargo de lo digital.',
+                img: '/images/metodo/paso3-actuo.webp'
+              }
+            ].map((step, idx) => (
+              <motion.div 
+                key={step.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className={`flex flex-col ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
+              >
+                <div className="flex-1 w-full relative">
+                  <span className="absolute -top-16 -left-8 text-[160px] md:text-[240px] font-serif font-bold text-brand-accent/15 leading-none pointer-events-none select-none">
+                    {step.id}
+                  </span>
+                  <div className="relative z-10 pt-8">
+                    <p className="text-brand-accent font-semibold tracking-[0.4em] uppercase text-[10px] mb-6">{step.tag}</p>
+                    <h3 className="text-4xl md:text-6xl font-serif font-light text-brand-primary mb-8 leading-tight italic">
+                      {step.title}
+                    </h3>
+                    <p className="text-brand-secondary text-lg md:text-xl leading-relaxed font-sans max-w-md">
+                      {step.desc}
                     </p>
                   </div>
                 </div>
-              );
-            })}
+                <div className="flex-1 w-full">
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-brand-accent/5 rounded-[24px] blur-2xl group-hover:bg-brand-accent/10 transition-colors duration-700" />
+                    <img 
+                      src={step.img} 
+                      alt={step.title}
+                      className="relative w-full aspect-[4/3] object-cover rounded-[16px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
-          {/* Mobile Accordion */}
-          <div className="md:hidden space-y-4">
-            {PROJECT_DATA.problems.map((problem, idx) => {
-              const icons = [
-                <Clock className="w-6 h-6" />,
-                <MessageSquare className="w-6 h-6" />,
-                <Star className="w-6 h-6" />,
-                <ClipboardCheck className="w-6 h-6" />,
-                <Zap className="w-6 h-6" />,
-                <BarChart3 className="w-6 h-6" />,
-                <Smartphone className="w-6 h-6" />,
-                <Target className="w-6 h-6" />
-              ];
-              const isOpen = activeProblemIndex === idx;
-
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white rounded-sm shadow-md overflow-hidden border border-brand-accent/5"
-                >
-                  <button
-                    onClick={() => setActiveProblemIndex(isOpen ? null : idx)}
-                    className="w-full p-6 flex items-center justify-between text-left transition-colors hover:bg-brand-soft/10"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="text-brand-accent">
-                        {icons[idx]}
-                      </div>
-                      <h3 className="text-lg font-serif italic text-brand-primary leading-tight">
-                        {problem.title}
-                      </h3>
-                    </div>
-                    <ChevronDown 
-                      className={`w-5 h-5 text-brand-accent transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        <div className="px-6 pb-6 pt-2 space-y-6">
-                          <div className="w-12 h-px bg-brand-accent/30" />
-                          <p className="text-sm font-sans italic text-brand-primary/80 leading-relaxed">
-                            {problem.copy}
-                          </p>
-                          <div className="pt-4 border-t border-brand-border/40">
-                            <p className="text-[10px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight text-center">
-                              {problem.solution}
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+          <div className="mt-40 md:mt-64 bg-brand-soft/30 -mx-8 md:-mx-12 px-8 md:px-12 py-24 rounded-sm border-y border-brand-border/40">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif font-light text-brand-primary mb-4 leading-tight italic">
+                Formación y experiencia real
+              </h2>
+              <div className="w-10 h-[2px] bg-brand-accent mx-auto" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+              {[
+                { icon: <GraduationCap className="w-10 h-10" />, text: 'Automatización con IA — Ironhack' },
+                { icon: <GraduationCap className="w-10 h-10" />, text: 'Marketing Digital — ISDI' },
+                { icon: <Headset className="w-10 h-10" />, text: '+5 años en retención y negociación comercial — Movistar' },
+                { icon: <Utensils className="w-10 h-10" />, text: 'Experiencia propia en hostelería y catering' }
+              ].map((item, idx) => (
+                <div key={idx} className="flex flex-col items-center gap-6 group">
+                  <div className="text-brand-accent transition-transform duration-500 group-hover:scale-110">
+                    {React.cloneElement(item.icon as React.ReactElement, { strokeWidth: 1.5 })}
+                  </div>
+                  <p className="text-brand-primary font-sans font-medium text-sm md:text-base leading-relaxed px-4">
+                    {item.text}
+                  </p>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Section Transition: Problemas -> Sobre Mi */}
+        {/* Section Transition: Mi Método -> Sobre Mi */}
         <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#fdfbf7]" />
       </section>
 
@@ -921,53 +896,13 @@ export default function App() {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="space-y-8 text-brand-primary text-lg leading-relaxed italic font-normal text-left mb-16">
+                    <div className="space-y-8 text-brand-primary text-lg leading-relaxed italic font-normal text-left">
                       {PROJECT_DATA.about.content.map((paragraph, idx) => (
                         <p key={idx}>{paragraph}</p>
                       ))}
                     </div>
 
-                    <div className="pt-16 border-t border-brand-border/40 mb-16">
-                      <p className="text-center text-brand-accent font-bold tracking-[0.3em] uppercase text-[10px] mb-10">
-                        Criterio Formativo
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {[
-                          { 
-                            name: 'Ironhack', 
-                            url: 'https://ironhack.com', 
-                            style: 'bg-[#1D3461] text-white border-transparent' 
-                          },
-                          { 
-                            name: 'ISDI', 
-                            url: 'https://isdi.es', 
-                            style: 'bg-black text-white border-transparent' 
-                          },
-                          { 
-                            name: 'Kuestiona', 
-                            url: 'https://kuestiona.com', 
-                            style: 'bg-black text-white border-[#F5C518]' 
-                          }
-                        ].map((school) => (
-                          <a
-                            key={school.name}
-                            href={school.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`group relative p-6 md:p-10 ${school.style} border-2 rounded-[50px] transition-all duration-500 text-center hover:shadow-2xl hover:-translate-y-2 flex items-center justify-center min-h-[80px] md:min-h-[140px]`}
-                          >
-                            <span className="font-serif font-bold text-xl md:text-3xl tracking-tight">
-                              {school.name}
-                            </span>
-                            {school.name === 'Kuestiona' && (
-                              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#F5C518] rounded-full mb-4 opacity-50 group-hover:opacity-100 transition-opacity" />
-                            )}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex justify-center pb-12">
+                    <div className="flex justify-center py-16">
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -995,7 +930,7 @@ export default function App() {
 
 
       {/* Servicios y Tarifas Section */}
-      <section id="servicios" className="relative py-24 md:py-32 overflow-hidden bg-[#001f3f]">
+      <section id="servicios" className="relative py-24 md:py-32 overflow-hidden bg-[#1E2A4A]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=2000" 
@@ -1003,9 +938,9 @@ export default function App() {
             className="w-full h-full object-cover blur-[5px]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-[#001f3f]/65" />
+          <div className="absolute inset-0 bg-[#1E2A4A]/65" />
           {/* Top Transition Mask */}
-          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#001f3f]" />
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#1E2A4A]" />
         </div>
 
         <div className="max-w-[1200px] mx-auto px-8 md:px-12 relative z-10">
@@ -1129,7 +1064,137 @@ export default function App() {
           </div>
         </div>
 
-        {/* Section Transition: Servicios -> Blog */}
+        {/* Section Transition: Servicios -> Puntos de Fuga */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#1E2A4A]" />
+      </section>
+
+      {/* Puntos de Fuga (Compacto y Oscuro) */}
+      <section id="problemas" className="relative py-12 md:py-20 overflow-hidden flex flex-col justify-center">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=2000" 
+            alt="Professional Kitchen" 
+            className="w-full h-full object-cover blur-[3px]"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-[#1E2A4A]/85" />
+        </div>
+
+        <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl md:text-5xl font-serif font-light text-white mb-4 leading-tight italic">
+              Puntos de Fuga
+            </h2>
+          </div>
+          
+          <div className="hidden md:grid md:grid-cols-4 gap-6">
+            {PROJECT_DATA.problems.map((problem, idx) => {
+              const icons = [
+                <Clock className="w-8 h-8" />,
+                <MessageSquare className="w-8 h-8" />,
+                <Star className="w-8 h-8" />,
+                <ClipboardCheck className="w-8 h-8" />,
+                <Zap className="w-8 h-8" />,
+                <BarChart3 className="w-8 h-8" />,
+                <Smartphone className="w-8 h-8" />,
+                <Target className="w-8 h-8" />
+              ];
+
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white p-6 rounded-sm shadow-xl flex flex-col items-center text-center group hover:translate-y-[-4px] transition-all duration-500 border border-brand-accent/5 hover:border-brand-accent/20"
+                >
+                  <div className="text-brand-accent mb-4 scale-75 bg-brand-soft/30 p-4 rounded-full group-hover:scale-90 transition-transform duration-500">
+                    {icons[idx]}
+                  </div>
+                  
+                  <h3 className="text-lg md:text-xl font-serif italic text-brand-primary leading-tight mb-2 flex items-center">
+                    {problem.title}
+                  </h3>
+
+                  <div className="w-8 h-px bg-brand-accent/30 mb-4" />
+                  
+                  <p className="text-[13px] font-sans italic text-brand-primary/80 leading-relaxed mb-4">
+                    {problem.copy}
+                  </p>
+                  
+                  <div className="mt-auto pt-4 border-t border-brand-border/40 w-full">
+                    <p className="text-[9px] md:text-[10px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight">
+                      {problem.solution}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mobile Accordion */}
+          <div className="md:hidden space-y-3">
+            {PROJECT_DATA.problems.map((problem, idx) => {
+              const icons = [
+                <Clock className="w-5 h-5" />,
+                <MessageSquare className="w-5 h-5" />,
+                <Star className="w-5 h-5" />,
+                <ClipboardCheck className="w-5 h-5" />,
+                <Zap className="w-5 h-5" />,
+                <BarChart3 className="w-5 h-5" />,
+                <Smartphone className="w-5 h-5" />,
+                <Target className="w-5 h-5" />
+              ];
+              const isOpen = activeProblemIndex === idx;
+
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white rounded-sm shadow-md overflow-hidden border border-brand-accent/5"
+                >
+                  <button
+                    onClick={() => setActiveProblemIndex(isOpen ? null : idx)}
+                    className="w-full p-4 flex items-center justify-between text-left transition-colors hover:bg-brand-soft/10"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="text-brand-accent">
+                        {icons[idx]}
+                      </div>
+                      <h3 className="text-base font-serif italic text-brand-primary leading-tight">
+                        {problem.title}
+                      </h3>
+                    </div>
+                    <ChevronDown 
+                      className={`w-4 h-4 text-brand-accent transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} 
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        <div className="px-5 pb-5 pt-1 space-y-4">
+                          <div className="w-10 h-px bg-brand-accent/30" />
+                          <p className="text-[13px] font-sans italic text-brand-primary/80 leading-relaxed">
+                            {problem.copy}
+                          </p>
+                          <div className="pt-3 border-t border-brand-border/40">
+                            <p className="text-[9px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight text-center">
+                              {problem.solution}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Section Transition: Puntos de Fuga -> Blog */}
         <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
       </section>
 
@@ -1350,11 +1415,11 @@ export default function App() {
           </div>
         </div>
         {/* Section Transition: Contacto -> Footer */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#001f3f]" />
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#1E2A4A]" />
       </section>
 
       {/* Footer */}
-      <footer className="bg-brand-primary text-brand-bg pt-12 pb-8 relative z-20">
+      <footer className="bg-[#1E2A4A] text-brand-bg pt-12 pb-8 relative z-20">
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 text-center">
           {/* Bloque de Frases */}
           <div className="max-w-3xl mx-auto mb-8">
