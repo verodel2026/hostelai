@@ -750,7 +750,7 @@ export default function App() {
                   
                   <div className="flex flex-col sm:flex-row gap-6">
                     <button 
-                      onClick={() => scrollToSection('servicios')}
+                      onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
                       className="flex items-center justify-center gap-6 bg-white text-brand-primary border border-brand-accent px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-soft/10 hover:shadow-xl active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
                     >
                       <Star className="w-5 h-5 fill-[#F5C518] text-[#F5C518]" />
