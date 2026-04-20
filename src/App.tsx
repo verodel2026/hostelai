@@ -737,44 +737,18 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <p className="text-brand-accent font-semibold tracking-[0.5em] uppercase text-[10px] mb-12">
-                Hostelería Real & Criterio Operativo
-              </p>
-              
               <h1 className="text-[clamp(2.5rem,8vw,10rem)] font-serif font-light text-brand-primary mb-16 leading-[0.9] tracking-tight italic">
                 {PROJECT_DATA.heroTitle}
               </h1>
               
-              <div className="flex flex-col lg:flex-row gap-20 items-start">
-                <div className="max-w-xl">
-                  <p className="text-lg md:text-xl text-brand-secondary leading-relaxed font-light mb-12">
-                    {PROJECT_DATA.subtitle}
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row gap-6">
-                    <button 
-                      onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
-                      className="flex items-center justify-center gap-6 bg-white text-brand-primary border border-brand-accent px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-soft/10 hover:shadow-xl active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
-                    >
-                      <Star className="w-5 h-5 fill-[#F5C518] text-[#F5C518]" />
-                      Gestiona tus reseñas
-                    </button>
-                  </div>
-                </div>
-
-                <div className="hidden lg:block flex-1 pt-4">
-                  <div className="h-px w-full bg-brand-border/60 mb-8" />
-                  <div className="grid grid-cols-2 gap-8">
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-brand-accent mb-2">Especialización</p>
-                      <p className="text-sm text-brand-primary font-medium">Hostelería Real</p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-brand-accent mb-2">Enfoque</p>
-                      <p className="text-sm text-brand-primary font-medium">Criterio Operativo</p>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-6">
+                <button 
+                  onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+                  className="flex items-center justify-center gap-6 bg-white text-brand-primary border border-brand-accent px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-soft/10 hover:shadow-xl active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
+                >
+                  <Star className="w-5 h-5 fill-[#F5C518] text-[#F5C518]" />
+                  Gestiona tus reseñas
+                </button>
               </div>
             </motion.div>
           </div>
