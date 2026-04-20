@@ -526,8 +526,6 @@ export default function App() {
   const [activeServiceIndex, setActiveServiceIndex] = useState<number | null>(0);
   const [activeProblemIndex, setActiveProblemIndex] = useState<number | null>(null);
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
-  const [currentProblemSlide, setCurrentProblemSlide] = useState(0);
-  const problemCarouselRef = useRef<HTMLDivElement>(null);
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
     name: '',
@@ -536,19 +534,6 @@ export default function App() {
     message: '',
     privacyAccepted: false
   });
-
-  const handleProblemScroll = () => {
-    if (problemCarouselRef.current) {
-      const container = problemCarouselRef.current;
-      const scrollPosition = container.scrollLeft;
-      const cardWidth = container.querySelector('.perspective-1000')?.clientWidth || 0;
-      const gap = 24; // gap-6
-      const newIndex = Math.round(scrollPosition / (cardWidth + gap));
-      if (newIndex !== currentProblemSlide) {
-        setCurrentProblemSlide(newIndex);
-      }
-    }
-  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -775,11 +760,7 @@ export default function App() {
             light={true}
           />
           
-          <div 
-            ref={problemCarouselRef}
-            onScroll={handleProblemScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-8 px-8 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:pb-0 no-scrollbar"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
             {PROJECT_DATA.problems.map((problem, idx) => {
               const icons = [
                 <Clock className="w-8 h-8" />,
@@ -795,59 +776,30 @@ export default function App() {
               return (
                 <div 
                   key={idx}
-                  className="perspective-1000 h-[240px] md:h-[280px] cursor-pointer snap-center shrink-0 w-[75vw] sm:w-full"
-                  onClick={(e) => {
-                    const card = e.currentTarget.querySelector('.preserve-3d');
-                    if (card) card.classList.toggle('rotate-y-180');
-                  }}
+                  className="bg-white p-8 rounded-sm shadow-xl flex flex-col items-center text-center group hover:translate-y-[-8px] transition-all duration-500 border border-brand-accent/5 hover:border-brand-accent/20"
                 >
-                  <div className="relative w-full h-full transition-transform duration-700 preserve-3d">
-                    {/* Front */}
-                    <div className="absolute inset-0 backface-hidden bg-white p-6 md:p-8 flex flex-col items-center justify-center text-center rounded-sm shadow-xl">
-                      <span className="absolute top-4 right-4 md:top-6 md:right-6 text-[10px] font-bold text-brand-accent uppercase tracking-widest">
-                        Voltea →
-                      </span>
-                      <div className="text-brand-primary mb-4 md:mb-6 scale-90 md:scale-100">
-                        {icons[idx]}
-                      </div>
-                      <h3 className="text-xl md:text-2xl font-serif italic text-brand-primary leading-tight">
-                        {problem.title}
-                      </h3>
-                    </div>
-                    
-                    {/* Back */}
-                    <div className="absolute inset-0 backface-hidden bg-white text-brand-primary p-4 md:p-5 rotate-y-180 flex flex-col items-center justify-center text-center rounded-sm border border-brand-accent/30 shadow-sm">
-                      <div className="w-full">
-                        <h4 className="text-brand-accent font-serif italic text-base md:text-lg mb-1">
-                          ¡Falla tu Mise en Place!
-                        </h4>
-                        <p className="text-[12px] md:text-[13px] font-sans italic text-brand-primary leading-[1.4] mb-2 md:mb-3">
-                          {problem.copy}
-                        </p>
-                      </div>
-                      
-                      <div className="w-10 md:w-12 h-px bg-brand-accent/30 mb-2 md:mb-3" />
-                      
-                      <p className="text-[10px] md:text-[11px] font-sans font-bold text-brand-primary uppercase tracking-[0.2em] leading-tight">
-                        {problem.solution}
-                      </p>
-                    </div>
+                  <div className="text-brand-accent mb-6 bg-brand-soft/30 p-4 rounded-full group-hover:scale-110 transition-transform duration-500">
+                    {icons[idx]}
+                  </div>
+                  
+                  <h3 className="text-xl md:text-2xl font-serif italic text-brand-primary leading-tight mb-4 min-h-[3rem] flex items-center">
+                    {problem.title}
+                  </h3>
+
+                  <div className="w-12 h-px bg-brand-accent/30 mb-4" />
+                  
+                  <p className="text-sm font-sans italic text-brand-primary/80 leading-relaxed mb-6">
+                    {problem.copy}
+                  </p>
+                  
+                  <div className="mt-auto pt-6 border-t border-brand-border/40 w-full">
+                    <p className="text-[10px] md:text-[11px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight">
+                      {problem.solution}
+                    </p>
                   </div>
                 </div>
               );
             })}
-          </div>
-
-          {/* Navigation Dots (Mobile Only) */}
-          <div className="flex justify-center gap-2 mt-8 sm:hidden">
-            {PROJECT_DATA.problems.map((_, idx) => (
-              <div 
-                key={idx}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  currentProblemSlide === idx ? 'bg-brand-accent w-4' : 'bg-white/30'
-                }`}
-              />
-            ))}
           </div>
         </div>
 
