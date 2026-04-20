@@ -717,17 +717,17 @@ export default function App() {
 
       {/* Hero Section */}
       <header id="inicio" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-brand-bg">
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 bg-brand-primary">
           <motion.img 
             initial={{ scale: 1.1, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.15 }}
+            animate={{ scale: 1, opacity: 0.3 }}
             transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=2070" 
             alt="Hospitality Venue" 
-            className="w-full h-full object-cover grayscale"
+            className="w-full h-full object-cover grayscale brightness-[0.4]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/0 via-brand-bg/40 to-brand-bg" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 via-transparent to-brand-primary/40" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
@@ -737,17 +737,28 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h1 className="text-[clamp(2.5rem,8vw,10rem)] font-serif font-light text-brand-primary mb-16 leading-[0.9] tracking-tight italic">
-                {PROJECT_DATA.heroTitle}
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: 60 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="h-1 bg-brand-accent mb-12"
+              />
+
+              <h1 className="text-[clamp(2.5rem,6vw,8rem)] font-serif font-light text-white mb-12 leading-[1.1] tracking-tight italic">
+                <span className="text-brand-accent not-italic font-medium">Google</span> {PROJECT_DATA.heroTitle.split('Google')[1]}
               </h1>
+
+              <p className="text-lg md:text-xl text-white/50 leading-relaxed font-light mb-16 max-w-2xl mt-16">
+                {PROJECT_DATA.subtitle}
+              </p>
               
               <div className="flex flex-col sm:flex-row gap-6">
                 <button 
                   onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
-                  className="flex items-center justify-center gap-6 bg-white text-brand-primary border border-brand-accent px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-soft/10 hover:shadow-xl active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
+                  className="flex items-center justify-center gap-6 bg-brand-accent text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-accent/90 hover:shadow-[0_20px_50px_rgba(182,93,59,0.3)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
                 >
-                  <Star className="w-5 h-5 fill-[#F5C518] text-[#F5C518]" />
-                  Gestiona tus reseñas
+                  <Calendar className="w-5 h-5 text-white" />
+                  Quiero mis 15 minutos gratis
                 </button>
               </div>
             </motion.div>

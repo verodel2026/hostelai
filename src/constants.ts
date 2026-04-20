@@ -1,7 +1,7 @@
 export const PROJECT_DATA = {
   title: "HostelAI",
-  subtitle: "Optimizo negocios de hostelería desde la realidad del día a día.",
-  heroTitle: "Menos caos. Más control. Más ventas.",
+  subtitle: "Menos caos. Más control. Más ventas.",
+  heroTitle: "Google decide quién entra a tu local. ¿Vas a dejarlo al azar?",
   heroDescription: "Ayudo a bares, cafeterías y pequeños restaurantes a ordenar su operativa, mejorar su comunicación y digitalizar procesos sin complicaciones inútiles. No trabajo desde la teoría. Trabajo desde lo que pasa de verdad dentro del local.",
   location: "Oleiros, A Coruña",
   author: "Verónica Delgado Neira",
