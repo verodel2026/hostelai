@@ -282,7 +282,7 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
                         <div className="mt-10 flex flex-col sm:flex-row gap-4">
                           {post.id === 'responder-resenas-google-hosteleria' ? (
                             <button 
-                              onClick={() => handleCtaClick('servicios')}
+                              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
                               className="flex items-center justify-center gap-6 bg-white text-brand-primary border border-brand-accent px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-soft/10 hover:shadow-xl active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group flex-1"
                             >
                               <Star className="w-5 h-5 fill-[#F5C518] text-[#F5C518]" />
@@ -290,14 +290,14 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
                             </button>
                           ) : (
                             <button 
-                              onClick={() => handleCtaClick('contacto')}
+                              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
                               className="btn-primary flex-1 py-4 text-base"
                             >
                               Solicitar auditoría inicial
                             </button>
                           )}
                           <button 
-                            onClick={() => handleCtaClick('contacto')}
+                            onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
                             className="btn-accent flex-1 py-4 text-base"
                           >
                             Reservar sesión 1:1
@@ -669,7 +669,7 @@ export default function App() {
               </motion.button>
             ))}
             <button 
-              onClick={() => scrollToSection('contacto')}
+              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
               className="btn-primary !py-3 !px-6 !text-[10px] ml-2 shrink-0"
             >
               Contacta
@@ -702,7 +702,10 @@ export default function App() {
                 </button>
               ))}
               <button 
-                onClick={() => scrollToSection('contacto')}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank');
+                }}
                 className="btn-primary mt-4 py-3"
               >
                 Contacta
@@ -1085,7 +1088,21 @@ export default function App() {
                             <p className="text-white/70 text-sm leading-relaxed font-light italic">{rate.idealFor}</p>
                           </div>
                           <button 
-                            onClick={() => scrollToSection('contacto')}
+                            onClick={() => {
+                              const targetButtons = [
+                                'Solicitar gestión de reseñas', 
+                                'Solicitar auditoría', 
+                                'Reservar sesión',
+                                'Solicitar auditoría inicial',
+                                'Solicitar pack 30 días',
+                                'Solicitar seguimiento'
+                              ];
+                              if (targetButtons.includes(rate.cta)) {
+                                window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank');
+                              } else {
+                                scrollToSection('contacto');
+                              }
+                            }}
                             className="mt-8 btn-primary w-full md:w-auto"
                           >
                             {rate.cta}
