@@ -628,7 +628,7 @@ export default function App() {
           </motion.div>
           
           <div className="hidden md:flex items-center gap-6 lg:gap-10">
-            {['inicio', 'problemas', 'sobre-mi', 'servicios', 'blog'].map((item, idx) => (
+            {['metodo', 'problemas', 'sobre-mi', 'servicios', 'blog'].map((item, idx) => (
               <motion.button
                 key={item}
                 initial={{ opacity: 0 }}
@@ -637,7 +637,7 @@ export default function App() {
                 onClick={() => scrollToSection(item)}
                 className="text-[10px] font-semibold text-brand-secondary hover:text-brand-primary transition-all uppercase tracking-[0.25em] relative group shrink-0"
               >
-                {item === 'sobre-mi' ? 'Sobre Mí' : item === 'blog' ? 'Blog' : item.replace('-', ' ')}
+                {item === 'metodo' ? 'Mi método' : item === 'sobre-mi' ? 'Sobre Mí' : item === 'blog' ? 'Blog' : item.replace('-', ' ')}
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-brand-accent transition-all duration-500 group-hover:w-full" />
               </motion.button>
             ))}
@@ -665,13 +665,13 @@ export default function App() {
             className="fixed inset-x-0 top-0 z-40 bg-brand-bg pt-24 pb-10 px-6 md:hidden border-b border-brand-border/30 shadow-xl"
           >
             <div className="flex flex-col gap-5 text-center">
-              {['inicio', 'problemas', 'sobre-mi', 'servicios', 'blog'].map((item) => (
+              {['metodo', 'problemas', 'sobre-mi', 'servicios', 'blog'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
                   className="text-xl font-serif text-brand-primary hover:text-brand-accent transition-colors"
                 >
-                  {item === 'sobre-mi' ? 'Sobre Mí' : item === 'blog' ? 'Blog' : item.replace('-', ' ')}
+                  {item === 'metodo' ? 'Mi método' : item === 'sobre-mi' ? 'Sobre Mí' : item === 'blog' ? 'Blog' : item.replace('-', ' ')}
                 </button>
               ))}
               <button 
@@ -763,21 +763,21 @@ export default function App() {
                 tag: 'PASO 01 · ESCUCHAR',
                 title: 'Escucho',
                 desc: '15 minutos contigo para entender qué te quita el sueño. Sin vender, sin teoría. Solo preguntas y tu realidad.',
-                img: '/images/metodo/paso1-escucho.webp'
+                img: 'https://raw.githubusercontent.com/verodel2026/hostelai/main/public/images/metodo/paso1-escucho.webp'
               },
               {
                 id: '02',
                 tag: 'PASO 02 · DIAGNOSTICAR',
                 title: 'Diagnostico',
                 desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.',
-                img: '/images/metodo/paso2-diagnostico.webp'
+                img: 'https://raw.githubusercontent.com/verodel2026/hostelai/main/public/images/metodo/paso2-diagnostico.webp'
               },
               {
                 id: '03',
                 tag: 'PASO 03 · ACTUAR',
                 title: 'Actúo',
                 desc: 'Implemento las soluciones que tu negocio necesita. Tú sigues atendiendo tu local, yo me encargo de lo digital.',
-                img: '/images/metodo/paso3-actuo.webp'
+                img: 'https://raw.githubusercontent.com/verodel2026/hostelai/main/public/images/metodo/paso3-actuo.webp'
               }
             ].map((step, idx) => (
               <motion.div 
