@@ -763,21 +763,21 @@ export default function App() {
                 tag: 'PASO 01 · ESCUCHAR',
                 title: 'Escucho',
                 desc: '15 minutos contigo para entender qué te quita el sueño. Sin vender, sin teoría. Solo preguntas y tu realidad.',
-                img: '/images/metodo/paso1-escucho.webp'
+                img: 'images/metodo/paso1-escucho.webp'
               },
               {
                 id: '02',
                 tag: 'PASO 02 · DIAGNOSTICAR',
                 title: 'Diagnostico',
                 desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.',
-                img: '/images/metodo/paso2-diagnostico.webp'
+                img: 'images/metodo/paso2-diagnostico.webp'
               },
               {
                 id: '03',
                 tag: 'PASO 03 · ACTUAR',
                 title: 'Actúo',
                 desc: 'Implemento las soluciones que tu negocio necesita. Tú sigues atendiendo tu local, yo me encargo de lo digital.',
-                img: '/images/metodo/paso3-actuo.webp'
+                img: 'images/metodo/paso3-actuo.webp'
               }
             ].map((step, idx) => (
               <motion.div 
