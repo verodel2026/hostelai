@@ -763,21 +763,21 @@ export default function App() {
                 tag: 'PASO 01 · ESCUCHAR',
                 title: 'Escucho',
                 desc: '15 minutos contigo para entender qué te quita el sueño. Sin vender, sin teoría. Solo preguntas y tu realidad.',
-                img: 'images/metodo/paso1-escucho.webp'
+                img: '/images/metodo/paso1-escucho.webp'
               },
               {
                 id: '02',
                 tag: 'PASO 02 · DIAGNOSTICAR',
                 title: 'Diagnostico',
                 desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.',
-                img: 'images/metodo/paso2-diagnostico.webp'
+                img: '/images/metodo/paso2-diagnostico.webp'
               },
               {
                 id: '03',
                 tag: 'PASO 03 · ACTUAR',
                 title: 'Actúo',
                 desc: 'Implemento las soluciones que tu negocio necesita. Tú sigues atendiendo tu local, yo me encargo de lo digital.',
-                img: 'images/metodo/paso3-actuo.webp'
+                img: '/images/metodo/paso3-actuo.webp'
               }
             ].map((step, idx) => (
               <motion.div 
@@ -789,14 +789,11 @@ export default function App() {
                 className={`flex flex-col ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
               >
                 <div className="flex-1 w-full relative">
-                  <span className="absolute -top-16 -left-8 text-[160px] md:text-[240px] font-serif font-bold text-brand-accent/10 leading-none pointer-events-none select-none">
+                  <span className="absolute -top-16 -left-8 text-[160px] md:text-[240px] font-serif font-bold text-brand-accent/15 leading-none pointer-events-none select-none">
                     {step.id}
                   </span>
                   <div className="relative z-10 pt-8">
-                    <p className="text-brand-accent font-bold tracking-[0.4em] uppercase text-[10px] mb-6 flex items-center gap-3">
-                      <span className="w-8 h-px bg-brand-accent/40" />
-                      {step.tag}
-                    </p>
+                    <p className="text-brand-accent font-semibold tracking-[0.4em] uppercase text-[10px] mb-6">{step.tag}</p>
                     <h3 className="text-4xl md:text-6xl font-serif font-light text-brand-primary mb-8 leading-tight italic">
                       {step.title}
                     </h3>
@@ -807,15 +804,12 @@ export default function App() {
                 </div>
                 <div className="flex-1 w-full">
                   <div className="relative group">
-                    <div className="absolute -inset-6 bg-brand-accent/5 rounded-[40px] blur-3xl group-hover:bg-brand-accent/10 transition-all duration-700 opacity-0 group-hover:opacity-100" />
-                    <div className="relative overflow-hidden rounded-[32px] border border-brand-border/30 bg-white">
-                      <img 
-                        src={step.img} 
-                        alt={step.title}
-                        className="w-full aspect-video object-cover transition-transform duration-1000 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-brand-primary/5 group-hover:bg-transparent transition-colors duration-700" />
-                    </div>
+                    <div className="absolute -inset-4 bg-brand-accent/5 rounded-[24px] blur-2xl group-hover:bg-brand-accent/10 transition-colors duration-700" />
+                    <img 
+                      src={step.img} 
+                      alt={step.title}
+                      className="relative w-full aspect-video object-contain rounded-[16px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
                   </div>
                 </div>
               </motion.div>
