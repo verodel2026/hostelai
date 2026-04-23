@@ -10,14 +10,17 @@ export const PROJECT_DATA = {
   year: "2026",
   shortValueProp: "Optimización práctica para negocios de hostelería que necesitan ordenar su operativa, mejorar su comunicación y ganar control sin complicarse con soluciones innecesarias.",
   about: {
-    title: "Soy Verónica Delgado y conozco la hostelería desde la trinchera.",
-    content: [
-      "Soy Verónica Delgado y conozco la hostelería desde la trinchera. No llego a este sector desde un despacho frío ni desde una agencia que nunca ha pisado una cocina.",
-      "He sudado la camiseta en la barra como camarera, he acumulado experiencia en infinidad de locales, he trabajado en la cocina como ayudante, en eventos y he gestionado mi propia empresa de catering. Sé lo que es la presión de un servicio, la responsabilidad de que los números cuadren y la frustración de cuando los procesos fallan. He tocado cada una de las partes de este negocio y por eso entiendo tus problemas desde dentro.",
-      "Además, mi trayectoria en el sector de las telecomunicaciones me ha dado una mirada quirúrgica para los procesos. Allí aprendí a detectar fricciones invisibles y a optimizar sistemas complejos; una habilidad que ahora aplico para que tu local deje de ser un caos operativo.",
-      "Mi enfoque no es llenar tu negocio de tecnología inútil. Es aplicar mi experiencia todoterreno y mi capacidad analítica para ayudarte a tener más control, más orden y una operativa que realmente te deje beneficios. No te vendo teoría, te vendo soluciones que yo misma he tenido que aplicar."
-    ]
-  },
+  title: "Soy Verónica Delgado y conozco la hostelería desde la trinchera.",
+  content: [
+    "Hostel AI no es mi \"plan B\" ni una salida de emergencia. A día de hoy sigo trabajando en telecomunicaciones y sigo sudando la camiseta en hostelería, porque me encanta tratar con la gente y la adrenalina de un servicio a tope.",
+    
+    "Este proyecto nace de algo que se ha repetido muchas veces en los locales donde he trabajado: cuando algo no cuadra —turnos, stock o cualquier lío del día a día— siempre acaba saliendo lo mismo: \"Pregúntale a Vero\".",
+    
+    "Resuelvo embrollos porque es lo que mejor sé hacer. Y no es algo de ahora. Forma parte de mi ADN desde que monté mi empresa de catering en 2006.",
+    
+    "Siempre que entro en un local nuevo lo tengo claro: yo vengo a sumar. Porque sé lo importante que es tener un equipo que funcione y procesos que no fallen."
+  ]
+},
   training: {
     title: "Formación y criterio aplicado",
     intro: "Mi trabajo no nace solo de la experiencia práctica en hostelería y atención al cliente. También se apoya en una formación orientada a entender mejor cómo funcionan las personas, cómo se organiza un negocio y cómo pueden aplicarse herramientas digitales de forma útil, sin complicar más el día a día.",
