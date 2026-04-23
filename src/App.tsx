@@ -827,7 +827,7 @@ export default function App() {
               {[
                 { icon: <GraduationCap className="w-10 h-10" />, text: 'Automatización con IA — Ironhack' },
                 { icon: <GraduationCap className="w-10 h-10" />, text: 'Marketing Digital — ISDI' },
-                { icon: <Headset className="w-10 h-10" />, text: '+5 años en retención y negociación comercial — Movistar' },
+              { icon: <Headset className="w-10 h-10" />, text: 'Gestión de clientes y resolución de problemas en entornos de alta presión' },
                 { icon: <Utensils className="w-10 h-10" />, text: 'Experiencia propia en hostelería y catering' }
               ].map((item, idx) => (
                 <div key={idx} className="flex flex-col items-center gap-6 group">
