@@ -18,7 +18,9 @@ export const PROJECT_DATA = {
     
     "Resuelvo embrollos porque es lo que mejor sé hacer. Y no es algo de ahora. Forma parte de mi ADN desde que monté mi empresa de catering en 2006.",
     
-    "Siempre que entro en un local nuevo lo tengo claro: yo vengo a sumar. Porque sé lo importante que es tener un equipo que funcione y procesos que no fallen."
+    "En 2009 fui el primer negocio de la zona en implantar delivery externo con Just Eat.",
+
+"Siempre que entro en un local nuevo lo tengo claro: yo vengo a sumar. Porque sé lo importante que es tener un equipo que funcione y procesos que no fallen."
   ]
 },
   training: {
