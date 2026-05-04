@@ -1482,7 +1482,7 @@ export default function App() {
         )}
       </AnimatePresence>
     </div>
-    </AnimatePresence>
+
     </div>
 
    {/* WhatsApp */}
