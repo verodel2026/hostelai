@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HostelAI · Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --orange: #E87B45;
+    --cream: #FDFBF7;
+    --gray: #5A5A5A;
+    --light: #F0EDE8;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--navy);
+    padding: 24px 28px 20px;
+    border-bottom: 4px solid var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 6px;
+  }
+
+  .brand-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+
+  .brand-name span {
+    color: var(--orange);
+    font-style: italic;
+  }
+
+  .brand-tag {
+    font-size: 11px;
+    color: #8BAABF;
+    font-weight: 400;
+    margin-top: 2px;
+    letter-spacing: 0.03em;
+  }
+
+  /* MAIN */
+  main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 44px 0 32px;
+    border-bottom: 1px solid var(--light);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 8vw, 56px);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .hero h1 em {
+    color: var(--orange);
+    font-style: italic;
+  }
+
+  .accent-line {
+    width: 48px;
+    height: 3px;
+    background: var(--orange);
+    margin: 20px 0;
+    border-radius: 2px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    color: var(--gray);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--light);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+
+  /* PROBLEMAS */
+  .problem-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .problem-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .problem-list li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    margin-top: 7px;
+  }
+
+  /* SERVICIOS */
+  .service-card {
+    background: white;
+    border-left: 4px solid var(--orange);
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 2px 8px rgba(27,58,92,0.06);
+  }
+
+  .service-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+
+  .service-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .service-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--orange);
+    white-space: nowrap;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--gray);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* QUIEN SOY */
+  .about-text {
+    font-size: 15px;
+    color: var(--gray);
+    line-height: 1.7;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .about-text strong {
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .highlight-box {
+    background: white;
+    border-left: 4px solid var(--orange);
+    padding: 14px 18px;
+    margin: 20px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--navy);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .exp-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  .exp-list li::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    min-width: 7px;
+    border-radius: 50%;
+    background: var(--orange);
+    margin-top: 6px;
+  }
+
+  /* COMO FUNCIONA */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--orange);
+    opacity: 0.4;
+    line-height: 1;
+    min-width: 36px;
+  }
+
+  .step-content h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .step-content p {
+    font-size: 14px;
+    color: var(--gray);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 36px 28px;
+    text-align: center;
+    margin: 32px 0 0;
+  }
+
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    font-style: italic;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .cta-section p {
+    font-size: 14px;
+    color: #8BAABF;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 32px;
+    border-radius: 50px;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(232,123,69,0.35);
+  }
+
+  .cta-btn:hover {
+    background: #d46d38;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(232,123,69,0.45);
+  }
+
+  .cta-url {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #8BAABF;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 20px 28px;
+    text-align: center;
+    font-size: 12px;
+    color: #8BAABF;
+    line-height: 1.8;
+  }
+
+  footer a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="/web-app-manifest-512x512.png" alt="HostelAI" class="logo-img">
+  <div>
+    <div class="brand-name">HOSTEL<span>AI</span></div>
+    <div class="brand-tag">Automatización para bares y restaurantes</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Tu negocio hostelero,<br><em>en digital.</em></h1>
+    <div class="accent-line"></div>
+    <p>Gestiono tus reseñas de Google y tu presencia digital para que tú sigas centrado en lo que mejor sabes hacer: tu negocio.</p>
+  </div>
+
+  <!-- EL PROBLEMA -->
+  <section>
+    <p class="section-label">El problema</p>
+    <ul class="problem-list">
+      <li>Reservas web sin confirmación automática — clientes que se van a otro sitio</li>
+      <li>Reseñas negativas sin responder que alejan clientes nuevos</li>
+      <li>Sin tiempo para gestionar lo digital entre turno y turno</li>
+    </ul>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section>
+    <p class="section-label">Lo que hago</p>
+
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Gestión de reseñas Google</span>
+        <span class="service-price">120 €/mes</span>
+      </div>
+      <p class="service-desc">Respondo reseñas · Monitorización continua · Informe mensual</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Auditoría inicial</span>
+        <span class="service-price">149 €</span>
+      </div>
+      <p class="service-desc">Diagnóstico completo de tu Google Business y presencia digital</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-top">
+        <span class="service-name">Sesión 1:1</span>
+        <span class="service-price">59 €</span>
+      </div>
+      <p class="service-desc">Consulta de 60 min para resolver un problema concreto</p>
+    </div>
+  </section>
+
+  <!-- QUIEN SOY -->
+  <section>
+    <p class="section-label">¿Por qué yo?</p>
+
+    <p class="about-text">Soy <strong>Verónica Delgado</strong>, consultora de automatización digital especializada en hostelería. Sigo trabajando en el sector — en sala, en gestión, conociendo el día a día real de un local desde dentro.</p>
+
+    <div class="highlight-box">
+      "En 2009 fui el primer negocio de la zona en implantar delivery externo con Just Eat."
+    </div>
+
+    <ul class="exp-list">
+      <li>Automatización con IA — Ironhack</li>
+      <li>Marketing Digital — ISDI</li>
+      <li>Hostelería: en activo desde hace años</li>
+      <li>Movistar: gestión de clientes y resolución de problemas en entornos de alta presión</li>
+    </ul>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section>
+    <p class="section-label">Cómo funciona</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Escucho</h3>
+          <p>15 minutos para entender tu situación real. Sin vender, sin teoría.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Diagnostico</h3>
+          <p>Reviso tu Google Business y reseñas. Te digo dónde pierdes dinero ahora mismo.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Actúo</h3>
+          <p>Implemento las soluciones. Tú sigues con tu local, yo me encargo de lo digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>¿Hablamos?</h2>
+    <p>Reserva una llamada gratuita de 15 minutos.<br>Sin compromiso. Sin humo.</p>
+    <a href="https://calendly.com/hostelai-proton/15-minutos" target="_blank" class="cta-btn">
+      Reservar llamada gratuita →
+    </a>
+    <p class="cta-url">calendly.com/hostelai-proton/15-minutos</p>
+  </div>
+
+</main>
+
+<footer>
+  <a href="https://hostelai.es">hostelai.es</a> &nbsp;·&nbsp;
+  <a href="mailto:hostelai@proton.me">hostelai@proton.me</a> &nbsp;·&nbsp;
+  WhatsApp 646 24 45 35
+</footer>
+
+</body>
+</html>
