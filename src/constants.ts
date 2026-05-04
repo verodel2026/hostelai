@@ -6,7 +6,7 @@ export const PROJECT_DATA = {
   location: "Oleiros, A Coruña",
   author: "Verónica Delgado Neira",
   email: "hostelai@proton.me",
-  phone: "+34 600 000 000",
+  phone: "+34 646 24 45 35",
   year: "2026",
   shortValueProp: "Optimización práctica para negocios de hostelería que necesitan ordenar su operativa, mejorar su comunicación y ganar control sin complicarse con soluciones innecesarias.",
   about: {
