@@ -1485,7 +1485,7 @@ export default function App() {
     </AnimatePresence>
     </div>
 
-    {/* WhatsApp Flotante */}
+   {/* WhatsApp */}
     <a
       href="https://wa.me/34646244535"
       target="_blank"
