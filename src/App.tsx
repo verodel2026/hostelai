@@ -1481,11 +1481,8 @@ export default function App() {
           />
         )}
       </AnimatePresence>
-    </div>
+  </div>
 
- 
-
-   {/* WhatsApp */}
     <a
       href="https://wa.me/34646244535"
       target="_blank"
@@ -1498,7 +1495,5 @@ export default function App() {
       </svg>
     </a>
 
-  );
-}
   );
 }
