@@ -645,7 +645,7 @@ export default function App() {
               onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
               className="btn-primary !py-3 !px-6 !text-[10px] ml-2 shrink-0"
             >
-              Contacta
+              Reserva el café
             </button>
           </div>
 
@@ -681,7 +681,7 @@ export default function App() {
                 }}
                 className="btn-primary mt-4 py-3"
               >
-                Contacta
+                Reserva el café
               </button>
             </div>
           </motion.div>
@@ -731,7 +731,7 @@ export default function App() {
                   className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
                 >
                   <Calendar className="w-5 h-5 text-white" />
-                  Quiero mis 15 minutos gratis
+                  Reserva el café — 15 min
                 </button>
               </div>
             </motion.div>
@@ -971,23 +971,12 @@ export default function App() {
                     </h3>
                   </div>
                   <div className="flex items-center justify-end gap-6 md:gap-8 w-full md:w-auto">
-                    <div className="text-right">
-                      <div className="flex items-baseline justify-end gap-2">
-                        {rate.pricePrefix && (
-                          <span className="text-[10px] md:text-xs font-bold text-brand-accent uppercase tracking-widest">
-                            {rate.pricePrefix}
-                          </span>
-                        )}
-                        <span className="text-xl md:text-3xl font-bold text-white tracking-tighter">
-                          {rate.price}
-                        </span>
-                        {rate.priceSuffix && (
-                          <span className="text-[10px] md:text-xs font-bold text-white/40 uppercase tracking-widest">
-                            {rate.priceSuffix}
-                          </span>
-                        )}
-                      </div>
-                    </div>
+                    <span
+                      onClick={(e) => { e.stopPropagation(); scrollToSection('precios'); }}
+                      className="text-[10px] md:text-xs font-bold text-brand-accent uppercase tracking-[0.25em] hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+                    >
+                      Ver precio ↓
+                    </span>
                     <div className={`w-10 h-10 md:w-12 md:h-12 border border-white/10 flex items-center justify-center transition-all duration-500 ${activeServiceIndex === idx ? 'bg-brand-accent text-white rotate-45' : 'group-hover:border-brand-accent'}`}>
                       <ArrowRight className={`w-4 h-4 md:w-5 md:h-5 transition-colors ${activeServiceIndex === idx ? 'text-white' : 'text-white group-hover:text-white'}`} />
                     </div>
@@ -1013,21 +1002,7 @@ export default function App() {
                             <p className="text-white/70 text-sm leading-relaxed font-light italic">{rate.idealFor}</p>
                           </div>
                           <button 
-                            onClick={() => {
-                              const targetButtons = [
-                                'Solicitar gestión de reseñas', 
-                                'Solicitar auditoría', 
-                                'Reservar sesión',
-                                'Solicitar auditoría inicial',
-                                'Solicitar pack 30 días',
-                                'Solicitar seguimiento'
-                              ];
-                              if (targetButtons.includes(rate.cta)) {
-                                window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank');
-                              } else {
-                                scrollToSection('contacto');
-                              }
-                            }}
+                            onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
                             className="mt-8 btn-primary w-full md:w-auto"
                           >
                             {rate.cta}

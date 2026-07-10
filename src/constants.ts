@@ -147,7 +147,7 @@ export const PROJECT_DATA = {
         "mejora de la imagen de marca a través del feedback"
       ],
       idealFor: "quieres delegar la atención digital de tu local para asegurar que cada cliente reciba una respuesta adecuada y profesional.",
-      cta: "Solicitar gestión de reseñas"
+      cta: "Reserva el café"
     },
     {
       name: "Auditoría inicial",
@@ -166,7 +166,7 @@ export const PROJECT_DATA = {
         "reunión de devolución de hasta 60 minutos"
       ],
       idealFor: "necesitas una visión externa, clara y práctica antes de tomar decisiones o invertir tiempo en cambios sin rumbo.",
-      cta: "Solicitar auditoría"
+      cta: "Reserva el café"
     },
     {
       name: "Sesión 1:1",
@@ -189,7 +189,7 @@ export const PROJECT_DATA = {
         "puntos de caos en operativa y atención al cliente"
       ],
       idealFor: "tienes un atasco concreto y quieres resolverlo sin contratar un servicio más amplio.",
-      cta: "Reservar sesión"
+      cta: "Reserva el café"
     },
     {
       name: "Pack base",
@@ -225,7 +225,7 @@ export const PROJECT_DATA = {
         "documento final con mejoras aplicadas"
       ],
       idealFor: "quieres dejar de improvisar y empezar a trabajar con más control, más orden y una operativa más clara.",
-      cta: "Solicitar pack 30 días",
+      cta: "Reserva el café",
       popular: true
     },
     {
@@ -244,14 +244,14 @@ export const PROJECT_DATA = {
         "propuesta mensual de mejoras"
       ],
       idealFor: "ya has empezado a ordenar el negocio y no quieres volver al caos por falta de seguimiento.",
-      cta: "Solicitar seguimiento"
+      cta: "Reserva el café"
     }
   ],
   ratesSupportText: "Cada negocio tiene un punto de partida distinto. Estas tarifas están pensadas como referencia para pequeños negocios de hostelería que necesitan orden, claridad y mejoras aplicables sin complicaciones innecesarias. Si no tienes claro qué servicio encaja contigo, puedes empezar por la auditoría inicial o por una sesión 1:1.",
   closing: {
     text: "Si notas que tu negocio funciona demasiado por improvisación, por inercia o por costumbre, seguramente ya estás perdiendo tiempo y oportunidades sin darte cuenta.",
     highlight: "Una buena operativa no solo reduce caos. También mejora el servicio, la experiencia del cliente y la rentabilidad del negocio.",
-    cta: "Solicitar auditoría inicial"
+    cta: "Reserva el café"
   },
   blog: [
     {
