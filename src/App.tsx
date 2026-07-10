@@ -628,7 +628,7 @@ export default function App() {
           </motion.div>
           
           <div className="hidden md:flex items-center gap-6 lg:gap-10">
-            {['metodo', 'problemas', 'sobre-mi', 'servicios', 'blog'].map((item, idx) => (
+            {['metodo', 'problemas', 'sobre-mi', 'servicios', 'precios', 'blog'].map((item, idx) => (
               <motion.button
                 key={item}
                 initial={{ opacity: 0 }}
@@ -665,7 +665,7 @@ export default function App() {
             className="fixed inset-x-0 top-0 z-40 bg-brand-bg pt-24 pb-10 px-6 md:hidden border-b border-brand-border/30 shadow-xl"
           >
             <div className="flex flex-col gap-5 text-center">
-              {['metodo', 'problemas', 'sobre-mi', 'servicios', 'blog'].map((item) => (
+              {['metodo', 'problemas', 'sobre-mi', 'servicios', 'precios', 'blog'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -877,7 +877,7 @@ export default function App() {
 
             <div className="max-w-2xl mx-auto">
               <p className="text-brand-primary text-xl md:text-2xl leading-relaxed font-normal mb-12">
-                Trabajo con hosteleros como tú para pasar del caos operativo al orden rentable, con procesos claros y sin herramientas raras. Práctica real de quien conoce el sector.
+                Soy Verónica Delgado y conozco la hostelería desde la trinchera. Trabajo con hosteleros como tú para pasar del caos operativo al orden rentable, con procesos claros y sin herramientas raras. Práctica real de quien conoce el sector.
               </p>
 
               <button 
@@ -887,14 +887,14 @@ export default function App() {
                 {isAboutExpanded ? 'LEER MENOS' : 'Conóceme más'}
               </button>
 
-              <AnimatePresence>
-                {isAboutExpanded && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
+              {/* El contenido está SIEMPRE en el HTML (los buscadores y las IA lo leen);
+                  solo se pliega/despliega visualmente. */}
+              <motion.div
+                    initial={false}
+                    animate={isAboutExpanded ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
+                    style={!isAboutExpanded ? { height: 0, opacity: 0 } : undefined}
                   >
                     <div className="space-y-8 text-brand-primary text-lg leading-relaxed italic font-normal text-left">
                       {PROJECT_DATA.about.content.map((paragraph, idx) => (
@@ -918,8 +918,6 @@ export default function App() {
                       </motion.div>
                     </div>
                   </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </motion.div>
         </div>
@@ -1195,6 +1193,141 @@ export default function App() {
         </div>
 
         {/* Section Transition: Puntos de Fuga -> Blog */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
+      </section>
+
+      {/* Precios Section */}
+      <section id="precios" className="relative py-24 md:py-32 overflow-hidden bg-[#fdfbf7]">
+        <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12">
+          <SectionTitle
+            subtitle="Precios"
+            title="Esto es lo que hago, esto es lo que cuesta"
+          />
+
+          {/* Los tres precios, sin ceremonia */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {[
+              { nombre: 'Auditoría de tu ficha', precio: '149 €', nota: 'una vez', desc: 'Abro tu ficha de Google contigo y te digo qué está pasando de verdad, con plan de acción en cristiano.' },
+              { nombre: 'Reseñas y ficha, mes a mes', precio: '120 €/mes', nota: 'te vas cuando quieras', desc: 'Yo llevo lo que Google dice de ti. Tú llevas el local.' },
+              { nombre: 'Una hora para un problema', precio: '59 €', nota: 'suelta', desc: '«¿Cómo respondo a ESTA reseña?» · «¿Cómo recupero mi ficha?» · Sales con el camino claro.' },
+            ].map((p, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+              >
+                <Card className="h-full border border-brand-border/30">
+                  <p className="text-brand-secondary text-xs font-bold uppercase tracking-[0.2em] mb-4">{p.nombre}</p>
+                  <p className="text-4xl font-serif text-brand-primary mb-1">{p.precio}</p>
+                  <p className="text-brand-accent text-xs uppercase tracking-widest mb-6">{p.nota}</p>
+                  <p className="text-brand-secondary text-sm leading-relaxed">{p.desc}</p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-center text-brand-secondary text-sm mb-20 italic">
+            Si contratas el mensual, la auditoría te la descuento del primer mes. Sin permanencia, factura con IVA.
+          </p>
+
+          {/* Semana a semana */}
+          <div className="mb-20">
+            <h3 className="text-2xl md:text-3xl font-serif text-brand-primary italic mb-4 text-center">Tu primer mes conmigo, semana a semana</h3>
+            <p className="text-brand-secondary text-center max-w-2xl mx-auto mb-12">
+              No te cuento promesas: te cuento cómo fue el primer mes con mi primer cliente,
+              un restaurante de esta zona, en junio de 2026. Contigo sería parecido, porque el método es este:
+            </p>
+            <div className="space-y-10 max-w-3xl mx-auto">
+              {[
+                { sem: 'Semana 1', titulo: 'Poner orden', texto: 'Me encontré cuatro meses de reseñas sin responder y las puse al día todas. También apareció lo que nadie había mirado: Google enseñaba una carta vieja con platos que ya no existían, y la ficha ni siquiera era del dueño — la retenía una agencia con la que ya no trabajaba. Primera semana: reseñas al día, carta correcta y el papeleo para recuperar la propiedad en marcha.' },
+                { sem: 'Semana 2', titulo: 'Que la ficha respire', texto: 'Descripción del local bien escrita, fotos, horarios verificados. Una ficha completa y viva sube en el buscador; una abandonada se hunde sola.' },
+                { sem: 'Semana 3', titulo: 'El susto', texto: 'Entró una tanda de reseñas de una estrella que no cuadraba. El dueño lo supo por mí antes que por nadie, las denunciamos a Google una por una y decidimos juntos qué se contestaba y qué no — porque hay reseñas que no conviene responder en caliente, y saber cuáles es medio oficio. La nota del local aguantó.' },
+                { sem: 'Semana 4', titulo: 'Sembrar', texto: 'Códigos QR en mesas y barra para que el cliente contento deje su reseña en el momento. Antes de imprimir nada, el texto revisado contra las normas de Google — que hasta para pedir reseñas hay reglas.' },
+              ].map((s, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="flex gap-6 md:gap-10"
+                >
+                  <div className="shrink-0 w-16 md:w-20 text-right">
+                    <p className="text-brand-accent font-bold text-[10px] uppercase tracking-[0.2em]">{s.sem}</p>
+                  </div>
+                  <div className="border-l border-brand-accent/40 pl-6 md:pl-10 pb-2">
+                    <h4 className="font-serif text-xl text-brand-primary italic mb-2">{s.titulo}</h4>
+                    <p className="text-brand-secondary leading-relaxed">{s.texto}</p>
+                  </div>
+                </motion.div>
+              ))}
+              <div className="flex gap-6 md:gap-10">
+                <div className="shrink-0 w-16 md:w-20 text-right">
+                  <p className="text-brand-accent font-bold text-[10px] uppercase tracking-[0.2em]">Siempre</p>
+                </div>
+                <div className="border-l border-brand-accent/40 pl-6 md:pl-10">
+                  <p className="text-brand-secondary leading-relaxed">
+                    <span className="text-brand-primary font-semibold">Y todas las semanas:</span> un resumen por WhatsApp.
+                    Qué entró, qué respondí, cómo va tu nota. Corto, en cristiano, sin hacerte perder tiempo.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="text-brand-primary text-center max-w-2xl mx-auto mt-12 leading-relaxed">
+              Resultado del mes, con los datos de la propia ficha: la eficacia del perfil pasó
+              del <span className="font-semibold">72% al 77%</span>, entraron once reseñas nuevas y la nota se mantuvo
+              pese al ataque. Esa ficha la habían mirado <span className="font-semibold">29.000 personas</span> en
+              seis meses — eso es lo que hay en juego en un local normal de esta zona.
+            </p>
+          </div>
+
+          {/* Preguntas de barra */}
+          <div className="mb-16">
+            <h3 className="text-2xl md:text-3xl font-serif text-brand-primary italic mb-4 text-center">Preguntas de barra</h3>
+            <p className="text-brand-secondary text-center mb-12">Las pongo como me las dicen, no como quedan bonitas.</p>
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 max-w-4xl mx-auto">
+              {[
+                { q: '«¿Y esto no me lo hace una aplicación por cuatro duros?»', a: 'Responder por responder, sí. Pero una aplicación no sabe que ese cliente que se queja del precio pidió el whisky más caro de la estantería, ni que a esa reseña no se le contesta señalando a nadie del equipo, ni que si hay un lío serio de por medio lo prudente es callar unos días. Yo eso lo sé porque llevo veinte años del otro lado de la barra. Uso herramientas de IA para ir rápido — y lo declaro por contrato — pero el criterio no se subcontrata.' },
+                { q: '«¿Y no puede hacerlo mi sobrino, que sabe de ordenadores?»', a: 'Poder, puede. Como puede tu cuñado cambiarte la instalación eléctrica. La pregunta es quién responde cuando entra una reseña que te puede costar clientes de verdad, un martes a las once de la noche. Si tu sobrino tiene oficio de hostelería y constancia, adelante: te sale gratis. Mi cliente es el que ya probó eso y la ficha volvió a quedarse sola.' },
+                { q: '«¿Qué me vas a pedir?»', a: 'Acceso de gestora a tu ficha de Google, que me das tú desde tu móvil conmigo delante. La propiedad es tuya siempre, y me retiras cuando te dé la gana, sin avisar ni dar explicaciones. No toco tu banco, tu TPV ni tus redes.' },
+                { q: '«¿Me atas con un contrato?»', a: 'No. Mes a mes, factura con IVA. Si un mes no te compensa, lo dejas. Yo me juego la renovación cada mes con el resumen que te mando cada semana — ahí ves si valgo lo que cobro.' },
+                { q: '«¿Y las reseñas de cinco estrellas, me las consigues?»', a: 'Compradas no, que te juegas la ficha: Google suspende perfiles por eso. Lo que monto es el camino corto para el cliente contento — el QR en la mesa — y el resto lo hace tu cocina y tu sala, que para eso son lo que son.' },
+                { q: '«Mi ficha la lleva una empresa de fuera / la hizo un socio que ya no está»', a: 'Me lo he encontrado ya, y es más serio de lo que parece: sin la propiedad, tu escaparate en Google no es tuyo. Sé el camino para reclamarla. Es lo primero que miro en la auditoría.' },
+                { q: '«¿Cuándo se nota?»', a: 'El orden, la primera semana: todo respondido, carta correcta, ficha completa. Subir en el mapa y que suene más el teléfono son dos o tres meses. Del que te prometa el milagro con fecha, desconfía.' },
+                { q: '«¿Y una página web, me la haces?»', a: 'Aparte y con su presupuesto, si de verdad la necesitas. Lo digo así de claro porque una vez la regalé dentro del mensual y aprendí la lección: lo que no se cobra, no se valora — y lo acaba pagando el trabajo que sí importa, que son tus reseñas.' },
+              ].map((f, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (idx % 2) * 0.08 }}
+                >
+                  <h4 className="font-serif text-lg text-brand-primary italic mb-3">{f.q}</h4>
+                  <p className="text-brand-secondary text-sm leading-relaxed">{f.a}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA: Un café y tu ficha */}
+          <div className="text-center max-w-2xl mx-auto">
+            <h3 className="text-3xl md:text-4xl font-serif text-brand-primary italic mb-6">Un café y tu ficha</h3>
+            <p className="text-brand-secondary leading-relaxed mb-8">
+              Quince minutos, en tu local: abrimos tu perfil de Google juntos y te enseño lo que
+              tus clientes ven y tú no. Sin compromiso y sin PowerPoint. Si después no quieres
+              nada más, el café me lo llevo yo de aprendizaje.
+            </p>
+            <button
+              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+              className="px-10 py-4 bg-brand-accent text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-primary transition-all duration-500 rounded-[50px]"
+            >
+              Reserva el café
+            </button>
+          </div>
+        </div>
+
+        {/* Section Transition: Precios -> Blog */}
         <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
       </section>
 
