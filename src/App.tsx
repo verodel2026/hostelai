@@ -1300,39 +1300,38 @@ export default function App() {
       {/* Precios Section */}
       <DemoResenas />
 
-      <section id="precios" className="relative py-24 md:py-32 overflow-hidden bg-[#fdfbf7]">
+      <section id="precios" className="relative py-24 md:py-32 overflow-hidden papel-grano">
         <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12">
           <SectionTitle
             subtitle="Precios"
             title="Esto es lo que hago, esto es lo que cuesta"
           />
 
-          {/* Los tres precios, sin ceremonia */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {[
-              { nombre: 'Auditoría de tu ficha', precio: '149 €', nota: 'una vez', desc: 'Abro tu ficha de Google contigo y te digo qué está pasando de verdad, con plan de acción en cristiano.' },
-              { nombre: 'Reseñas y ficha, mes a mes', precio: '120 €/mes', nota: 'te vas cuando quieras', desc: 'Yo llevo lo que Google dice de ti. Tú llevas el local.' },
-              { nombre: 'Una hora para un problema', precio: '59 €', nota: 'suelta', desc: '«¿Cómo respondo a ESTA reseña?» · «¿Cómo recupero mi ficha?» · Sales con el camino claro.' },
-            ].map((p, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <Card className="h-full border border-brand-border/30">
-                  <p className="text-brand-secondary text-xs font-bold uppercase tracking-[0.2em] mb-4">{p.nombre}</p>
-                  <p className="text-4xl font-serif text-brand-primary mb-1">{p.precio}</p>
-                  <p className="text-brand-accent text-xs uppercase tracking-widest mb-6">{p.nota}</p>
-                  <p className="text-brand-secondary text-sm leading-relaxed">{p.desc}</p>
-                </Card>
-              </motion.div>
-            ))}
+          {/* La pizarra de precios */}
+          <div className="pizarra-marco mb-20">
+            <div className="pizarra">
+              <p className="piz-titulo">La pizarra de HostelAI</p>
+              <p className="piz-sub">precios de hoy — y de todos los días</p>
+              <div className="piz-grid">
+                <div className="piz-item">
+                  <p className="piz-nombre">Auditoría de tu ficha</p>
+                  <p className="piz-precio">149 €<small> una vez</small></p>
+                  <p className="piz-desc">Abro tu ficha de Google contigo y te digo qué está pasando de verdad, con plan de acción en cristiano.</p>
+                </div>
+                <div className="piz-item">
+                  <p className="piz-nombre">Reseñas y ficha, mes a mes</p>
+                  <p className="piz-precio">120 €<small>/mes</small></p>
+                  <p className="piz-desc">Yo llevo lo que Google dice de ti. Tú llevas el local. Te vas cuando quieras.</p>
+                </div>
+                <div className="piz-item">
+                  <p className="piz-nombre">Una hora para un problema</p>
+                  <p className="piz-precio">59 €<small> suelta</small></p>
+                  <p className="piz-desc">«¿Cómo respondo a ESTA reseña?» · «¿Cómo recupero mi ficha?» · Sales con el camino claro.</p>
+                </div>
+              </div>
+              <p className="piz-nota">✓ si vamos al mensual, la auditoría se descuenta del primer mes — sin permanencia, factura con IVA</p>
+            </div>
           </div>
-          <p className="text-center text-brand-secondary text-sm mb-20 italic">
-            Si contratas el mensual, la auditoría te la descuento del primer mes. Sin permanencia, factura con IVA.
-          </p>
 
           {/* Semana a semana */}
           <div className="mb-20">
@@ -1341,6 +1340,23 @@ export default function App() {
               No te cuento promesas: te cuento cómo fue el primer mes con mi primer cliente,
               un restaurante de esta zona, en junio de 2026. Contigo sería parecido, porque el método es este:
             </p>
+            <div className="ticket-zona">
+              <div className="ticket">
+                <div className="t-cab">
+                  <b>HOSTELAI</b>
+                  <span>COMANDA · TU PRIMER MES</span>
+                  <span>Mesa: tu local · Camarera: Vero</span>
+                </div>
+                <div className="t-linea"><b>SEMANA 1</b><span>Poner orden</span></div>
+                <div className="t-linea"><b>SEMANA 2</b><span>Que la ficha respire</span></div>
+                <div className="t-linea"><b>SEMANA 3</b><span>Lo que surja, gestionado</span></div>
+                <div className="t-linea"><b>SEMANA 4</b><span>Sembrar reseñas nuevas</span></div>
+                <div className="t-linea"><b>VIERNES</b><span>Resumen por WhatsApp</span></div>
+                <div className="t-total"><span>TOTAL</span><span>120 €/mes</span></div>
+                <div className="t-pie">Sin permanencia · IVA aparte<br/>GRACIAS POR SU VISITA</div>
+                <div className="t-sello">Caso real</div>
+              </div>
+            </div>
             <div className="space-y-10 max-w-3xl mx-auto">
               {[
                 { sem: 'Semana 1', titulo: 'Poner orden', texto: 'Me encontré cuatro meses de reseñas sin responder y las puse al día todas. También apareció lo que nadie había mirado: Google enseñaba una carta vieja con platos que ya no existían, y la ficha ni siquiera era del dueño — la retenía una agencia con la que ya no trabajaba. Primera semana: reseñas al día, carta correcta y el papeleo para recuperar la propiedad en marcha.' },
@@ -1405,6 +1421,8 @@ export default function App() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: (idx % 2) * 0.08 }}
+                
+                  className="posavasos-sq"
                 >
                   <h4 className="font-serif text-lg text-brand-primary italic mb-3">{f.q}</h4>
                   <p className="text-brand-secondary text-sm leading-relaxed">{f.a}</p>
