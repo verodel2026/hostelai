@@ -745,8 +745,8 @@ export default function App() {
             className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-brand-accent flex items-center justify-center">
-              <Utensils className="text-white w-4 h-4" />
+            <div className="w-8 h-8 bg-[#F2EBDD] flex items-center justify-center">
+              <Utensils className="text-[#1B3A5C] w-4 h-4" />
             </div>
             <span className="font-serif font-bold text-xl tracking-tighter text-brand-primary">
               HOSTEL<span className="text-brand-accent italic">AI</span>
