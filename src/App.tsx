@@ -745,7 +745,7 @@ export default function App() {
             className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-brand-primary flex items-center justify-center">
+            <div className="w-8 h-8 bg-brand-accent flex items-center justify-center">
               <Utensils className="text-white w-4 h-4" />
             </div>
             <span className="font-serif font-bold text-xl tracking-tighter text-brand-primary">
@@ -976,7 +976,7 @@ export default function App() {
         </div>
 
         {/* Section Transition: Mi Método -> Sobre Mi */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#fdfbf7]" />
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#0F1F33]" />
       </section>
 
       {/* Sobre Mí Section */}
@@ -988,9 +988,9 @@ export default function App() {
             className="w-full h-full object-cover blur-[2px]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-[#fdfbf7]/60" />
+          <div className="absolute inset-0 bg-[#0F1F33]/60" />
           {/* Top Transition Mask */}
-          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#fdfbf7]" />
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#0F1F33]" />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-8 md:px-12">
