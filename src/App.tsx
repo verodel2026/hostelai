@@ -1550,6 +1550,16 @@ export default function App() {
             </div>
           </div>
 
+          {/* Guías */}
+          <div className="mb-10">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-brand-bg/40 mb-3 font-medium">Guías de reseñas</p>
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+              {[['Responder reseñas negativas','como-responder-resenas-negativas'],['Aparecer en Google Maps','como-aparecer-en-google-maps'],['Subir la nota en Google','como-subir-nota-google'],['¿Merece la pena responder?','merece-la-pena-responder-resenas'],['Reseñas falsas: qué hacer','resena-falsa-google']].map(([n, s]) => (
+                <a key={s} href={'/' + s + '/'} className="text-xs text-brand-bg/60 hover:text-brand-accent transition-colors">{n}</a>
+              ))}
+            </div>
+          </div>
+
           {/* Botones Legales */}
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-10">
             {['Privacidad', 'Cookies', 'Legal'].map((item) => (
