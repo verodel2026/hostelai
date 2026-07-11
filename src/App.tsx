@@ -41,8 +41,8 @@ const DEMO_RESENAS = [
     autor: '¿?', avatarBg: '#c0392b',
     meta: 'cuenta creada ayer · 1 reseña en total',
     texto: 'Pésimo todo. El peor sitio de la zona. No recomiendo nada.',
-    respuesta: 'Hemos revisado las reservas y los tickets de esos días y no encontramos ninguna visita que encaje con lo que describes. Si hubo algún problema real, escríbenos y lo miramos con calma — estamos encantados de aclararlo.',
-    porQue: 'Datos, calma y ni una acusación. La reclamación a Google va aparte, por el canal oficial — anunciarla en público solo aviva el fuego.'
+    respuesta: 'Nos gustaría entender qué pasó, pero esta reseña no nos da nada con lo que trabajar: ni cuándo, ni qué, ni con quién. Si de verdad nos visitaste, cuéntanos el día y lo ocurrido — escuchamos siempre y, cuando fallamos, lo reconocemos.',
+    porQue: 'Deja a la vista lo que cualquier lector ya nota — una reseña sin fecha ni detalle desde una cuenta recién creada — sin llamar mentiroso a nadie. La reclamación a Google, aparte y en silencio.'
   },
   {
     chip: 'La del enfado',
