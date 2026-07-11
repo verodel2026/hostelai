@@ -75,7 +75,7 @@ const DemoResenas = () => {
   const r = DEMO_RESENAS[sel];
 
   return (
-    <section id="demo" className="relative py-24 md:py-32 overflow-hidden bg-white">
+    <section id="demo" className="relative py-24 md:py-32 overflow-hidden bg-transparent">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-10">
           <p className="text-[10px] md:text-xs font-bold text-brand-accent uppercase tracking-[0.3em] mb-4 font-sans">En vivo</p>
@@ -104,7 +104,7 @@ const DemoResenas = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.3 }}
-              className="bg-white border border-brand-border rounded-2xl p-6 shadow-sm"
+              className="bg-white/[0.06] border border-white/15 rounded-2xl p-6"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold font-sans" style={{ backgroundColor: r.avatarBg }}>{r.autor.charAt(0)}</div>
@@ -119,7 +119,7 @@ const DemoResenas = () => {
           </AnimatePresence>
 
           {/* Respuesta escribiéndose */}
-          <div className="bg-brand-primary rounded-2xl p-6 min-h-[230px] flex flex-col">
+          <div className="bg-[#0b1626] border border-brand-accent/30 rounded-2xl p-6 min-h-[230px] flex flex-col">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-bold font-sans">V</div>
               <div>
@@ -176,7 +176,7 @@ const SectionTitle = ({ title, subtitle, centered = true, light = false }: { tit
 );
 
 const Card = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => (
-  <div className={`bg-white p-10 card-hover ${className}`}>
+  <div className={`bg-white/[0.06] border border-white/10 p-10 card-hover ${className}`}>
     {children}
   </div>
 );
@@ -191,7 +191,7 @@ const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: ()
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="absolute inset-0 bg-brand-primary/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-[#0F1F33]/85 backdrop-blur-sm"
       />
       <motion.div 
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -267,7 +267,7 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
-        className="absolute inset-0 bg-brand-primary/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-[#0F1F33]/85 backdrop-blur-sm"
       />
       <motion.div 
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -532,7 +532,7 @@ const GoogleReviewMockup = ({ review }: { review: any }) => {
         {/* Business Response */}
         <div className="ml-12 p-5 bg-brand-soft/20 border-l-4 border-brand-accent rounded-r-lg space-y-3">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-brand-primary rounded-full flex items-center justify-center text-[10px] text-white font-bold">
+            <div className="w-6 h-6 bg-[#1B3A5C] rounded-full flex items-center justify-center text-[10px] text-white font-bold">
               H
             </div>
             <span className="text-xs font-bold text-brand-primary uppercase tracking-wider">Respuesta del propietario</span>
@@ -815,7 +815,13 @@ export default function App() {
       </AnimatePresence>
 
       {/* Hero Section */}
-      <header id="inicio" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-brand-primary">
+      <header id="inicio" className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-[#0F1F33]">
+        <div className="luces-hero">
+          <div className="luz-h v1" style={{ left: '16%' }}><div className="cable" style={{ height: 64 }} /><div className="foco" style={{ width: 20, height: 20 }} /></div>
+          <div className="luz-h v2" style={{ left: '36%' }}><div className="cable" style={{ height: 110 }} /><div className="foco" style={{ width: 15, height: 24 }} /></div>
+          <div className="luz-h v3" style={{ left: '62%' }}><div className="cable" style={{ height: 50 }} /><div className="foco" style={{ width: 28, height: 22 }} /></div>
+          <div className="luz-h v4" style={{ left: '82%' }}><div className="cable" style={{ height: 90 }} /><div className="foco" style={{ width: 15, height: 15 }} /></div>
+        </div>
         <div className="absolute inset-0 z-0">
           <motion.img 
             initial={{ scale: 1.1, opacity: 0 }}
@@ -869,7 +875,7 @@ export default function App() {
       </header>
 
       {/* Mi Método Section */}
-      <section id="metodo" className="relative py-24 md:py-40 bg-white overflow-hidden">
+      <section id="metodo" className="relative py-24 md:py-40 bg-transparent overflow-hidden">
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
           <div className="text-center mb-24">
             <p className="text-brand-accent font-semibold tracking-[0.4em] uppercase text-[10px] mb-4">MI MÉTODO</p>
@@ -974,7 +980,7 @@ export default function App() {
       </section>
 
       {/* Sobre Mí Section */}
-      <section id="sobre-mi" className="relative py-24 md:py-32 overflow-hidden bg-[#fdfbf7]">
+      <section id="sobre-mi" className="relative py-24 md:py-32 overflow-hidden bg-transparent">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000" 
@@ -1453,7 +1459,7 @@ export default function App() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="relative py-24 md:py-40 overflow-hidden bg-white">
+      <section id="blog" className="relative py-24 md:py-40 overflow-hidden bg-[#16294a]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://i.imgur.com/9CVEOSH.jpeg" 

@@ -5,14 +5,14 @@
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 
-  --color-brand-bg: #fdfbf7;
-  --color-brand-soft: #F0EDE4;
-  --color-brand-text: #1E2A4A;
-  --color-brand-secondary: #5C646D;
-  --color-brand-primary: #1E2A4A;
+  --color-brand-bg: #0F1F33;
+  --color-brand-soft: #16294a;
+  --color-brand-text: #EFEAE0;
+  --color-brand-secondary: #9aa7ba;
+  --color-brand-primary: #EFEAE0;
   --color-brand-accent: #E85D25;
   --color-brand-vibrant: #E85D25;
-  --color-brand-border: #E5E1D8;
+  --color-brand-border: #2b405c;
   --color-brand-digital: #8E9AAF; /* Muted Digital Blue */
 }
 
@@ -27,7 +27,7 @@
 }
 
 .glass-card {
-  @apply bg-white/40 backdrop-blur-md border border-brand-border/60 shadow-sm transition-all duration-500;
+  @apply bg-white/[0.06] backdrop-blur-md border border-white/10 shadow-sm transition-all duration-500;
 }
 
 .editorial-border {
@@ -117,3 +117,22 @@
 .posavasos-sq{background:#fffdf6;border-radius:18px;padding:26px 26px 24px;box-shadow:0 12px 26px rgba(27,58,92,.14), inset 0 0 0 5px #fffdf6, inset 0 0 0 7px #1B3A5C, inset 0 0 0 12px #fffdf6, inset 0 0 0 13px #d8d2c2}
 .posavasos-sq:nth-child(odd){transform:rotate(-.7deg)}
 .posavasos-sq:nth-child(even){transform:rotate(.7deg)}
+
+
+/* ===== Modo noche ===== */
+/* Islas claras conservan su paleta diurna */
+.papel-grano{--color-brand-primary:#1B3A5C;--color-brand-secondary:#5C646D;--color-brand-text:#2A2723;--color-brand-border:#E5E1D8}
+.bg-white{--color-brand-primary:#1B3A5C;--color-brand-secondary:#5C646D;--color-brand-text:#2A2723;--color-brand-border:#E5E1D8}
+footer{--color-brand-bg:#F2EBDD}
+/* Grano nocturno global */
+body{background-image:radial-gradient(#ffffff05 1px,transparent 1px),radial-gradient(#ffffff04 1px,transparent 1px);background-size:6px 6px,10px 10px;background-position:0 0,3px 5px}
+/* Lámparas del hero */
+.luces-hero{position:absolute;top:0;left:0;right:0;height:240px;pointer-events:none;z-index:5}
+.luz-h{position:absolute;top:0}
+.luz-h .cable{width:1px;background:linear-gradient(#00000000,#c9b08a44);margin:0 auto}
+.luz-h .foco{border-radius:50%;background:#E87B45;box-shadow:0 0 26px 8px rgba(232,123,69,.5),0 0 90px 34px rgba(232,123,69,.14);animation:vela-h 4.5s ease-in-out infinite}
+.luz-h.v2 .foco{border-radius:4px 4px 14px 14px;animation-delay:1.2s;background:#f4b47c}
+.luz-h.v3 .foco{border-radius:50% 50% 6px 6px;animation-delay:2.1s}
+.luz-h.v4 .foco{border-radius:2px;transform:rotate(45deg);animation-delay:.6s;background:#f4b47c}
+@keyframes vela-h{0%,100%{opacity:.85;filter:brightness(1)}50%{opacity:1;filter:brightness(1.3)}}
+@media(prefers-reduced-motion:reduce){.luz-h .foco{animation:none}}
