@@ -871,7 +871,7 @@ export default function App() {
         </div>
         
         {/* Section Transition: Hero -> Mi Método */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#0F1F33]" />
       </header>
 
       {/* Mi Método Section */}
@@ -1300,7 +1300,7 @@ export default function App() {
         </div>
 
         {/* Section Transition: Puntos de Fuga -> Blog */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#F3EDE2]" />
       </section>
 
       {/* Precios Section */}
@@ -1455,7 +1455,7 @@ export default function App() {
         </div>
 
         {/* Section Transition: Precios -> Blog */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#ffffff]" />
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#16294a]" />
       </section>
 
       {/* Blog Section */}
@@ -1467,9 +1467,9 @@ export default function App() {
             className="w-full h-full object-cover blur-[1px]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-white/40" />
+          <div className="absolute inset-0 bg-[#16294a]/80" />
           {/* Top Transition Mask */}
-          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#ffffff]" />
+          <div className="absolute top-0 left-0 w-full h-[150px] bg-gradient-to-t from-transparent to-[#16294a]" />
         </div>
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 relative z-10">
           <SectionTitle 
