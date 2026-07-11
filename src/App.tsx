@@ -33,24 +33,24 @@ const DEMO_RESENAS = [
     autor: 'M. R.', avatarBg: '#5C646D',
     meta: 'hace 3 días',
     texto: '40 minutos esperando con el local medio vacío. La comida bien, pero no volvemos.',
-    respuesta: 'Gracias por contárnoslo. Ese sábado se nos juntó una mesa grande con una baja en cocina y no supimos avisar de la espera: fallo nuestro, y ya hemos reforzado los fines de semana. Nos alegra que la cocina mereciera la pena — si volvéis, preguntad por mí y me encargo yo de vuestra mesa.',
-    porQue: 'Reconoce lo concreto, cuenta qué ha cambiado y deja la puerta abierta. Sin excusas y sin plantilla.'
+    respuesta: 'Gracias por contárnoslo, y tenéis razón: ese día la espera fue más larga de lo aceptable y faltó avisaros a tiempo. Lo hemos revisado para que no se repita. Nos alegra que la cocina mereciera la pena — nos encantaría teneros de vuelta y que la experiencia sea la que buscamos dar.',
+    porQue: 'Da la razón en lo concreto, sin excusas — y sin prometer nada que el local no pueda cumplir.'
   },
   {
     chip: 'La sospechosa',
     autor: '¿?', avatarBg: '#c0392b',
     meta: 'cuenta creada ayer · 1 reseña en total',
     texto: 'Pésimo todo. El peor sitio de la zona. No recomiendo nada.',
-    respuesta: 'No encontramos ninguna reserva, ticket ni visita que encaje con lo que cuentas. Si de verdad estuviste con nosotros, escríbenos y lo revisamos encantados. Mientras tanto, entenderás que hayamos trasladado esta reseña a Google para que la verifique.',
-    porQue: 'Datos, calma y ni una acusación. Y en paralelo, denunciada a Google por el canal oficial.'
+    respuesta: 'Hemos revisado las reservas y los tickets de esos días y no encontramos ninguna visita que encaje con lo que describes. Si hubo algún problema real, escríbenos y lo miramos con calma — estamos encantados de aclararlo.',
+    porQue: 'Datos, calma y ni una acusación. La reclamación a Google va aparte, por el canal oficial — anunciarla en público solo aviva el fuego.'
   },
   {
     chip: 'La del enfado',
     autor: 'J. L.', avatarBg: '#1E2A4A',
     meta: 'hace 1 semana',
     texto: 'El camarero nos trató fatal, un borde. Se acabó, con la cantidad de sitios que hay.',
-    respuesta: 'Sentimos que os fuerais así: no es el trato que queremos dar, y lo hemos hablado con todo el equipo esta misma semana. Si os apetece darnos otra oportunidad, el café corre de nuestra cuenta — y yo misma estaré pendiente de vuestra mesa.',
-    porQue: 'Ni justifica ni tira al equipo bajo el autobús: temple, y una salida elegante para todos.'
+    respuesta: 'Lamentamos que salierais con esa sensación: no es el trato que buscamos dar a nadie. Tomamos nota de lo que contáis para revisarlo con el equipo. Si decidís volver, esperamos estar a la altura de lo que merece cualquier cliente.',
+    porQue: 'Temple: ni discute ni tira al equipo bajo el autobús — y no compromete al dueño a nada que no haya decidido él.'
   }
 ];
 
