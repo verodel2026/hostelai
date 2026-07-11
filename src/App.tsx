@@ -1539,6 +1539,17 @@ export default function App() {
             </p>
           </div>
 
+          {/* Zonas donde trabajo */}
+          <div className="mb-10">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-brand-bg/40 mb-3 font-medium">Dónde trabajo</p>
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+              <span className="text-xs text-brand-bg/60">A Coruña</span>
+              {[['Oleiros','gestion-resenas-oleiros'],['Sada','gestion-resenas-sada'],['Betanzos','gestion-resenas-betanzos'],['Arteixo','gestion-resenas-arteixo'],['Culleredo','gestion-resenas-culleredo'],['Cambre','gestion-resenas-cambre'],['Carballo','gestion-resenas-carballo']].map(([n, s]) => (
+                <a key={s} href={'/' + s + '/'} className="text-xs text-brand-bg/60 hover:text-brand-accent transition-colors">{n}</a>
+              ))}
+            </div>
+          </div>
+
           {/* Botones Legales */}
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-10">
             {['Privacidad', 'Cookies', 'Legal'].map((item) => (
