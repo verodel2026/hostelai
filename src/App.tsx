@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   CheckCircle2, 
   Users, 
@@ -26,6 +26,132 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECT_DATA } from './constants';
+
+const DEMO_RESENAS = [
+  {
+    chip: 'La de la espera',
+    autor: 'M. R.', avatarBg: '#5C646D',
+    meta: 'hace 3 días',
+    texto: '40 minutos esperando con el local medio vacío. La comida bien, pero no volvemos.',
+    respuesta: 'Gracias por contárnoslo. Ese sábado se nos juntó una mesa grande con una baja en cocina y no supimos avisar de la espera: fallo nuestro, y ya hemos reforzado los fines de semana. Nos alegra que la cocina mereciera la pena — si volvéis, preguntad por mí y me encargo yo de vuestra mesa.',
+    porQue: 'Reconoce lo concreto, cuenta qué ha cambiado y deja la puerta abierta. Sin excusas y sin plantilla.'
+  },
+  {
+    chip: 'La sospechosa',
+    autor: '¿?', avatarBg: '#c0392b',
+    meta: 'cuenta creada ayer · 1 reseña en total',
+    texto: 'Pésimo todo. El peor sitio de la zona. No recomiendo nada.',
+    respuesta: 'No encontramos ninguna reserva, ticket ni visita que encaje con lo que cuentas. Si de verdad estuviste con nosotros, escríbenos y lo revisamos encantados. Mientras tanto, entenderás que hayamos trasladado esta reseña a Google para que la verifique.',
+    porQue: 'Datos, calma y ni una acusación. Y en paralelo, denunciada a Google por el canal oficial.'
+  },
+  {
+    chip: 'La del enfado',
+    autor: 'J. L.', avatarBg: '#1E2A4A',
+    meta: 'hace 1 semana',
+    texto: 'El camarero nos trató fatal, un borde. Se acabó, con la cantidad de sitios que hay.',
+    respuesta: 'Sentimos que os fuerais así: no es el trato que queremos dar, y lo hemos hablado con todo el equipo esta misma semana. Si os apetece darnos otra oportunidad, el café corre de nuestra cuenta — y yo misma estaré pendiente de vuestra mesa.',
+    porQue: 'Ni justifica ni tira al equipo bajo el autobús: temple, y una salida elegante para todos.'
+  }
+];
+
+const DemoResenas = () => {
+  const [sel, setSel] = useState(0);
+  const [txt, setTxt] = useState('');
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    setTxt('');
+    setDone(false);
+    const full = DEMO_RESENAS[sel].respuesta;
+    let k = 0;
+    const t = setInterval(() => {
+      k += 2;
+      setTxt(full.slice(0, k));
+      if (k >= full.length) { clearInterval(t); setDone(true); }
+    }, 24);
+    return () => clearInterval(t);
+  }, [sel]);
+
+  const r = DEMO_RESENAS[sel];
+
+  return (
+    <section id="demo" className="relative py-24 md:py-32 overflow-hidden bg-white">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-10">
+          <p className="text-[10px] md:text-xs font-bold text-brand-accent uppercase tracking-[0.3em] mb-4 font-sans">En vivo</p>
+          <h2 className="font-serif text-3xl md:text-5xl text-brand-primary tracking-tight mb-4">Pulsa una reseña y mira cómo la respondo</h2>
+          <p className="text-brand-secondary max-w-xl mx-auto">Tres clásicos que quitan el sueño a cualquier hostelero. Elige uno.</p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {DEMO_RESENAS.map((d, i) => (
+            <button
+              key={d.chip}
+              onClick={() => setSel(i)}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 font-sans border ${i === sel ? 'bg-brand-accent text-white border-brand-accent shadow-lg shadow-brand-accent/30' : 'bg-transparent text-brand-secondary border-brand-border hover:border-brand-accent hover:text-brand-accent'}`}
+            >
+              {d.chip}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 items-start">
+          {/* Reseña */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={sel}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white border border-brand-border rounded-2xl p-6 shadow-sm"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold font-sans" style={{ backgroundColor: r.avatarBg }}>{r.autor.charAt(0)}</div>
+                <div>
+                  <p className="text-sm font-bold text-brand-primary font-sans">{r.autor}</p>
+                  <p className="text-xs text-brand-secondary font-sans">{r.meta}</p>
+                </div>
+              </div>
+              <div className="text-brand-accent tracking-widest mb-2" aria-label="1 estrella de 5">★<span className="text-brand-border">★★★★</span></div>
+              <p className="text-brand-primary/90">{r.texto}</p>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Respuesta escribiéndose */}
+          <div className="bg-brand-primary rounded-2xl p-6 min-h-[230px] flex flex-col">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-bold font-sans">V</div>
+              <div>
+                <p className="text-sm font-bold text-white font-sans">Respuesta de Verónica</p>
+                <p className="text-xs text-white/50 font-sans">{done ? 'publicada' : 'escribiendo…'}</p>
+              </div>
+            </div>
+            <p className="text-white/90 leading-relaxed">
+              {txt}
+              {!done && <span className="inline-block w-[2px] h-[1.05em] bg-brand-accent align-middle ml-[2px] animate-pulse" />}
+            </p>
+            {done && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mt-auto pt-4 text-xs text-white/60 border-t border-white/10 font-sans"
+              >
+                <span className="text-brand-accent font-bold uppercase tracking-[0.15em]">Por qué funciona · </span>{r.porQue}
+              </motion.p>
+            )}
+          </div>
+        </div>
+
+        <p className="text-center text-brand-secondary text-sm mt-10">
+          Esto, cada semana y con tus reseñas de verdad, es lo que hago por{' '}
+          <a href="#precios" className="text-brand-accent font-bold hover:underline">120 €/mes</a>.
+        </p>
+      </div>
+    </section>
+  );
+};
 
 const SectionTitle = ({ title, subtitle, centered = true, light = false }: { title: string, subtitle?: string, centered?: boolean, light?: boolean }) => (
   <div className={`mb-16 md:mb-24 ${centered ? 'text-center' : 'text-left'}`}>
@@ -1172,6 +1298,8 @@ export default function App() {
       </section>
 
       {/* Precios Section */}
+      <DemoResenas />
+
       <section id="precios" className="relative py-24 md:py-32 overflow-hidden bg-[#fdfbf7]">
         <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12">
           <SectionTitle
