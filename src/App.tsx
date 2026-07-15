@@ -948,6 +948,36 @@ export default function App() {
             ))}
           </div>
 
+          {/* Bloque transparencia IA */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-32 md:mt-48 max-w-3xl mx-auto"
+          >
+            <div className="relative border border-brand-border/60 rounded-[16px] px-8 md:px-14 py-12 md:py-16 bg-brand-soft/20">
+              <div className="absolute -top-5 left-8 md:left-14 flex items-center gap-2 bg-brand-bg px-4 py-1.5">
+                <Sparkles className="w-4 h-4 text-brand-accent" strokeWidth={1.5} />
+                <span className="text-brand-accent font-semibold tracking-[0.4em] uppercase text-[10px]">Sin trucos</span>
+              </div>
+              <h3 className="text-3xl md:text-5xl font-serif font-light text-brand-primary mb-8 leading-tight italic">
+                Esta web la ha construido una IA.<br />Yo le he dicho cómo.
+              </h3>
+              <div className="space-y-5 text-brand-secondary text-lg md:text-xl leading-relaxed font-sans">
+                <p>
+                  No te lo escondo, al revés: es parte de lo que te ofrezco. Uso inteligencia artificial cada día para trabajar más rápido y a menor coste. Esta página es la prueba de que sé hacerlo.
+                </p>
+                <p>
+                  Pero la herramienta no tiene criterio. Yo sí. Detrás de cada reseña que respondo hay 20 años de barra: sé lo que molesta a un cliente, lo que hay que callar y lo que conviene decir. Eso no lo pone una máquina.
+                </p>
+                <p className="text-brand-primary font-medium">
+                  La IA me hace rápida. La hostelería me hace útil. Tú te llevas las dos cosas.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
           <div className="mt-40 md:mt-64 bg-brand-soft/30 -mx-8 md:-mx-12 px-8 md:px-12 py-24 rounded-sm border-y border-brand-border/40">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-serif font-light text-brand-primary mb-4 leading-tight italic">
