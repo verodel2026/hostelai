@@ -410,7 +410,7 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
                       {section.type === 'cta' && (
                         <div className="mt-10 flex justify-center">
                           <button 
-                            onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+                            onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
                             className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto"
                           >
                             <Calendar className="w-5 h-5 text-white" />
@@ -768,7 +768,7 @@ export default function App() {
               </motion.button>
             ))}
             <button 
-              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+              onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
               className="btn-primary !py-3 !px-6 !text-[10px] ml-2 shrink-0"
             >
               Reserva el café
@@ -803,7 +803,7 @@ export default function App() {
               <button 
                 onClick={() => {
                   setIsMenuOpen(false);
-                  window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank');
+                  window.open('https://calendly.com/hostelaicalendly/30min', '_blank');
                 }}
                 className="btn-primary mt-4 py-3"
               >
@@ -859,7 +859,7 @@ export default function App() {
               
               <div className="flex flex-col sm:flex-row gap-6">
                 <button 
-                  onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+                  onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
                   className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
                 >
                   <Calendar className="w-5 h-5 text-white" />
@@ -1164,7 +1164,7 @@ export default function App() {
                             <p className="text-white/70 text-sm leading-relaxed font-light italic">{rate.idealFor}</p>
                           </div>
                           <button 
-                            onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+                            onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
                             className="mt-8 btn-primary w-full md:w-auto"
                           >
                             {rate.cta}
@@ -1476,7 +1476,7 @@ export default function App() {
               nada más, el café me lo llevo yo de aprendizaje.
             </p>
             <button
-              onClick={() => window.open('https://calendly.com/hostelai-proton/15-minutos', '_blank')}
+              onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
               className="px-10 py-4 bg-brand-accent text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-primary transition-all duration-500 rounded-[50px]"
             >
               Reserva el café
