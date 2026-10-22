@@ -255,6 +255,67 @@ export const PROJECT_DATA = {
   },
   blog: [
     {
+      id: "mesas-perdidas-ficha-google-descuidada",
+      title: "Cuántas mesas pierdes cada semana por una ficha de Google descuidada",
+      excerpt: "Antes de entrar en tu bar, el cliente ya ha decidido en Google. Un horario mal puesto, una crítica sin contestar o una ficha que no se toca desde hace años te cuestan mesas que nunca vas a ver pasar por la puerta.",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=1200",
+      imageAlt: "Mesas vacías en un restaurante",
+      date: "22 OCT 2026",
+      sections: [
+        {
+          type: "intro",
+          content: "Hay una pérdida en hostelería que no sale en la caja ni en el inventario.\n\nEs el cliente que te buscó en Google, vio algo que no le convenció y se fue al local de al lado. No entró. No se quejó. No sabes que existió.\n\nY no es uno. Según un informe de Discover-Eat de 2025, 9 de cada 10 personas miran Google antes de decidir dónde comer, y el 95 % lee reseñas antes de reservar.\n\nTu ficha de Google es hoy la primera puerta de tu negocio. Si está descuidada, está echando gente a la calle antes de que llegue."
+        },
+        {
+          title: "La pérdida que no ves",
+          content: "Cuando un camarero atiende mal, lo notas. Cuando falta producto, lo notas. Cuando la ficha de Google espanta a un cliente, no notas nada.\n\nPor eso casi nadie la cuida: el daño es silencioso.\n\nGoogle publica sus propios datos sobre esto. Según su investigación, una ficha completa tiene el doble de probabilidades de que el cliente la considere de confianza, un 38 % más de probabilidades de atraer visitas al local y un 29 % más de acabar en compra.\n\nDicho al revés: una ficha incompleta o abandonada te deja fuera de una parte de esas visitas. No porque cocines peor, sino porque no se te ve bien."
+        },
+        {
+          type: "list-mockup",
+          id: "fugas-ficha-google",
+          title: "Por dónde se escapan las mesas",
+          items: [
+            "horario equivocado: el cliente llega y está cerrado, o cree que estás cerrado y ni viene",
+            "críticas sin contestar: quien las lee piensa que al dueño le da igual",
+            "carta sin precios o desactualizada: genera desconfianza y llamadas que nadie coge",
+            "fotos viejas o hechas por clientes con mala luz",
+            "ninguna publicación en años: parece un local cerrado",
+            "la ficha no es tuya: la controla una agencia antigua o alguien que ya no está"
+          ],
+          footer: "Cada uno de estos fallos parece pequeño. Juntos, deciden si el cliente entra o pasa de largo."
+        },
+        {
+          title: "Haz la cuenta con tus números",
+          content: "No te voy a dar una cifra inventada. Haz tú la cuenta con lo que conoces de tu local.\n\nUn ejemplo, solo para ver el orden de magnitud:\n- tu ficha la ven 3.000 personas al mes (Google te dice el número exacto en el panel de tu perfil)\n- si solo un 1 % de ellas se echa atrás por algo que ve en la ficha, son 30 personas al mes\n- con un ticket medio de 20 €, son 600 € al mes\n- en un año, más de 7.000 €\n\nCambia esas cifras por las tuyas. Aunque te salga la mitad, sigue siendo dinero que se va sin hacer ruido.\n\nY lo peor no es el mes. Es que el cliente que no entró hoy tampoco vuelve, ni te recomienda."
+        },
+        {
+          title: "Un caso real: Bitácora, en Santa Cristina",
+          content: "En junio de 2026 empecé a trabajar la ficha de Google del Bitácora de Santa Cristina, en Perillo.\n\nLo que encontré es lo normal en muchos locales:\n- la ficha no la controlaba el dueño, sino una agencia con la que ya no trabajaba\n- las críticas llevaban meses sin respuesta\n- la última publicación era de mayo de 2021\n- la eficacia del perfil, que mide el propio Google, estaba en el 72 %\n\nNo cambió el local. No cambió la cocina. Cambió cómo se le veía en Google: acceso recuperado, más de 130 reseñas gestionadas, carta con precios, horarios revisados y publicaciones de eventos.\n\nResultado, comparando julio de 2026 con julio de 2025 (datos de Google, no míos):\n- +38,5 % de interacciones con la ficha\n- +30,6 % de peticiones de \"cómo llegar\"\n- +9,9 % de clics a la web\n- eficacia del perfil: del 72 % al 92 %\n\nEse +30,6 % de \"cómo llegar\" es gente que antes no estaba llegando. Esa es la pérdida que se recupera."
+        },
+        {
+          type: "checklist-mockup",
+          id: "revisa-tu-ficha",
+          title: "Revisa tu ficha en 5 minutos",
+          items: [
+            "¿Puedes entrar tú en el perfil, o depende de otra persona?",
+            "¿El horario de hoy es el correcto, festivos incluidos?",
+            "¿Tienes críticas de hace más de una semana sin contestar?",
+            "¿La carta tiene precios y está actualizada?",
+            "¿Cuándo fue la última vez que publicaste algo?"
+          ],
+          footer: "Si fallas en dos o más, tu ficha te está costando clientes ahora mismo."
+        },
+        {
+          title: "Conclusión",
+          content: "Puedes tener el mejor café de la zona y perder mesas por un horario mal puesto.\n\nLa ficha de Google no es marketing. Es la puerta de entrada. Y una puerta que nadie cuida acaba echando gente.\n\nLa buena noticia es que esta pérdida se puede medir y se puede corregir. No hace falta invertir en publicidad: hace falta que alguien se ocupe."
+        },
+        {
+          type: "cta",
+          content: "Si quieres saber cuántos clientes te está costando tu ficha, te la reviso gratis en un café de 15 minutos. Te digo qué falla, qué arreglaría primero y cuánto estás dejando escapar.\n\nSin compromiso: si lo quieres hacer tú, te llevas la lista."
+        }
+      ]
+    },
+    {
       id: "responder-resenas-google-hosteleria",
       title: "Cómo responder reseñas de Google en hostelería sin sonar artificial",
       excerpt: "Responder reseñas no consiste en dar las gracias como un robot. Bien llevado, puede reforzar la imagen del local, transmitir criterio y mejorar la percepción del cliente.",
