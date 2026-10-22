@@ -763,7 +763,7 @@ export default function App() {
                 onClick={() => scrollToSection(item)}
                 className="text-[10px] font-semibold text-brand-secondary hover:text-brand-primary transition-all uppercase tracking-[0.25em] relative group shrink-0"
               >
-                {item === 'metodo' ? 'Mi método' : item === 'sobre-mi' ? 'Sobre Mí' : item === 'blog' ? 'Blog' : item.replace('-', ' ')}
+                {({ metodo: 'Mi método', problemas: 'Problemas', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-brand-accent transition-all duration-500 group-hover:w-full" />
               </motion.button>
             ))}
@@ -797,7 +797,7 @@ export default function App() {
                   onClick={() => scrollToSection(item)}
                   className="text-xl font-serif text-brand-primary hover:text-brand-accent transition-colors"
                 >
-                  {item === 'metodo' ? 'Mi método' : item === 'sobre-mi' ? 'Sobre Mí' : item === 'blog' ? 'Blog' : item.replace('-', ' ')}
+                  {({ metodo: 'Mi método', problemas: 'Problemas', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
                 </button>
               ))}
               <button 
