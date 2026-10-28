@@ -5,7 +5,7 @@ export const PROJECT_DATA = {
   heroDescription: "Ayudo a bares, cafeterías y pequeños restaurantes a ordenar su operativa, mejorar su comunicación y digitalizar procesos sin complicaciones inútiles. No trabajo desde la teoría. Trabajo desde lo que pasa de verdad dentro del local.",
   location: "Oleiros, A Coruña",
   author: "Verónica Delgado Neira",
-  email: "hostelai@proton.me",
+  email: "hola@hostelai.es",
   phone: "+34 646 24 45 35",
   year: "2026",
   shortValueProp: "Optimización práctica para negocios de hostelería que necesitan ordenar su operativa, mejorar su comunicación y ganar control sin complicarse con soluciones innecesarias.",
@@ -622,7 +622,7 @@ export const PROJECT_DATA = {
       sections: [
         {
           title: "Titular del sitio web",
-          content: "En cumplimiento del deber de información previsto en la normativa aplicable, se informa de que el presente sitio web, HostelAI, es titularidad de:\n\nVerónica Delgado Neira\nNIF: 34897825V\nDomicilio: Rúa Poza, 15178, Oleiros, A Coruña\nCorreo electrónico de contacto: hostelai@proton.me"
+          content: "En cumplimiento del deber de información previsto en la normativa aplicable, se informa de que el presente sitio web, HostelAI, es titularidad de:\n\nVerónica Delgado Neira\nNIF: 34897825V\nDomicilio: Rúa Poza, 15178, Oleiros, A Coruña\nCorreo electrónico de contacto: hola@hostelai.es"
         },
         {
           title: "Objeto del sitio web",
@@ -655,7 +655,7 @@ export const PROJECT_DATA = {
       sections: [
         {
           title: "Responsable del tratamiento",
-          content: "Verónica Delgado Neira\nCorreo electrónico: hostelai@proton.me"
+          content: "Verónica Delgado Neira\nCorreo electrónico: hola@hostelai.es"
         },
         {
           title: "Finalidad del tratamiento",
@@ -679,7 +679,7 @@ export const PROJECT_DATA = {
         },
         {
           title: "Derechos de las personas interesadas",
-          content: "La persona interesada puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, cuando proceda, enviando una solicitud al correo electrónico hostelai@proton.me e identificándose adecuadamente.\n\nAsimismo, si considera que sus derechos no han sido atendidos correctamente, puede presentar una reclamación ante la Agencia Española de Protección de Datos."
+          content: "La persona interesada puede ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad, cuando proceda, enviando una solicitud al correo electrónico hola@hostelai.es e identificándose adecuadamente.\n\nAsimismo, si considera que sus derechos no han sido atendidos correctamente, puede presentar una reclamación ante la Agencia Española de Protección de Datos."
         },
         {
           title: "Procedencia de los datos",
