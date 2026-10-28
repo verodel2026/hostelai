@@ -1,20 +1,25 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# HostelAI
 
-# Run and deploy your AI Studio app
+Web de [HostelAI](https://www.hostelai.es): gestión de reseñas de Google y posicionamiento en Google Business Profile para bares, cafeterías y restaurantes del área de A Coruña.
 
-This contains everything you need to run your app locally.
+## Qué hay
 
-View your app in AI Studio: https://ai.studio/apps/7785a03b-e291-4641-94e1-c0b6718396e9
+- **Página principal**: React + Vite + Tailwind (`src/`). Los textos están en `src/constants.ts`.
+- **Páginas estáticas** (guías, páginas por zona y `/manual-resenas`): HTML en `public/<página>/index.html`.
 
-## Run Locally
+## Cómo se construye
 
-**Prerequisites:**  Node.js
+Necesitas Node.js.
 
+```bash
+npm install
+npm run dev     # servidor local en http://localhost:3000
+npm run lint    # comprobación de tipos
+npm run build   # genera dist/ con la página principal pre-renderizada
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+`npm run build` compila la web y pre-renderiza la página principal en `dist/index.html`, para que Google y los asistentes de IA lean el contenido sin ejecutar JavaScript.
+
+## Publicar
+
+Hacer `git push` a `main`: Vercel despliega automáticamente.

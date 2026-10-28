@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Marketing site for **HostelAI** (www.hostelai.es), Verónica Delgado's consultancy for bars, cafés and small restaurants around A Coruña (Google reviews / Google Business Profile management, operations). All content is in **Spanish**; commit messages are written in Spanish too. Deployed on Vercel. The project was bootstrapped from a Google AI Studio template (hence the README, `.env.example`, `metadata.json`, `firebase-applet-config.json` and the unused `@google/genai` dependency) — the Gemini key is not used by the site.
+Marketing site for **HostelAI** (www.hostelai.es), Verónica Delgado's consultancy for bars, cafés and small restaurants around A Coruña (Google reviews / Google Business Profile management, operations). All content is in **Spanish**; commit messages are written in Spanish too. Deployed on Vercel. The project was bootstrapped from a Google AI Studio template; its leftover files and dependencies have been removed and the site uses no API keys or environment variables.
 
 ## Commands
 
