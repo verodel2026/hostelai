@@ -190,61 +190,6 @@ export const PROJECT_DATA = {
       ],
       idealFor: "tienes un atasco concreto y quieres resolverlo sin contratar un servicio más amplio.",
       cta: "Reserva el café"
-    },
-    {
-      name: "Pack base",
-      price: "179 €",
-      pricePrefix: "",
-      priceSuffix: "",
-      desc: "Una intervención práctica para poner orden en un área concreta del negocio.",
-      includes: [
-        "mini diagnóstico inicial",
-        "trabajo sobre un área principal a elegir (WhatsApp, Google Business, etc.)",
-        "propuesta de mejora clara",
-        "configuración o estructura básica del sistema elegido",
-        "plantilla o guía de uso",
-        "revisión final"
-      ],
-      idealFor: "quieres resolver una parte concreta del negocio con una solución simple, clara y usable.",
-      cta: "Ver pack base"
-    },
-    {
-      name: "Pack 30 días",
-      price: "390 €",
-      pricePrefix: "",
-      priceSuffix: "",
-      desc: "Un servicio de acompañamiento durante un mes para ordenar áreas clave del negocio y aplicar mejoras reales.",
-      includes: [
-        "auditoría inicial",
-        "diagnóstico con prioridades",
-        "plan de acción de 30 días",
-        "optimización de hasta 2 áreas clave del negocio",
-        "implementación básica de mejoras",
-        "revisión semanal o quincenal",
-        "acompañamiento durante 30 días",
-        "documento final con mejoras aplicadas"
-      ],
-      idealFor: "quieres dejar de improvisar y empezar a trabajar con más control, más orden y una operativa más clara.",
-      cta: "Reserva el café",
-      popular: true
-    },
-    {
-      name: "Seguimiento mensual",
-      price: "220 € / mes",
-      pricePrefix: "",
-      priceSuffix: "",
-      desc: "Acompañamiento mensual para revisar avances, detectar desviaciones y mantener el negocio bajo control.",
-      includes: [
-        "1 reunión mensual de seguimiento",
-        "revisión de incidencias y avances",
-        "actualización de prioridades",
-        "resolución de dudas concretas",
-        "pequeños ajustes sobre lo trabajado",
-        "revisión básica de presencia digital y operativa",
-        "propuesta mensual de mejoras"
-      ],
-      idealFor: "ya has empezado a ordenar el negocio y no quieres volver al caos por falta de seguimiento.",
-      cta: "Reserva el café"
     }
   ],
   ratesSupportText: "Cada negocio tiene un punto de partida distinto. Estas tarifas están pensadas como referencia para pequeños negocios de hostelería que necesitan orden, claridad y mejoras aplicables sin complicaciones innecesarias. Si no tienes claro qué servicio encaja contigo, puedes empezar por la auditoría inicial o por una sesión 1:1.",
