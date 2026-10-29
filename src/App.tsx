@@ -653,7 +653,6 @@ export default function App() {
   const [activeLegal, setActiveLegal] = useState<string | null>(null);
   const [activePost, setActivePost] = useState<any | null>(null);
   const [activeServiceIndex, setActiveServiceIndex] = useState<number | null>(0);
-  const [activeProblemIndex, setActiveProblemIndex] = useState<number | null>(null);
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({
@@ -754,7 +753,7 @@ export default function App() {
           </motion.div>
           
           <div className="hidden md:flex items-center gap-6 lg:gap-10">
-            {['metodo', 'problemas', 'sobre-mi', 'servicios', 'precios', 'blog'].map((item, idx) => (
+            {['metodo', 'sobre-mi', 'servicios', 'precios', 'blog'].map((item, idx) => (
               <motion.button
                 key={item}
                 initial={{ opacity: 0 }}
@@ -763,7 +762,7 @@ export default function App() {
                 onClick={() => scrollToSection(item)}
                 className="text-[10px] font-semibold text-brand-secondary hover:text-brand-primary transition-all uppercase tracking-[0.25em] relative group shrink-0"
               >
-                {({ metodo: 'Mi método', problemas: 'Problemas', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
+                {({ metodo: 'Mi método', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-brand-accent transition-all duration-500 group-hover:w-full" />
               </motion.button>
             ))}
@@ -791,13 +790,13 @@ export default function App() {
             className="fixed inset-x-0 top-0 z-40 bg-brand-bg pt-24 pb-10 px-6 md:hidden border-b border-brand-border/30 shadow-xl"
           >
             <div className="flex flex-col gap-5 text-center">
-              {['metodo', 'problemas', 'sobre-mi', 'servicios', 'precios', 'blog'].map((item) => (
+              {['metodo', 'sobre-mi', 'servicios', 'precios', 'blog'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
                   className="text-xl font-serif text-brand-primary hover:text-brand-accent transition-colors"
                 >
-                  {({ metodo: 'Mi método', problemas: 'Problemas', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
+                  {({ metodo: 'Mi método', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
                 </button>
               ))}
               <button 
@@ -888,28 +887,25 @@ export default function App() {
             </p>
           </div>
 
-          <div className="space-y-32 md:space-y-48">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-24 md:gap-12">
             {[
               {
                 id: '01',
                 tag: 'PASO 01 · ESCUCHAR',
                 title: 'Escucho',
-                desc: '15 minutos contigo para entender qué te quita el sueño. Sin vender, sin teoría. Solo preguntas y tu realidad.',
-                img: 'https://raw.githubusercontent.com/verodel2026/hostelai/main/public/images/metodo/paso1-escucho.webp'
+                desc: '15 minutos contigo para entender qué te quita el sueño. Sin vender, sin teoría. Solo preguntas y tu realidad.'
               },
               {
                 id: '02',
                 tag: 'PASO 02 · DIAGNOSTICAR',
                 title: 'Diagnostico',
-                desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.',
-                img: 'https://raw.githubusercontent.com/verodel2026/hostelai/main/public/images/metodo/paso2-diagnostico.webp'
+                desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.'
               },
               {
                 id: '03',
                 tag: 'PASO 03 · ACTUAR',
                 title: 'Actúo',
-                desc: 'Implemento las soluciones que tu negocio necesita. Tú sigues atendiendo tu local, yo me encargo de lo digital.',
-                img: 'https://raw.githubusercontent.com/verodel2026/hostelai/main/public/images/metodo/paso3-actuo.webp'
+                desc: 'Implemento las soluciones que tu negocio necesita. Tú sigues atendiendo tu local, yo me encargo de lo digital.'
               }
             ].map((step, idx) => (
               <motion.div 
@@ -918,7 +914,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex flex-col ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-12 md:gap-24`}
+                className="relative"
               >
                 <div className="flex-1 w-full relative">
                   <span className="absolute -top-16 -left-8 text-[160px] md:text-[240px] font-serif font-bold text-brand-accent/15 leading-none pointer-events-none select-none">
@@ -932,16 +928,6 @@ export default function App() {
                     <p className="text-brand-secondary text-lg md:text-xl leading-relaxed font-sans max-w-md">
                       {step.desc}
                     </p>
-                  </div>
-                </div>
-                <div className="flex-1 w-full">
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-brand-accent/5 rounded-[24px] blur-2xl group-hover:bg-brand-accent/10 transition-colors duration-700" />
-                    <img 
-                      src={step.img} 
-                      alt={step.title}
-                      className="relative w-full aspect-video object-contain rounded-[16px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-transform duration-700 group-hover:scale-[1.02]"
-                    />
                   </div>
                 </div>
               </motion.div>
@@ -1039,7 +1025,7 @@ export default function App() {
 
             <div className="max-w-2xl mx-auto">
               <p className="text-brand-primary text-xl md:text-2xl leading-relaxed font-normal mb-12">
-                Soy Verónica Delgado y conozco la hostelería desde la trinchera. Trabajo con hosteleros como tú para pasar del caos operativo al orden rentable, con procesos claros y sin herramientas raras. Práctica real de quien conoce el sector.
+                Soy Verónica Delgado y conozco la hostelería desde la trinchera. Llevo las reseñas y la ficha de Google de bares y restaurantes de la zona de A Coruña con el criterio de quien sigue trabajando detrás de la barra.
               </p>
 
               <button 
@@ -1199,141 +1185,10 @@ export default function App() {
           </div>
         </div>
 
-        {/* Section Transition: Servicios -> Puntos de Fuga */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#1E2A4A]" />
+        {/* Section Transition: Servicios -> Demo */}
+        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#0F1F33]" />
       </section>
 
-      {/* Puntos de Fuga (Compacto y Oscuro) */}
-      <section id="problemas" className="relative py-12 md:py-20 overflow-hidden flex flex-col justify-center">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=2000" 
-            alt="Professional Kitchen" 
-            className="w-full h-full object-cover blur-[3px]"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-[#1E2A4A]/85" />
-        </div>
-
-        <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl md:text-5xl font-serif font-light text-white mb-4 leading-tight italic">
-              Puntos de Fuga
-            </h2>
-          </div>
-          
-          <div className="hidden md:grid md:grid-cols-4 gap-6">
-            {PROJECT_DATA.problems.map((problem, idx) => {
-              const icons = [
-                <Clock className="w-8 h-8" />,
-                <MessageSquare className="w-8 h-8" />,
-                <Star className="w-8 h-8" />,
-                <ClipboardCheck className="w-8 h-8" />,
-                <Zap className="w-8 h-8" />,
-                <BarChart3 className="w-8 h-8" />,
-                <Smartphone className="w-8 h-8" />,
-                <Target className="w-8 h-8" />
-              ];
-
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white p-6 rounded-sm shadow-xl flex flex-col items-center text-center group hover:translate-y-[-4px] transition-all duration-500 border border-brand-accent/5 hover:border-brand-accent/20"
-                >
-                  <div className="text-brand-accent mb-4 scale-75 bg-brand-soft/30 p-4 rounded-full group-hover:scale-90 transition-transform duration-500">
-                    {icons[idx]}
-                  </div>
-                  
-                  <h3 className="text-lg md:text-xl font-serif italic text-brand-primary leading-tight mb-2 flex items-center">
-                    {problem.title}
-                  </h3>
-
-                  <div className="w-8 h-px bg-brand-accent/30 mb-4" />
-                  
-                  <p className="text-[13px] font-sans italic text-brand-primary/80 leading-relaxed mb-4">
-                    {problem.copy}
-                  </p>
-                  
-                  <div className="mt-auto pt-4 border-t border-brand-border/40 w-full">
-                    <p className="text-[9px] md:text-[10px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight">
-                      {problem.solution}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Mobile Accordion */}
-          <div className="md:hidden space-y-3">
-            {PROJECT_DATA.problems.map((problem, idx) => {
-              const icons = [
-                <Clock className="w-5 h-5" />,
-                <MessageSquare className="w-5 h-5" />,
-                <Star className="w-5 h-5" />,
-                <ClipboardCheck className="w-5 h-5" />,
-                <Zap className="w-5 h-5" />,
-                <BarChart3 className="w-5 h-5" />,
-                <Smartphone className="w-5 h-5" />,
-                <Target className="w-5 h-5" />
-              ];
-              const isOpen = activeProblemIndex === idx;
-
-              return (
-                <div 
-                  key={idx}
-                  className="bg-white rounded-sm shadow-md overflow-hidden border border-brand-accent/5"
-                >
-                  <button
-                    onClick={() => setActiveProblemIndex(isOpen ? null : idx)}
-                    className="w-full p-4 flex items-center justify-between text-left transition-colors hover:bg-brand-soft/10"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="text-brand-accent">
-                        {icons[idx]}
-                      </div>
-                      <h3 className="text-base font-serif italic text-brand-primary leading-tight">
-                        {problem.title}
-                      </h3>
-                    </div>
-                    <ChevronDown 
-                      className={`w-4 h-4 text-brand-accent transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`} 
-                    />
-                  </button>
-
-                  <AnimatePresence>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        <div className="px-5 pb-5 pt-1 space-y-4">
-                          <div className="w-10 h-px bg-brand-accent/30" />
-                          <p className="text-[13px] font-sans italic text-brand-primary/80 leading-relaxed">
-                            {problem.copy}
-                          </p>
-                          <div className="pt-3 border-t border-brand-border/40">
-                            <p className="text-[9px] font-sans font-extrabold text-brand-accent uppercase tracking-[0.2em] leading-tight text-center">
-                              {problem.solution}
-                            </p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Section Transition: Puntos de Fuga -> Blog */}
-        <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#F3EDE2]" />
-      </section>
-
-      {/* Precios Section */}
       <DemoResenas />
 
       <section id="precios" className="relative py-24 md:py-32 overflow-hidden papel-grano">
@@ -1574,7 +1429,7 @@ export default function App() {
                 ¿Hablamos?
               </h2>
               <p className="text-xl text-white/90 leading-relaxed font-light mb-16 max-w-md">
-                Si buscas criterio operativo real y soluciones directas para tu negocio, cuéntame qué necesitas.
+                Cuéntame cómo está la ficha de Google de tu local y te digo por dónde empezaría.
               </p>
               
               <div className="space-y-12">
@@ -1714,10 +1569,10 @@ export default function App() {
           {/* Bloque de Frases */}
           <div className="max-w-3xl mx-auto mb-8">
             <p className="text-base font-serif italic text-brand-bg/90 mb-3 leading-relaxed">
-              "Si notas que tu negocio funciona demasiado por improvisación o por costumbre, seguramente ya estás perdiendo oportunidades sin darte cuenta."
+              "Puedes tener el mejor café de la zona y perder mesas por un horario mal puesto."
             </p>
             <p className="text-sm font-sans text-white leading-relaxed">
-              Una buena operativa no solo reduce el caos, también mejora la rentabilidad y la experiencia de tus clientes.
+              Antes de entrar en tu bar, el cliente ya ha decidido en Google.
             </p>
           </div>
 
