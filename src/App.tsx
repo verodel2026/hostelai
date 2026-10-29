@@ -911,8 +911,17 @@ export default function App() {
         <div className="absolute -bottom-1 left-0 w-full h-[150px] z-10 pointer-events-none bg-gradient-to-b from-transparent to-[#0F1F33]" />
       </header>
 
+      {/* Prueba: dato del caso Bitácora (cifras de PRODUCT.md) */}
+      <section aria-label="Caso real" className="relative z-10 px-8 md:px-12">
+        <p className="max-w-4xl mx-auto border-y border-white/15 py-8 md:py-10 text-center text-lg md:text-2xl font-serif text-brand-primary leading-relaxed text-balance">
+          Bitácora de Santa Cristina, Perillo: <span className="font-semibold text-[#E87B45]">+30,6 %</span> de peticiones de
+          ‘cómo llegar’ al local en julio 2026 frente a julio 2025.{' '}
+          <span className="block mt-3 text-sm md:text-base font-sans text-brand-secondary">Datos de Google.</span>
+        </p>
+      </section>
+
       {/* Mi Método Section */}
-      <section id="metodo" className="relative py-24 md:py-40 bg-transparent overflow-hidden">
+      <section id="metodo" className="relative pt-20 pb-24 md:pt-28 md:pb-40 bg-transparent overflow-hidden">
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
           <div className="text-center mb-24">
             <p className="text-brand-accent font-semibold tracking-[0.4em] uppercase text-[10px] mb-4">MI MÉTODO</p>
@@ -1324,12 +1333,27 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <p className="text-brand-primary text-center max-w-2xl mx-auto mt-12 leading-relaxed">
-              Y lo que vino después, con los datos de la propia ficha de Google: la eficacia del perfil pasó
-              del <span className="font-semibold">72 % el 10 de junio de 2026 al 92 % al cierre de septiembre</span>.
-              Y en julio de 2026, frente a julio de 2025: <span className="font-semibold">+38,5 % de interacciones</span> con
-              la ficha, <span className="font-semibold">+30,6 % de peticiones de "cómo llegar"</span> y <span className="font-semibold">+9,9 % de clics a la web</span>.
-            </p>
+            <div className="max-w-4xl mx-auto mt-16">
+              <p className="text-brand-primary text-center leading-relaxed mb-10">
+                Y lo que vino después, con los datos de la propia ficha de Google:
+              </p>
+              <dl className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 border-y border-brand-border/60 py-10">
+                {[
+                  { cifra: '72 % → 92 %', texto: 'eficacia del perfil, del 10 de junio al cierre de septiembre de 2026' },
+                  { cifra: '+38,5 %', texto: 'interacciones con la ficha' },
+                  { cifra: '+30,6 %', texto: 'peticiones de “cómo llegar”' },
+                  { cifra: '+9,9 %', texto: 'clics a la web' },
+                ].map((d, i) => (
+                  <div key={d.cifra} className={`flex flex-col text-center px-2 ${i === 0 || i === 3 ? 'col-span-2 md:col-span-1' : ''}`}>
+                    <dt className="mt-3 text-sm leading-snug text-brand-secondary">{d.texto}</dt>
+                    <dd className="order-first font-serif font-semibold text-3xl md:text-4xl text-brand-primary tracking-tight whitespace-nowrap">{d.cifra}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 text-center text-sm text-brand-secondary">
+                Interacciones, “cómo llegar” y clics: julio de 2026 frente a julio de 2025.
+              </p>
+            </div>
           </div>
 
           {/* Preguntas de barra */}
