@@ -112,7 +112,7 @@ const DemoResenas = () => {
             <button
               key={d.chip}
               onClick={() => setSel(i)}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 font-sans border ${i === sel ? 'bg-brand-accent text-white border-brand-accent shadow-lg shadow-brand-accent/30' : 'bg-transparent text-brand-secondary border-brand-border hover:border-brand-accent hover:text-brand-accent'}`}
+              className={`min-h-[44px] px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 font-sans border ${i === sel ? 'bg-brand-accent text-[#0F1F33] border-brand-accent shadow-lg shadow-brand-accent/30' : 'bg-transparent text-brand-secondary border-brand-border hover:border-brand-accent hover:text-brand-accent'}`}
             >
               {d.chip}
             </button>
@@ -145,7 +145,7 @@ const DemoResenas = () => {
           {/* Respuesta escribiéndose */}
           <div className="bg-[#0b1626] border border-brand-accent/30 rounded-2xl p-6 min-h-[230px] flex flex-col">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-white font-bold font-sans">V</div>
+              <div className="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center text-[#0F1F33] font-bold font-sans">V</div>
               <div>
                 <p className="text-sm font-bold text-white font-sans">Respuesta de Verónica</p>
                 <p className="text-xs text-white/50 font-sans">{done ? 'publicada' : 'escribiendo…'}</p>
@@ -205,7 +205,30 @@ const Card = ({ children, className = "" }: { children: React.ReactNode, classNa
   </div>
 );
 
+// Ventanas: Escape cierra, el foco entra en la ventana y la página de detrás no se mueve
+const useDialog = (isOpen: boolean, onClose: () => void) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const cerrar = useRef(onClose);
+  cerrar.current = onClose;
+  useEffect(() => {
+    if (!isOpen) return;
+    const previo = document.activeElement as HTMLElement | null;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    ref.current?.focus();
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') cerrar.current(); };
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = overflow;
+      previo?.focus();
+    };
+  }, [isOpen]);
+  return ref;
+};
+
 const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: () => void, content: any }) => {
+  const dialogRef = useDialog(isOpen && !!content, onClose);
   if (!isOpen || !content) return null;
 
   return (
@@ -221,10 +244,16 @@ const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: ()
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.95 }}
-        className="relative bg-brand-bg w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col border border-brand-border/40 shadow-2xl"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="legal-titulo"
+        tabIndex={-1}
+        className="relative bg-brand-bg w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col border border-brand-border/40 shadow-2xl outline-none"
       >
         <div className="p-6 md:p-8 border-b border-brand-border/20 flex justify-between items-center bg-white">
           <h2 
+            id="legal-titulo"
             className={`text-2xl md:text-3xl font-serif font-bold text-brand-primary ${content.title.includes('COOKIES') ? 'notranslate' : ''}`}
             translate={content.title.includes('COOKIES') ? 'no' : undefined}
           >
@@ -258,10 +287,10 @@ const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: ()
             ))}
           </div>
         </div>
-        <div className="p-6 border-t border-brand-border/10 bg-white/50 text-center">
+        <div className="p-6 border-t border-brand-border/40 bg-brand-soft text-center">
           <button 
             onClick={onClose}
-            className="text-brand-secondary hover:text-brand-accent font-bold uppercase tracking-widest text-xs transition-colors py-2 px-4"
+            className="min-h-[44px] text-brand-primary hover:text-brand-accent font-bold uppercase tracking-widest text-xs transition-colors py-2 px-4"
           >
             Cerrar ventana
           </button>
@@ -272,6 +301,7 @@ const LegalModal = ({ isOpen, onClose, content }: { isOpen: boolean, onClose: ()
 };
 
 const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: () => void, post: any }) => {
+  const dialogRef = useDialog(isOpen && !!post, onClose);
   if (!isOpen || !post) return null;
 
   const handleCtaClick = (targetId: string = 'contacto') => {
@@ -297,10 +327,15 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
         initial={{ opacity: 0, y: 20, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 20, scale: 0.95 }}
-        className="relative bg-brand-bg w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col border border-brand-border/40 shadow-2xl"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="post-titulo"
+        tabIndex={-1}
+        className="relative bg-brand-bg w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col border border-brand-border/40 shadow-2xl outline-none"
       >
         <div className="p-6 md:p-8 border-b border-brand-border/20 flex justify-between items-center bg-white">
-          <h2 className="text-xl md:text-2xl font-serif font-bold text-brand-primary leading-tight pr-8">
+          <h2 id="post-titulo" className="text-xl md:text-2xl font-serif font-bold text-brand-primary leading-tight pr-8">
             {post.title}
           </h2>
           <button 
@@ -437,9 +472,9 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
                             href={WHATSAPP_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto not-italic"
+                            className="flex items-center justify-center gap-6 bg-brand-vibrant text-[#0F1F33] px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto not-italic"
                           >
-                            <MessageCircle className="w-5 h-5 text-white" />
+                            <MessageCircle className="w-5 h-5" />
                             Pídeme el café por WhatsApp
                           </a>
                           <OtrasVias className="items-center sm:justify-center text-brand-secondary not-italic" />
@@ -452,10 +487,10 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
             </div>
           </div>
         </div>
-        <div className="p-6 border-t border-brand-border/10 bg-white/50 text-center">
+        <div className="p-6 border-t border-brand-border/40 bg-brand-soft text-center">
           <button 
             onClick={onClose}
-            className="text-brand-secondary hover:text-brand-accent font-bold uppercase tracking-widest text-xs transition-colors py-2 px-4"
+            className="min-h-[44px] text-brand-primary hover:text-brand-accent font-bold uppercase tracking-widest text-xs transition-colors py-2 px-4"
           >
             Cerrar lectura
           </button>
@@ -771,7 +806,7 @@ export default function App() {
             className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-8 h-8 bg-[#1B3A5C] ring-1 ring-[#EFEAE0]/40 shadow-[0_0_16px_rgba(232,123,69,0.35)] flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#1B3A5C] ring-1 ring-[#EFEAE0]/40 shadow-[0_0_16px_rgba(232,93,37,0.35)] flex items-center justify-center">
               <Utensils className="text-[#EFEAE0] w-4 h-4" />
             </div>
             <span className="font-serif font-bold text-xl tracking-tighter text-brand-primary">
@@ -787,7 +822,7 @@ export default function App() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: idx * 0.05 }}
                 onClick={() => scrollToSection(item)}
-                className="text-[10px] font-semibold text-brand-secondary hover:text-brand-primary transition-all uppercase tracking-[0.25em] relative group shrink-0"
+                className="text-xs font-semibold text-brand-secondary hover:text-brand-primary transition-all uppercase tracking-[0.2em] relative group shrink-0"
               >
                 {({ metodo: 'Mi método', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-brand-accent transition-all duration-500 group-hover:w-full" />
@@ -797,7 +832,7 @@ export default function App() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary !py-3 !px-6 !text-[10px] ml-2 shrink-0"
+              className="btn-primary !py-3 !px-6 ml-2 shrink-0"
             >
               Pídeme el café
             </a>
@@ -862,11 +897,11 @@ export default function App() {
             animate={{ scale: 1, opacity: 0.3 }}
             transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&q=80&w=2070" 
-            alt="Hospitality Venue" 
+            alt="Interior de un restaurante" 
             className="w-full h-full object-cover grayscale brightness-[0.4]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/20 via-transparent to-brand-primary" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0F1F33]/30 via-[#0F1F33]/40 to-[#0F1F33]" />
         </div>
 
         <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 w-full">
@@ -896,9 +931,9 @@ export default function App() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto"
+                  className="flex items-center justify-center gap-6 bg-brand-vibrant text-[#0F1F33] px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto"
                 >
-                  <MessageCircle className="w-5 h-5 text-white" />
+                  <MessageCircle className="w-5 h-5" />
                   Pídeme el café por WhatsApp
                 </a>
                 <OtrasVias className="items-start text-white/85" calendly />
@@ -914,7 +949,7 @@ export default function App() {
       {/* Prueba: dato del caso Bitácora (cifras de PRODUCT.md) */}
       <section aria-label="Caso real" className="relative z-10 px-8 md:px-12">
         <p className="max-w-4xl mx-auto border-y border-white/15 py-8 md:py-10 text-center text-lg md:text-2xl font-serif text-brand-primary leading-relaxed text-balance">
-          Bitácora de Santa Cristina, Perillo: <span className="font-semibold text-[#E87B45]">+30,6 %</span> de peticiones de
+          Bitácora de Santa Cristina, Perillo: <span className="font-semibold text-brand-accent">+30,6 %</span> de peticiones de
           ‘cómo llegar’ al local en julio 2026 frente a julio 2025.{' '}
           <span className="block mt-3 text-sm md:text-base font-sans text-brand-secondary">Datos de Google.</span>
         </p>
@@ -945,7 +980,7 @@ export default function App() {
               {
                 id: '02',
                 tag: 'PASO 02 · DIAGNOSTICAR',
-                title: 'Diagnostico',
+                title: 'Diagnóstico',
                 desc: 'Reviso tu Google Business, tus reseñas, tu comunicación. Te digo dónde pierdes dinero ahora mismo — con datos, no opiniones.'
               },
               {
@@ -964,7 +999,7 @@ export default function App() {
                 className="relative"
               >
                 <div className="flex-1 w-full relative">
-                  <span className="absolute -top-16 -left-8 text-[160px] md:text-[240px] font-serif font-bold text-brand-accent/15 leading-none pointer-events-none select-none">
+                  <span aria-hidden="true" className="absolute -top-16 -left-8 text-[160px] md:text-[240px] font-serif font-bold text-brand-accent/15 leading-none pointer-events-none select-none">
                     {step.id}
                   </span>
                   <div className="relative z-10 pt-8">
@@ -1077,7 +1112,8 @@ export default function App() {
 
               <button 
                 onClick={() => setIsAboutExpanded(!isAboutExpanded)}
-                className="mb-16 px-8 py-3 border border-brand-accent text-brand-primary text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-brand-accent hover:text-white transition-all duration-500 rounded-[50px]"
+                aria-expanded={isAboutExpanded}
+                className="mb-16 min-h-[44px] px-8 py-3 border border-brand-accent text-brand-primary text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-accent hover:text-[#0F1F33] transition-all duration-500 rounded-[50px]"
               >
                 {isAboutExpanded ? 'LEER MENOS' : 'Conóceme más'}
               </button>
@@ -1157,10 +1193,11 @@ export default function App() {
               >
                 <button
                   onClick={() => setActiveServiceIndex(activeServiceIndex === idx ? null : idx)}
+                  aria-expanded={activeServiceIndex === idx}
                   className="w-full py-8 md:py-12 flex flex-col md:flex-row md:items-center justify-between text-left group transition-all gap-4 md:gap-0"
                 >
                   <div className="flex items-baseline gap-6 md:gap-8">
-                    <span className="text-brand-accent font-serif italic text-lg md:text-xl opacity-40">0{idx + 1}</span>
+                    <span aria-hidden="true" className="text-brand-accent font-serif italic text-lg md:text-xl opacity-40">0{idx + 1}</span>
                     <h3 className="text-2xl md:text-4xl font-serif font-light text-white italic tracking-tight group-hover:translate-x-4 transition-transform duration-500">
                       {rate.name}
                     </h3>
@@ -1168,12 +1205,12 @@ export default function App() {
                   <div className="flex items-center justify-end gap-6 md:gap-8 w-full md:w-auto">
                     <span
                       onClick={(e) => { e.stopPropagation(); scrollToSection('precios'); }}
-                      className="text-[10px] md:text-xs font-bold text-brand-accent uppercase tracking-[0.25em] hover:text-white transition-colors cursor-pointer whitespace-nowrap"
+                      className="text-xs font-bold text-brand-accent uppercase tracking-[0.25em] hover:text-white transition-colors cursor-pointer whitespace-nowrap"
                     >
                       Ver precio ↓
                     </span>
-                    <div className={`w-10 h-10 md:w-12 md:h-12 border border-white/10 flex items-center justify-center transition-all duration-500 ${activeServiceIndex === idx ? 'bg-brand-accent text-white rotate-45' : 'group-hover:border-brand-accent'}`}>
-                      <ArrowRight className={`w-4 h-4 md:w-5 md:h-5 transition-colors ${activeServiceIndex === idx ? 'text-white' : 'text-white group-hover:text-white'}`} />
+                    <div className={`w-10 h-10 md:w-12 md:h-12 border border-white/10 flex items-center justify-center transition-all duration-500 ${activeServiceIndex === idx ? 'bg-brand-accent text-[#0F1F33] rotate-45' : 'group-hover:border-brand-accent'}`}>
+                      <ArrowRight className={`w-4 h-4 md:w-5 md:h-5 transition-colors ${activeServiceIndex === idx ? 'text-[#0F1F33]' : 'text-white'}`} />
                     </div>
                   </div>
                 </button>
@@ -1193,7 +1230,7 @@ export default function App() {
                             {rate.desc}
                           </p>
                           <div className="p-6 bg-white/5 border-l-4 border-brand-accent">
-                            <p className="text-[9px] font-bold text-white mb-3 uppercase tracking-[0.4em]">Ideal para ti si:</p>
+                            <p className="text-xs font-bold text-white mb-3 uppercase tracking-[0.25em]">Ideal para ti si:</p>
                             <p className="text-white/70 text-sm leading-relaxed font-light italic">{rate.idealFor}</p>
                           </div>
                           <a
@@ -1208,7 +1245,7 @@ export default function App() {
                         </div>
 
                         <div className="lg:col-span-7">
-                          <p className="text-[9px] font-bold text-brand-accent uppercase tracking-[0.4em] mb-8">Qué incluye:</p>
+                          <p className="text-xs font-bold text-brand-accent uppercase tracking-[0.25em] mb-8">Qué incluye:</p>
                           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
                             {rate.includes.map((item, i) => (
                               <motion.div 
@@ -1310,10 +1347,10 @@ export default function App() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="flex gap-6 md:gap-10"
+                  className="flex flex-col md:flex-row gap-3 md:gap-10"
                 >
-                  <div className="shrink-0 w-16 md:w-20 text-right">
-                    <p className="text-brand-accent font-bold text-[10px] uppercase tracking-[0.2em]">{s.sem}</p>
+                  <div className="shrink-0 md:w-28 md:text-right">
+                    <p className="text-brand-primary font-bold text-xs uppercase tracking-[0.2em]">{s.sem}</p>
                   </div>
                   <div className="border-l border-brand-accent/40 pl-6 md:pl-10 pb-2">
                     <h4 className="font-serif text-xl text-brand-primary italic mb-2">{s.titulo}</h4>
@@ -1321,9 +1358,9 @@ export default function App() {
                   </div>
                 </motion.div>
               ))}
-              <div className="flex gap-6 md:gap-10">
-                <div className="shrink-0 w-16 md:w-20 text-right">
-                  <p className="text-brand-accent font-bold text-[10px] uppercase tracking-[0.2em]">Siempre</p>
+              <div className="flex flex-col md:flex-row gap-3 md:gap-10">
+                <div className="shrink-0 md:w-28 md:text-right">
+                  <p className="text-brand-primary font-bold text-xs uppercase tracking-[0.2em]">Siempre</p>
                 </div>
                 <div className="border-l border-brand-accent/40 pl-6 md:pl-10">
                   <p className="text-brand-secondary leading-relaxed">
@@ -1399,9 +1436,9 @@ export default function App() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-4 px-10 py-4 bg-brand-accent text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-primary transition-all duration-500 rounded-[50px]"
+              className="inline-flex items-center gap-4 px-10 py-4 bg-brand-accent text-[#0F1F33] text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-accent/90 transition-all duration-500 rounded-[50px]"
             >
-              <MessageCircle className="w-4 h-4 text-white" />
+              <MessageCircle className="w-4 h-4" />
               Pídeme el café por WhatsApp
             </a>
             <OtrasVias className="items-center sm:justify-center text-brand-secondary" calendly />
@@ -1452,7 +1489,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-brand-primary/10 group-hover:bg-transparent transition-colors duration-700" />
                 </div>
                 <div className="p-10 flex flex-col flex-grow">
-                  <div className="flex items-center gap-4 text-brand-accent text-[10px] font-bold uppercase tracking-widest mb-6">
+                  <div className="flex items-center gap-4 text-brand-secondary text-xs font-bold uppercase tracking-widest mb-6">
                     <Calendar className="w-3 h-3" />
                     <span>{post.date}</span>
                   </div>
@@ -1463,7 +1500,7 @@ export default function App() {
                     {post.excerpt}
                   </p>
                   <div className="mt-auto pt-8 border-t border-brand-border/40 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-brand-primary group-hover:text-brand-accent transition-colors">Leer artículo</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-brand-primary group-hover:text-brand-accent transition-colors">Leer artículo</span>
                     <ArrowRight className="w-4 h-4 text-brand-accent group-hover:translate-x-2 transition-transform duration-500" />
                   </div>
                 </div>
@@ -1507,7 +1544,7 @@ export default function App() {
                     <MessageCircle className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">WhatsApp</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white/85 mb-1">WhatsApp</p>
                     <p className="text-lg font-serif italic text-white group-hover:text-white/80 transition-colors">{PHONE_DISPLAY}</p>
                   </div>
                 </a>
@@ -1517,7 +1554,7 @@ export default function App() {
                     <Phone className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">Teléfono</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white/85 mb-1">Teléfono</p>
                     <p className="text-lg font-serif italic text-white group-hover:text-white/80 transition-colors">{PHONE_DISPLAY}</p>
                   </div>
                 </a>
@@ -1527,7 +1564,7 @@ export default function App() {
                     <Mail className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">Email</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white/85 mb-1">Email</p>
                     <p className="text-lg font-serif italic text-white group-hover:text-white/80 transition-colors">{PROJECT_DATA.email}</p>
                   </div>
                 </div>
@@ -1537,7 +1574,7 @@ export default function App() {
                     <MapPin className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">Ubicación</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-white/85 mb-1">Ubicación</p>
                     <p className="text-lg font-serif italic text-white group-hover:text-white/80 transition-colors">{PROJECT_DATA.location}</p>
                   </div>
                 </div>
@@ -1552,52 +1589,52 @@ export default function App() {
                 className="space-y-10"
               >
                 <div className="space-y-4">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-white">Nombre completo</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-white">Nombre completo</label>
                   <input 
                     type="text" 
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="Tu nombre..."
-                    className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg text-white placeholder:text-white/40"
+                    className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg text-white placeholder:text-white/75"
                     required
                   />
                 </div>
                 <div className="grid md:grid-cols-2 gap-10">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-white">Email de contacto</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-white">Email de contacto</label>
                     <input 
                       type="email" 
                       name="_replyto"
                       value={formData._replyto}
                       onChange={handleInputChange}
                       placeholder="tu@email.com"
-                      className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg text-white placeholder:text-white/40"
+                      className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg text-white placeholder:text-white/75"
                       required
                     />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-bold uppercase tracking-widest text-white">Repite tu email</label>
+                    <label className="text-xs font-bold uppercase tracking-widest text-white">Repite tu email</label>
                     <input 
                       type="email" 
                       name="confirmEmail"
                       value={formData.confirmEmail}
                       onChange={handleInputChange}
                       placeholder="tu@email.com"
-                      className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg text-white placeholder:text-white/40"
+                      className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg text-white placeholder:text-white/75"
                       required
                     />
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-white">¿En qué puedo ayudarte?</label>
+                  <label className="text-xs font-bold uppercase tracking-widest text-white">¿En qué puedo ayudarte?</label>
                   <textarea 
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={4} 
                     placeholder="Cuéntame brevemente tu situación..."
-                    className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg resize-none text-white placeholder:text-white/40"
+                    className="w-full bg-transparent border-b border-white/40 py-4 focus:border-white outline-none transition-colors font-light text-lg resize-none text-white placeholder:text-white/75"
                     required
                   ></textarea>
                 </div>
@@ -1624,10 +1661,10 @@ export default function App() {
                 <button 
                   type="submit" 
                   disabled={formStatus === 'loading'}
-                  className="w-full btn-primary !py-6 flex items-center justify-center gap-4 !bg-brand-accent !text-white border-none"
+                  className="w-full btn-primary !py-6 flex items-center justify-center gap-4 !bg-brand-accent !text-[#0F1F33] border-none"
                 >
                   {formStatus === 'loading' ? (
-                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-[#0F1F33]/30 border-t-[#0F1F33] rounded-full animate-spin" />
                   ) : formStatus === 'success' ? (
                     <>
                       <CheckCircle2 className="w-5 h-5" />
@@ -1667,7 +1704,7 @@ export default function App() {
 
           {/* Zonas donde trabajo */}
           <div className="mb-10">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-brand-bg/40 mb-3 font-medium">Dónde trabajo</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-brand-bg/70 mb-3 font-medium">Dónde trabajo</p>
             <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
               <span className="text-xs text-brand-bg/60">A Coruña</span>
               {[['Oleiros','gestion-resenas-oleiros'],['Sada','gestion-resenas-sada'],['Betanzos','gestion-resenas-betanzos'],['Arteixo','gestion-resenas-arteixo'],['Culleredo','gestion-resenas-culleredo'],['Cambre','gestion-resenas-cambre'],['Carballo','gestion-resenas-carballo']].map(([n, s]) => (
@@ -1678,7 +1715,7 @@ export default function App() {
 
           {/* Guías */}
           <div className="mb-10">
-            <p className="text-[10px] uppercase tracking-[0.25em] text-brand-bg/40 mb-3 font-medium">Guías de reseñas</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-brand-bg/70 mb-3 font-medium">Guías de reseñas</p>
             <div className="flex flex-wrap justify-center gap-x-5 gap-y-2">
               {[['Responder reseñas negativas','como-responder-resenas-negativas'],['Aparecer en Google Maps','como-aparecer-en-google-maps'],['Subir la nota en Google','como-subir-nota-google'],['¿Merece la pena responder?','merece-la-pena-responder-resenas'],['Reseñas falsas: qué hacer','resena-falsa-google'],['Recuperar tu ficha de una agencia','agencia-controla-tu-ficha-google'],['Manual de respuestas a reseñas','manual-resenas']].map(([n, s]) => (
                 <a key={s} href={'/' + s + '/'} className="text-xs text-brand-bg/60 hover:text-brand-accent transition-colors">{n}</a>
@@ -1692,7 +1729,7 @@ export default function App() {
               <button 
                 key={item}
                 onClick={() => setActiveLegal(item)}
-                className={`text-[10px] uppercase tracking-[0.2em] text-brand-bg/40 hover:text-brand-accent transition-colors font-medium ${item === 'Cookies' ? 'notranslate' : ''}`}
+                className={`min-h-[44px] text-xs uppercase tracking-[0.2em] text-brand-bg/70 hover:text-brand-accent transition-colors font-medium ${item === 'Cookies' ? 'notranslate' : ''}`}
                 translate={item === 'Cookies' ? 'no' : undefined}
               >
                 {item === 'Legal' ? 'Aviso Legal' : item}
@@ -1710,7 +1747,7 @@ export default function App() {
               </span>
             </div>
             
-            <p className="text-brand-bg/30 text-[10px] uppercase tracking-[0.2em] font-medium">
+            <p className="text-brand-bg/70 text-xs uppercase tracking-[0.2em] font-medium">
               © {new Date().getFullYear()} HostelAI. Todos los derechos reservados.
             </p>
           </div>

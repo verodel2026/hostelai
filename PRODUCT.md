@@ -42,6 +42,7 @@ Lo lleva una hostelera en activo que sigue trabajando detrás de la barra, no un
 ## Brand Commitments
 
 - Nombre: HostelAI (www.hostelai.es). Autora: Verónica Delgado Neira, en Oleiros (A Coruña).
+- Naranja oficial: **#E85D25**, el del logo (letras "AI", cuadradito y barra de la imagen para compartir). #E87B45 deja de usarse.
 - Voz: directa, de tú, hablada desde la barra, sin jerga de marketing ni postureo. Todo el contenido, en español.
 - Trayectoria confirmada en la web: empresa de catering propia desde 2006; primer negocio de la zona con delivery externo (Just Eat) en 2009; formación en Kuestiona, Ironhack e ISDI; sigue trabajando en hostelería y telecomunicaciones.
 
