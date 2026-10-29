@@ -53,3 +53,4 @@ Consequence: `App.tsx` must render on the server. Do not touch `window`/`documen
 ## Content conventions
 
 - Case studies in blog posts and guides are anonymised: never name real clients' venues.
+  - Only exception: **Bitácora de Santa Cristina** (Perillo, Oleiros) may be named, with screenshots; the owner gave permission on 1 October 2026. Every other client stays anonymised. Validated figures for this case are in `PRODUCT.md`; any new figure or quote needs Vero's approval first.

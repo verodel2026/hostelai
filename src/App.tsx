@@ -1374,7 +1374,7 @@ export default function App() {
             <h3 className="text-2xl md:text-3xl font-serif text-brand-primary italic mb-4 text-center">Tu primer mes conmigo, semana a semana</h3>
             <p className="text-brand-secondary text-center max-w-2xl mx-auto mb-12">
               No te cuento promesas: te cuento cómo fue el primer mes con mi primer cliente,
-              un restaurante de esta zona, en junio de 2026. Contigo sería parecido, porque el método es este:
+              Bitácora de Santa Cristina (Perillo, Oleiros), en junio de 2026. Contigo sería parecido, porque el método es este:
             </p>
             <div className="ticket-zona">
               <div className="ticket">
@@ -1395,9 +1395,9 @@ export default function App() {
             </div>
             <div className="space-y-10 max-w-3xl mx-auto">
               {[
-                { sem: 'Semana 1', titulo: 'Poner orden', texto: 'Me encontré cuatro meses de reseñas sin responder y las puse al día todas. También apareció lo que nadie había mirado: Google enseñaba una carta vieja con platos que ya no existían, y la ficha ni siquiera era del dueño — la retenía una agencia con la que ya no trabajaba. Primera semana: reseñas al día, carta correcta y el papeleo para recuperar la propiedad en marcha.' },
+                { sem: 'Semana 1', titulo: 'Poner orden', texto: 'Me encontré meses de reseñas sin responder y las puse al día todas. También apareció lo que nadie había mirado: Google enseñaba una carta vieja con platos que ya no existían, y la ficha ni siquiera era del dueño — la retenía una agencia con la que ya no trabajaba. Primera semana: reseñas al día, carta correcta y el papeleo para recuperar la propiedad en marcha.' },
                 { sem: 'Semana 2', titulo: 'Que la ficha respire', texto: 'Descripción del local bien escrita, fotos, horarios verificados. Una ficha completa y viva sube en el buscador; una abandonada se hunde sola.' },
-                { sem: 'Semana 3', titulo: 'El susto', texto: 'Entró una tanda de reseñas de una estrella que no cuadraba. El dueño lo supo por mí antes que por nadie, las denunciamos a Google una por una y decidimos juntos qué se contestaba y qué no — porque hay reseñas que no conviene responder en caliente, y saber cuáles es medio oficio. La nota del local aguantó.' },
+                { sem: 'Semana 3', titulo: 'El susto', texto: 'Entró una tanda de reseñas de una estrella que no cuadraba. El dueño lo supo por mí antes que por nadie, las denunciamos a Google una por una y decidimos juntos qué se contestaba y qué no — porque hay reseñas que no conviene responder en caliente, y saber cuáles es medio oficio. La nota se mantuvo en 4,1.' },
                 { sem: 'Semana 4', titulo: 'Sembrar', texto: 'Códigos QR en mesas y barra para que el cliente contento deje su reseña en el momento. Antes de imprimir nada, el texto revisado contra las normas de Google — que hasta para pedir reseñas hay reglas.' },
               ].map((s, idx) => (
                 <motion.div
@@ -1429,10 +1429,10 @@ export default function App() {
               </div>
             </div>
             <p className="text-brand-primary text-center max-w-2xl mx-auto mt-12 leading-relaxed">
-              Resultado del mes, con los datos de la propia ficha: la eficacia del perfil pasó
-              del <span className="font-semibold">72% al 77%</span>, entraron once reseñas nuevas y la nota se mantuvo
-              pese al ataque. Esa ficha la habían mirado <span className="font-semibold">29.000 personas</span> en
-              seis meses — eso es lo que hay en juego en un local normal de esta zona.
+              Y lo que vino después, con los datos de la propia ficha de Google: la eficacia del perfil pasó
+              del <span className="font-semibold">72 % el 10 de junio de 2026 al 92 % al cierre de septiembre</span>.
+              Y en julio de 2026, frente a julio de 2025: <span className="font-semibold">+38,5 % de interacciones</span> con
+              la ficha, <span className="font-semibold">+30,6 % de peticiones de "cómo llegar"</span> y <span className="font-semibold">+9,9 % de clics a la web</span>.
             </p>
           </div>
 
