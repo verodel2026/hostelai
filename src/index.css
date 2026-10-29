@@ -35,7 +35,7 @@
 }
 
 .btn-primary {
-  @apply bg-brand-accent text-white px-12 py-6 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-accent/90 hover:shadow-2xl hover:shadow-brand-accent/40 active:scale-[0.98] uppercase tracking-[0.3em] text-[10px];
+  @apply inline-flex items-center justify-center text-center bg-brand-accent text-white px-12 py-6 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-accent/90 hover:shadow-2xl hover:shadow-brand-accent/40 active:scale-[0.98] uppercase tracking-[0.3em] text-[10px];
 }
 
 .btn-accent {

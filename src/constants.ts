@@ -6,6 +6,7 @@ export const PROJECT_DATA = {
   author: "Verónica Delgado Neira",
   email: "hola@hostelai.es",
   phone: "+34 646 24 45 35",
+  whatsappMessage: "Hola, Verónica. Vengo de la web: me interesa el café de 15 minutos para revisar la ficha de Google de mi local. Mi local es:",
   year: "2026",
   about: {
   title: "Soy Verónica Delgado y conozco la hostelería desde la trinchera.",
@@ -36,7 +37,7 @@ export const PROJECT_DATA = {
         "mejora de la imagen de marca a través del feedback"
       ],
       idealFor: "quieres delegar la atención digital de tu local para asegurar que cada cliente reciba una respuesta adecuada y profesional.",
-      cta: "Reserva el café"
+      cta: "Pídeme el café por WhatsApp"
     },
     {
       name: "Auditoría inicial",
@@ -54,7 +55,7 @@ export const PROJECT_DATA = {
         "reunión de devolución de hasta 60 minutos"
       ],
       idealFor: "necesitas una visión externa, clara y práctica antes de tomar decisiones o invertir tiempo en cambios sin rumbo.",
-      cta: "Reserva el café"
+      cta: "Pídeme el café por WhatsApp"
     },
     {
       name: "Sesión 1:1",
@@ -75,7 +76,7 @@ export const PROJECT_DATA = {
         "recuperar la propiedad de tu ficha"
       ],
       idealFor: "tienes un atasco concreto y quieres resolverlo sin contratar un servicio más amplio.",
-      cta: "Reserva el café"
+      cta: "Pídeme el café por WhatsApp"
     }
   ],
   blog: [

@@ -6,7 +6,6 @@ import {
   Menu, 
   X, 
   MapPin, 
-  MessageSquare, 
   Zap, 
   Utensils, 
   Target, 
@@ -18,6 +17,9 @@ import {
   Smartphone,
   Star,
   Calendar,
+  Mail,
+  MessageCircle,
+  Phone,
   Check,
   Lock,
   ChevronDown,
@@ -26,6 +28,28 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PROJECT_DATA } from './constants';
+
+const WHATSAPP_URL = `https://wa.me/34646244535?text=${encodeURIComponent(PROJECT_DATA.whatsappMessage)}`;
+const PHONE_URL = 'tel:+34646244535';
+const PHONE_DISPLAY = '646 24 45 35';
+const CALENDLY_URL = 'https://calendly.com/hostelaicalendly/30min';
+
+// Vías secundarias bajo el botón de WhatsApp: llamar y, si procede, Calendly
+const OtrasVias = ({ className, calendly = false }: { className: string; calendly?: boolean }) => (
+  <p className={`mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-y-3 text-sm leading-relaxed ${className}`}>
+    <a href={PHONE_URL} className="underline underline-offset-4 hover:text-brand-accent transition-colors">
+      o llámame: {PHONE_DISPLAY}
+    </a>
+    {calendly && (
+      <>
+        <span aria-hidden="true" className="hidden sm:inline mx-3">·</span>
+        <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-brand-accent transition-colors">
+          Prefiero elegir día y hora
+        </a>
+      </>
+    )}
+  </p>
+);
 
 const DEMO_RESENAS = [
   {
@@ -408,14 +432,17 @@ const BlogPostModal = ({ isOpen, onClose, post }: { isOpen: boolean, onClose: ()
                       {section.content}
                       
                       {section.type === 'cta' && (
-                        <div className="mt-10 flex justify-center">
-                          <button 
-                            onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
-                            className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto"
+                        <div className="mt-10 flex flex-col items-center text-center">
+                          <a
+                            href={WHATSAPP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto not-italic"
                           >
-                            <Calendar className="w-5 h-5 text-white" />
-                            QUIERO MIS 15 MINUTOS GRATIS
-                          </button>
+                            <MessageCircle className="w-5 h-5 text-white" />
+                            Pídeme el café por WhatsApp
+                          </a>
+                          <OtrasVias className="items-center sm:justify-center text-brand-secondary not-italic" />
                         </div>
                       )}
                     </div>
@@ -766,12 +793,14 @@ export default function App() {
                 <span className="absolute -bottom-2 left-0 w-0 h-px bg-brand-accent transition-all duration-500 group-hover:w-full" />
               </motion.button>
             ))}
-            <button 
-              onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary !py-3 !px-6 !text-[10px] ml-2 shrink-0"
             >
-              Reserva el café
-            </button>
+              Pídeme el café
+            </a>
           </div>
 
           <button className="md:hidden text-brand-primary p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -799,15 +828,21 @@ export default function App() {
                   {({ metodo: 'Mi método', 'sobre-mi': 'Sobre mí', servicios: 'Servicios', precios: 'Precios', blog: 'Blog' } as Record<string, string>)[item]}
                 </button>
               ))}
-              <button 
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.open('https://calendly.com/hostelaicalendly/30min', '_blank');
-                }}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
                 className="btn-primary mt-4 py-3"
               >
-                Reserva el café
-              </button>
+                Pídeme el café por WhatsApp
+              </a>
+              <a
+                href={PHONE_URL}
+                className="text-base text-brand-secondary hover:text-brand-accent transition-colors"
+              >
+                Llamar: {PHONE_DISPLAY}
+              </a>
             </div>
           </motion.div>
         )}
@@ -856,14 +891,17 @@ export default function App() {
                 {PROJECT_DATA.subtitle}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button 
-                  onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
-                  className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group"
+              <div className="flex flex-col items-start">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-6 bg-brand-vibrant text-white px-10 py-5 rounded-[50px] font-bold transition-all duration-500 hover:bg-brand-vibrant/90 shadow-[0_10px_30px_rgba(255,87,34,0.25)] hover:shadow-[0_20px_50px_rgba(255,87,34,0.45)] active:scale-[0.98] uppercase tracking-[0.25em] text-[12px] group w-full sm:w-auto"
                 >
-                  <Calendar className="w-5 h-5 text-white" />
-                  Reserva el café — 15 min
-                </button>
+                  <MessageCircle className="w-5 h-5 text-white" />
+                  Pídeme el café por WhatsApp
+                </a>
+                <OtrasVias className="items-start text-white/85" calendly />
               </div>
             </motion.div>
           </div>
@@ -1149,12 +1187,15 @@ export default function App() {
                             <p className="text-[9px] font-bold text-white mb-3 uppercase tracking-[0.4em]">Ideal para ti si:</p>
                             <p className="text-white/70 text-sm leading-relaxed font-light italic">{rate.idealFor}</p>
                           </div>
-                          <button 
-                            onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
+                          <a
+                            href={WHATSAPP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="mt-8 btn-primary w-full md:w-auto"
                           >
                             {rate.cta}
-                          </button>
+                          </a>
+                          <OtrasVias className="items-start text-white/80" />
                         </div>
 
                         <div className="lg:col-span-7">
@@ -1330,12 +1371,16 @@ export default function App() {
               tus clientes ven y tú no. Sin compromiso y sin PowerPoint. Si después no quieres
               nada más, el café me lo llevo yo de aprendizaje.
             </p>
-            <button
-              onClick={() => window.open('https://calendly.com/hostelaicalendly/30min', '_blank')}
-              className="px-10 py-4 bg-brand-accent text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-primary transition-all duration-500 rounded-[50px]"
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-4 px-10 py-4 bg-brand-accent text-white text-xs font-bold uppercase tracking-[0.3em] hover:bg-brand-primary transition-all duration-500 rounded-[50px]"
             >
-              Reserva el café
-            </button>
+              <MessageCircle className="w-4 h-4 text-white" />
+              Pídeme el café por WhatsApp
+            </a>
+            <OtrasVias className="items-center sm:justify-center text-brand-secondary" calendly />
           </div>
         </div>
 
@@ -1433,9 +1478,29 @@ export default function App() {
               </p>
               
               <div className="space-y-12">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-8 group">
+                  <div className="w-12 h-12 border border-white/40 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-500">
+                    <MessageCircle className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">WhatsApp</p>
+                    <p className="text-lg font-serif italic text-white group-hover:text-white/80 transition-colors">{PHONE_DISPLAY}</p>
+                  </div>
+                </a>
+
+                <a href={PHONE_URL} className="flex items-center gap-8 group">
+                  <div className="w-12 h-12 border border-white/40 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-500">
+                    <Phone className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">Teléfono</p>
+                    <p className="text-lg font-serif italic text-white group-hover:text-white/80 transition-colors">{PHONE_DISPLAY}</p>
+                  </div>
+                </a>
+
                 <div className="flex items-center gap-8 group cursor-pointer" onClick={() => window.location.href = `mailto:${PROJECT_DATA.email}`}>
                   <div className="w-12 h-12 border border-white/40 flex items-center justify-center group-hover:bg-white group-hover:border-white transition-all duration-500">
-                    <MessageSquare className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
+                    <Mail className="w-5 h-5 text-white group-hover:text-[#b65d3b]" />
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-widest text-white/60 mb-1">Email</p>
@@ -1648,7 +1713,7 @@ export default function App() {
         )}
  </AnimatePresence>
       <a
-        href={"https://wa.me/34646244535"}
+        href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
