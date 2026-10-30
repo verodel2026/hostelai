@@ -169,8 +169,8 @@ const DemoResenas = () => {
         </div>
 
         <p className="text-center text-brand-secondary text-sm mt-10">
-          Esto, cada semana y con tus reseñas de verdad, es lo que hago por{' '}
-          <a href="#precios" className="text-brand-accent font-bold hover:underline">120 €/mes</a>.
+          Esto, con tus reseñas de verdad y en 48 horas como máximo, es lo que hago por{' '}
+          <a href="#precios" className="text-brand-accent font-bold hover:underline">120 €/mes + IVA</a>.
         </p>
       </div>
     </section>
@@ -1299,7 +1299,7 @@ export default function App() {
                 <div className="piz-item">
                   <p className="piz-nombre">Reseñas y ficha, mes a mes</p>
                   <p className="piz-precio">120 €<small>/mes</small></p>
-                  <p className="piz-desc">Yo llevo lo que Google dice de ti. Tú llevas el local. Te vas cuando quieras.</p>
+                  <p className="piz-desc">Yo llevo lo que Google dice de ti. Tú llevas el local. Te vas cuando quieras, avisando antes del mes siguiente.</p>
                 </div>
                 <div className="piz-item">
                   <p className="piz-nombre">Una hora para un problema</p>
@@ -1307,7 +1307,8 @@ export default function App() {
                   <p className="piz-desc">«¿Cómo respondo a ESTA reseña?» · «¿Cómo recupero mi ficha?» · Sales con el camino claro.</p>
                 </div>
               </div>
-              <p className="piz-nota">✓ si vamos al mensual, la auditoría se descuenta del primer mes — sin permanencia, factura con IVA</p>
+              <p className="piz-nota">✓ sin permanencia · precios + IVA</p>
+              <p className="piz-nota">El mensual es por local. Menú del día, carta, sesión de fotos, impresión de QR, TripAdvisor o TheFork: se puede añadir; se presupuesta aparte.</p>
             </div>
           </div>
 
@@ -1330,14 +1331,14 @@ export default function App() {
                 <div className="t-linea"><b>SEMANA 3</b><span>Lo que surja, gestionado</span></div>
                 <div className="t-linea"><b>SEMANA 4</b><span>Sembrar reseñas nuevas</span></div>
                 <div className="t-linea"><b>VIERNES</b><span>Resumen por WhatsApp</span></div>
-                <div className="t-total"><span>TOTAL</span><span>120 €/mes</span></div>
-                <div className="t-pie">Sin permanencia · IVA aparte<br/>GRACIAS POR SU VISITA</div>
+                <div className="t-total"><span>TOTAL</span><span>120 €/mes + IVA</span></div>
+                <div className="t-pie">Sin permanencia<br/>GRACIAS POR SU VISITA</div>
                 <div className="t-sello">Caso real</div>
               </div>
             </div>
             <div className="space-y-10 max-w-3xl mx-auto">
               {[
-                { sem: 'Semana 1', titulo: 'Poner orden', texto: 'Me encontré meses de reseñas sin responder y las puse al día todas. También apareció lo que nadie había mirado: Google enseñaba una carta vieja con platos que ya no existían, y la ficha ni siquiera era del dueño — la retenía una agencia con la que ya no trabajaba. Primera semana: reseñas al día, carta correcta y el papeleo para recuperar la propiedad en marcha.' },
+                { sem: 'Semana 1', titulo: 'Poner orden', texto: 'Me encontré meses de reseñas sin responder y las puse al día todas. También apareció lo que nadie había mirado: Google enseñaba una carta vieja con platos que ya no existían, y la ficha ni siquiera era del dueño — la retenía una agencia con la que ya no trabajaba. Primera semana: reseñas al día, la carta de verdad bien subida a Google y el papeleo para recuperar la propiedad en marcha.' },
                 { sem: 'Semana 2', titulo: 'Que la ficha respire', texto: 'Descripción del local bien escrita, fotos, horarios verificados. Una ficha completa y viva sube en el buscador; una abandonada se hunde sola.' },
                 { sem: 'Semana 3', titulo: 'El susto', texto: 'Entró una tanda de reseñas de una estrella que no cuadraba. El dueño lo supo por mí antes que por nadie, las denunciamos a Google una por una y decidimos juntos qué se contestaba y qué no — porque hay reseñas que no conviene responder en caliente, y saber cuáles es medio oficio. La nota se mantuvo en 4,1.' },
                 { sem: 'Semana 4', titulo: 'Sembrar', texto: 'Códigos QR en mesas y barra para que el cliente contento deje su reseña en el momento. Antes de imprimir nada, el texto revisado contra las normas de Google — que hasta para pedir reseñas hay reglas.' },
@@ -1399,13 +1400,13 @@ export default function App() {
             <p className="text-brand-secondary text-center mb-12">Las pongo como me las dicen, no como quedan bonitas.</p>
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 max-w-4xl mx-auto">
               {[
-                { q: '«¿Y esto no me lo hace una aplicación por cuatro duros?»', a: 'Responder por responder, sí. Pero una aplicación no sabe que ese cliente que se queja del precio pidió el whisky más caro de la estantería, ni que a esa reseña no se le contesta señalando a nadie del equipo, ni que si hay un lío serio de por medio lo prudente es callar unos días. Yo eso lo sé porque llevo veinte años del otro lado de la barra. Uso herramientas de IA para ir rápido — y lo declaro por contrato — pero el criterio no se subcontrata.' },
+                { q: '«¿Y esto no me lo hace una aplicación por cuatro duros?»', a: 'Responder por responder, sí. Pero una aplicación no sabe que ese cliente que se queja del precio pidió el whisky más caro de la estantería, ni que a esa reseña no se le contesta señalando a nadie del equipo, ni que si hay un lío serio de por medio lo prudente es callar unos días. Yo eso lo sé porque llevo veinte años del otro lado de la barra. Uso herramientas de IA para ir rápido — y lo dejo por escrito en la hoja que firmamos — pero el criterio no se subcontrata.' },
                 { q: '«¿Y no puede hacerlo mi sobrino, que sabe de ordenadores?»', a: 'Poder, puede. Como puede tu cuñado cambiarte la instalación eléctrica. La pregunta es quién responde cuando entra una reseña que te puede costar clientes de verdad, un martes a las once de la noche. Si tu sobrino tiene oficio de hostelería y constancia, adelante: te sale gratis. Mi cliente es el que ya probó eso y la ficha volvió a quedarse sola.' },
-                { q: '«¿Qué me vas a pedir?»', a: 'Acceso de gestora a tu ficha de Google, que me das tú desde tu móvil conmigo delante. La propiedad es tuya siempre, y me retiras cuando te dé la gana, sin avisar ni dar explicaciones. No toco tu banco, tu TPV ni tus redes.' },
-                { q: '«¿Me atas con un contrato?»', a: 'No. Mes a mes, factura con IVA. Si un mes no te compensa, lo dejas. Yo me juego la renovación cada mes con el resumen que te mando cada semana — ahí ves si valgo lo que cobro.' },
+                { q: '«¿Qué me vas a pedir?»', a: 'Acceso de gestora a tu ficha de Google, que me das tú desde tu móvil conmigo delante. Me quitas el acceso a tu ficha cuando quieras, sin avisar: la ficha es tuya. No toco tu banco, tu TPV ni tus redes.' },
+                { q: '«¿Me atas con un contrato?»', a: '¿Permanencia? No. Firmamos una hoja con lo que incluye, el precio y cómo uso la IA. Si un mes no te compensa, lo dejas avisando antes del siguiente.' },
                 { q: '«¿Y las reseñas de cinco estrellas, me las consigues?»', a: 'Compradas no, que te juegas la ficha: Google suspende perfiles por eso. Lo que monto es el camino corto para el cliente contento — el QR en la mesa — y el resto lo hace tu cocina y tu sala, que para eso son lo que son.' },
                 { q: '«Mi ficha la lleva una empresa de fuera / la hizo un socio que ya no está»', a: 'Me lo he encontrado ya, y es más serio de lo que parece: sin la propiedad, tu escaparate en Google no es tuyo. Sé el camino para reclamarla. Es lo primero que miro en la auditoría.' },
-                { q: '«¿Cuándo se nota?»', a: 'El orden, la primera semana: todo respondido, carta correcta, ficha completa. Subir en el mapa y que suene más el teléfono son dos o tres meses. Del que te prometa el milagro con fecha, desconfía.' },
+                { q: '«¿Cuándo se nota?»', a: 'El orden, la primera semana: todo respondido, la carta que ya tengas bien subida, ficha completa. Subir en el mapa y que suene más el teléfono son dos o tres meses. Del que te prometa el milagro con fecha, desconfía.' },
                 { q: '«¿Y una página web, me la haces?»', a: 'Aparte y con su presupuesto, si de verdad la necesitas. Lo digo así de claro porque una vez la regalé dentro del mensual y aprendí la lección: lo que no se cobra, no se valora — y lo acaba pagando el trabajo que sí importa, que son tus reseñas.' },
               ].map((f, idx) => (
                 <motion.div

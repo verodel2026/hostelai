@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#0F1F33" />
   
   <!-- SEO básico -->
-  <title>HostelAI | Reseñas y posicionamiento Google para hostelería</title>
-  <meta name="description" content="Más reseñas, mejor posición en Google y más clientes para tu bar, cafetería o restaurante. Consultoría especializada en hostelería. A Coruña y provincia." />
+  <title>HostelAI | Reseñas y ficha de Google para hostelería en A Coruña</title>
+  <meta name="description" content="Reseñas y ficha de Google para bares, cafeterías y restaurantes de la zona de A Coruña, con el criterio de quien sigue trabajando detrás de la barra." />
   <meta name="keywords" content="reseñas Google, Google Business Profile, posicionamiento Google, hostelería, restaurantes, bares, cafeterías, A Coruña, Galicia" />
   <meta name="author" content="Verónica Delgado - HostelAI" />
   <link rel="canonical" href="https://www.hostelai.es/" />
@@ -15,8 +15,8 @@
   <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.hostelai.es/" />
-  <meta property="og:title" content="HostelAI | Reseñas y posicionamiento Google para hostelería" />
-  <meta property="og:description" content="Más reseñas, mejor posición en Google y más clientes para tu bar, cafetería o restaurante. A Coruña y provincia." />
+  <meta property="og:title" content="HostelAI | Reseñas y ficha de Google para hostelería en A Coruña" />
+  <meta property="og:description" content="Reseñas y ficha de Google para bares, cafeterías y restaurantes de la zona de A Coruña, con el criterio de quien sigue trabajando detrás de la barra." />
   <meta property="og:image" content="https://www.hostelai.es/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -25,8 +25,8 @@
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="HostelAI | Reseñas y posicionamiento Google para hostelería" />
-  <meta name="twitter:description" content="Más reseñas, mejor posición en Google y más clientes para tu bar, cafetería o restaurante. A Coruña y provincia." />
+  <meta name="twitter:title" content="HostelAI | Reseñas y ficha de Google para hostelería en A Coruña" />
+  <meta name="twitter:description" content="Reseñas y ficha de Google para bares, cafeterías y restaurantes de la zona de A Coruña, con el criterio de quien sigue trabajando detrás de la barra." />
   <meta name="twitter:image" content="https://www.hostelai.es/og-image.png" />
   
   <!-- Favicons (ya los tenías bien) -->
@@ -42,7 +42,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "HostelAI",
-    "description": "Gestión de reseñas de Google y posicionamiento en Google Business Profile para bares, cafeterías y restaurantes. Servicio personal con más de 20 años de experiencia en hostelería.",
+    "description": "Gestión de reseñas y de la ficha de Google Business Profile para bares, cafeterías y restaurantes de la zona de A Coruña. Servicio personal con más de 20 años de experiencia en hostelería.",
     "url": "https://www.hostelai.es",
     "email": "hola@hostelai.es",
     "telephone": "+34646244535",
@@ -52,7 +52,13 @@
     },
     "areaServed": [
       { "@type": "City", "name": "A Coruña" },
-      { "@type": "City", "name": "Oleiros" }
+      { "@type": "City", "name": "Oleiros" },
+      { "@type": "City", "name": "Sada" },
+      { "@type": "City", "name": "Betanzos" },
+      { "@type": "City", "name": "Arteixo" },
+      { "@type": "City", "name": "Culleredo" },
+      { "@type": "City", "name": "Cambre" },
+      { "@type": "City", "name": "Carballo" }
     ],
     "address": {
       "@type": "PostalAddress",
@@ -65,12 +71,100 @@
       {
         "@type": "Offer",
         "name": "Gestión de reseñas de Google",
-        "description": "Respuesta profesional a todas las reseñas y mantenimiento del perfil de Google Business, mes a mes y sin permanencia."
+        "description": "Respuesta profesional a todas las reseñas y mantenimiento del perfil de Google Business, mes a mes y sin permanencia.",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "120",
+          "priceCurrency": "EUR",
+          "unitText": "mes",
+          "valueAddedTaxIncluded": false
+        }
       },
       {
         "@type": "Offer",
         "name": "Auditoría de reputación online",
-        "description": "Diagnóstico completo de la ficha de Google y las reseñas de un negocio de hostelería."
+        "description": "Diagnóstico completo de la ficha de Google y las reseñas de un negocio de hostelería.",
+        "priceSpecification": { "@type": "PriceSpecification", "price": "149", "priceCurrency": "EUR", "valueAddedTaxIncluded": false }
+      },
+      {
+        "@type": "Offer",
+        "name": "Sesión 1:1",
+        "description": "Una hora para resolver un problema concreto de tu ficha o tus reseñas.",
+        "priceSpecification": { "@type": "PriceSpecification", "price": "59", "priceCurrency": "EUR", "valueAddedTaxIncluded": false }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preguntas frecuentes: las mismas «Preguntas de barra» que se ven en la página (App.tsx) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Y esto no me lo hace una aplicación por cuatro duros?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Responder por responder, sí. Pero una aplicación no sabe que ese cliente que se queja del precio pidió el whisky más caro de la estantería, ni que a esa reseña no se le contesta señalando a nadie del equipo, ni que si hay un lío serio de por medio lo prudente es callar unos días. Yo eso lo sé porque llevo veinte años del otro lado de la barra. Uso herramientas de IA para ir rápido — y lo dejo por escrito en la hoja que firmamos — pero el criterio no se subcontrata."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y no puede hacerlo mi sobrino, que sabe de ordenadores?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Poder, puede. Como puede tu cuñado cambiarte la instalación eléctrica. La pregunta es quién responde cuando entra una reseña que te puede costar clientes de verdad, un martes a las once de la noche. Si tu sobrino tiene oficio de hostelería y constancia, adelante: te sale gratis. Mi cliente es el que ya probó eso y la ficha volvió a quedarse sola."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué me vas a pedir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Acceso de gestora a tu ficha de Google, que me das tú desde tu móvil conmigo delante. Me quitas el acceso a tu ficha cuando quieras, sin avisar: la ficha es tuya. No toco tu banco, tu TPV ni tus redes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Me atas con un contrato?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "¿Permanencia? No. Firmamos una hoja con lo que incluye, el precio y cómo uso la IA. Si un mes no te compensa, lo dejas avisando antes del siguiente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y las reseñas de cinco estrellas, me las consigues?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Compradas no, que te juegas la ficha: Google suspende perfiles por eso. Lo que monto es el camino corto para el cliente contento — el QR en la mesa — y el resto lo hace tu cocina y tu sala, que para eso son lo que son."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mi ficha la lleva una empresa de fuera / la hizo un socio que ya no está",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Me lo he encontrado ya, y es más serio de lo que parece: sin la propiedad, tu escaparate en Google no es tuyo. Sé el camino para reclamarla. Es lo primero que miro en la auditoría."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuándo se nota?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El orden, la primera semana: todo respondido, la carta que ya tengas bien subida, ficha completa. Subir en el mapa y que suene más el teléfono son dos o tres meses. Del que te prometa el milagro con fecha, desconfía."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y una página web, me la haces?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aparte y con su presupuesto, si de verdad la necesitas. Lo digo así de claro porque una vez la regalé dentro del mensual y aprendí la lección: lo que no se cobra, no se valora — y lo acaba pagando el trabajo que sí importa, que son tus reseñas."
+        }
       }
     ]
   }

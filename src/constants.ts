@@ -26,14 +26,16 @@ export const PROJECT_DATA = {
     {
       name: "Gestión de reseñas",
       price: "120 €",
-      pricePrefix: "Desde",
-      priceSuffix: "/ mes",
+      pricePrefix: "",
+      priceSuffix: "/ mes + IVA",
       desc: "Me encargo de responder y gestionar las reseñas de tu negocio en Google Business Profile con criterio y profesionalidad.",
       includes: [
-        "respuesta personalizada a cada reseña",
+        "respuesta personalizada a cada reseña en 48 horas como máximo",
         "gestión de críticas negativas con protocolo estratégico",
         "optimización del perfil de Google Business",
-        "informe mensual de reputación online",
+        "una publicación por semana en tu ficha",
+        "diseño del QR para pedir reseñas",
+        "resumen semanal por WhatsApp: qué entró, qué respondí y cómo va tu nota",
         "mejora de la imagen de marca a través del feedback"
       ],
       idealFor: "quieres delegar la atención digital de tu local para asegurar que cada cliente reciba una respuesta adecuada y profesional.",
@@ -43,7 +45,7 @@ export const PROJECT_DATA = {
       name: "Auditoría inicial",
       price: "149 €",
       pricePrefix: "",
-      priceSuffix: "",
+      priceSuffix: "+ IVA",
       desc: "Una revisión clara del punto de partida de tu negocio para detectar qué está fallando y por dónde conviene empezar.",
       includes: [
         "análisis inicial del negocio",
@@ -61,7 +63,7 @@ export const PROJECT_DATA = {
       name: "Sesión 1:1",
       price: "59 €",
       pricePrefix: "",
-      priceSuffix: "",
+      priceSuffix: "+ IVA",
       desc: "Una sesión individual para resolver un problema concreto y salir con una hoja de ruta clara.",
       includes: [
         "sesión de hasta 60 minutos",

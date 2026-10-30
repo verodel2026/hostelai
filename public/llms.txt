@@ -1,0 +1,71 @@
+# HostelAI
+
+> Reseñas y ficha de Google (Google Business Profile) para bares, cafeterías y restaurantes de la zona de A Coruña. Lo lleva Verónica Delgado Neira desde Oleiros (A Coruña): hostelera en activo, con 20 años de barra, no una agencia de marketing. Responde ella cada reseña, con criterio de hostelería.
+
+## Datos clave
+
+- Los precios de los servicios son más IVA.
+- Servicio principal: gestión de reseñas y ficha de Google, 120 €/mes + IVA por local. Mismo servicio y mismo precio todo el año, también para locales de temporada. Mes a mes y sin permanencia: se firma una hoja con lo que incluye, el precio y cómo se usa la IA. Para dejarlo basta con avisar antes del mes siguiente.
+- Auditoría de la ficha: 149 € + IVA, servicio aparte y de pago único. Incluye revisión de la ficha y las reseñas, documento resumen con diagnóstico y recomendaciones, y reunión de devolución de hasta 60 minutos.
+- Sesión 1:1: 59 € + IVA, hasta 60 minutos, para un problema concreto: cómo responder una reseña, cómo recuperar la ficha, cómo mejorar Google Business.
+- Manual de respuestas a reseñas para hostelería: PDF de 15 páginas con 69 respuestas listas, 19 € (precio final), pago único en Gumroad.
+- Primer contacto: un café de 15 minutos, sin compromiso, en persona en el local del hostelero, con su ficha de Google abierta. Se pide por WhatsApp o teléfono (+34 646 24 45 35) o eligiendo hueco en Calendly.
+- Zona: A Coruña, Oleiros, Sada, Betanzos, Arteixo, Culleredo, Cambre, Carballo y comarca de Bergantiños. El trabajo del día a día es en remoto. La primera visita al local está incluida; las siguientes se acuerdan con cada cliente y pueden tener un coste aparte.
+- Qué pide al cliente: acceso de gestora a la ficha de Google, que el dueño da desde su móvil. La ficha es del dueño, que puede quitar el acceso cuando quiera, sin avisar. No toca banco, TPV ni redes sociales.
+- Qué no hace: comprar reseñas ni incentivarlas; prometer el número 1 en el mapa ni subidas de nota con fecha. Páginas web, solo aparte y con presupuesto propio.
+- Usa herramientas de inteligencia artificial para ir más rápido, y lo deja por escrito en la hoja que firma con el cliente; qué se responde, qué no y cuándo lo decide ella.
+
+## Qué incluye el servicio mensual
+
+- Respuesta personalizada a cada reseña de Google en 48 horas como máximo, todo el año, también a las negativas.
+- Reseñas falsas o que incumplen normas: denuncia a Google una por una, y decisión sobre cuáles contestar en público y cuáles no.
+- Ficha al día: horarios, descripción y fotos (sube las que manda el local y le dice cuáles hacer).
+- La primera semana deja bien subida a Google la carta que ya tenga el local. Rediseñarla y los cambios posteriores son un servicio aparte.
+- Una publicación por semana en la ficha (cuatro al mes).
+- Recuperar la propiedad de la ficha si la tiene una agencia, un exsocio u otra persona.
+- Diseño del código QR de reseñas (una vez), con el texto revisado contra las normas de Google, para que el cliente contento deje reseña en el momento.
+- Seguimiento: un resumen semanal por WhatsApp (qué entró, qué se respondió, cómo va la nota).
+- El primer mes es poner orden: reseñas atrasadas respondidas y ficha revisada entera.
+- Plazos que da la web: el orden se nota la primera semana; subir en el mapa y que suene más el teléfono, dos o tres meses.
+
+## Servicios aparte (con presupuesto, sin precio publicado)
+
+Cambiar el menú del día, rediseñar la carta o cambiarla después de la primera semana, sesión de fotos, impresión de los QR y responder reseñas en TripAdvisor o TheFork. El mensual cubre Google.
+
+## Caso real con nombre
+
+Bitácora de Santa Cristina (Perillo, Oleiros). Trabajo empezado en junio de 2026. La ficha la retenía una agencia con la que el dueño ya no trabajaba; se recuperó. Más de 130 reseñas gestionadas. Durante una tanda de reseñas de una estrella, la nota se mantuvo en 4,1. Datos de Google, julio de 2026 frente a julio de 2025: +38,5 % de interacciones con la ficha, +30,6 % de peticiones de "cómo llegar", +9,9 % de clics a la web. Eficacia del perfil (medida por Google): 72 % el 10 de junio de 2026, 92 % al cierre de septiembre de 2026.
+
+## Página principal
+
+- [HostelAI](https://www.hostelai.es/): método en tres pasos, precios, primer mes semana a semana, caso Bitácora y preguntas frecuentes.
+
+## Por municipio
+
+- [Oleiros](https://www.hostelai.es/gestion-resenas-oleiros/): terrazas y costa (Santa Cruz, Santa Cristina, Mera, Perillo); donde vive Verónica.
+- [Sada](https://www.hostelai.es/gestion-resenas-sada/): paseo marítimo, cliente de verano y locales de temporada.
+- [Betanzos](https://www.hostelai.es/gestion-resenas-betanzos/): tortillerías, tabernas y visitante gastronómico; peregrinos del Camino Inglés.
+- [Arteixo](https://www.hostelai.es/gestion-resenas-arteixo/): menú del día y trabajadores de polígono.
+- [Culleredo](https://www.hostelai.es/gestion-resenas-culleredo/): cafeterías y bares de barrio en O Burgo, Vilaboa y Almeiras.
+- [Cambre](https://www.hostelai.es/gestion-resenas-cambre/): O Temple y parroquias; comuniones, grupos y domingos.
+- [Carballo](https://www.hostelai.es/gestion-resenas-carballo/): capital de Bergantiños; clientela de fin de semana que viene de la comarca.
+
+## Guías
+
+- [Cómo responder a una reseña negativa](https://www.hostelai.es/como-responder-resenas-negativas/): las cuatro reglas y un ejemplo de respuesta.
+- [Por qué tu local no aparece en Google Maps](https://www.hostelai.es/como-aparecer-en-google-maps/): las cinco causas habituales y cuánto tarda arreglarlo.
+- [Cómo subir la nota en Google sin trampas](https://www.hostelai.es/como-subir-nota-google/): pedir reseñas sin incentivos y plazos reales.
+- [¿Merece la pena responder a las reseñas?](https://www.hostelai.es/merece-la-pena-responder-resenas/): qué gana el local que responde y por dónde empezar sin tiempo.
+- [Te han puesto una reseña falsa](https://www.hostelai.es/resena-falsa-google/): cómo denunciarla, cómo responder y qué borra Google.
+- [Una agencia controla tu ficha de Google](https://www.hostelai.es/agencia-controla-tu-ficha-google/): pasos para recuperar la propiedad.
+
+## Producto
+
+- [Manual de respuestas a reseñas](https://www.hostelai.es/manual-resenas/): 69 respuestas para copiar y adaptar, PDF de 15 páginas, 19 €.
+
+## Contacto
+
+- WhatsApp y teléfono: +34 646 24 45 35
+- Email: hola@hostelai.es
+- Elegir día y hora: https://calendly.com/hostelaicalendly/30min
+- Ubicación: Oleiros, A Coruña
