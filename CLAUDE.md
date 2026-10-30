@@ -48,6 +48,7 @@ Consequence: `App.tsx` must render on the server. Do not touch `window`/`documen
 
 - `vercel.json` rewrites `/portfolio` → `/portfolio.html` and everything else to `/index.html`; real files in `public/` (the static pages) are served first.
 - When adding or removing a static page, also update `public/sitemap.xml` and, where relevant, the cross-links between pages (footer "zonas" links on local pages, related-guide links).
+- The 8 "Preguntas de barra" on the home are duplicated in the `FAQPage` JSON-LD in `index.html`. If you change one in `App.tsx`, change it there too, word for word.
 - The booking CTA everywhere is the Calendly link `https://calendly.com/hostelaicalendly/30min`; it is hard-coded in both `App.tsx` and the static pages, so changing it means a repo-wide replace.
 
 ## Content conventions
