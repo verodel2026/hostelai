@@ -787,6 +787,20 @@ export default function App() {
     setIsMenuOpen(false);
   };
 
+  // /privacidad (enlazada desde el mensaje automático de WhatsApp) abre la home con la política ya abierta
+  useEffect(() => {
+    if (window.location.pathname.replace(/\/+$/, '') === '/privacidad') {
+      setActiveLegal('Privacidad');
+    }
+  }, []);
+
+  const closeLegal = () => {
+    setActiveLegal(null);
+    if (window.location.pathname.replace(/\/+$/, '') === '/privacidad') {
+      window.history.replaceState(null, '', '/');
+    }
+  };
+
   const getLegalContent = () => {
     if (!activeLegal) return null;
     if (activeLegal === 'Privacidad') return PROJECT_DATA.legal.privacidad;
@@ -1759,7 +1773,7 @@ export default function App() {
         {activeLegal && (
           <LegalModal 
             isOpen={!!activeLegal} 
-            onClose={() => setActiveLegal(null)} 
+            onClose={closeLegal}
             content={getLegalContent()} 
           />
         )}

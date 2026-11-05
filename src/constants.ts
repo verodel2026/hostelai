@@ -291,10 +291,14 @@ export const PROJECT_DATA = {
         },
         {
           title: "Datos tratados",
-          content: "A través del formulario de contacto de este sitio web se recogen únicamente los siguientes datos:\n- nombre\n- correo electrónico\n- mensaje"
+          content: "A través del formulario de contacto de este sitio web se recogen los siguientes datos:\n- nombre\n- correo electrónico\n- mensaje"
         },
         {
-          title: "Base jurídica",
+          title: "Contacto por WhatsApp y anuncios en Facebook e Instagram",
+          content: "Si la persona interesada escribe por WhatsApp, también desde un anuncio de HostelAI en Facebook o Instagram, se tratan estos datos:\n- su número de teléfono\n- su nombre de perfil\n- los mensajes que envíe\n- los datos del negocio que indique (nombre del local y localidad)\n\nFinalidad: atender su solicitud y, si la pide, realizar la revisión gratuita de la ficha de Google de su negocio, que se hace con información pública del propio negocio.\n\nBase jurídica: su solicitud al escribir, es decir, la aplicación de medidas precontractuales a petición suya (art. 6.1.b RGPD).\n\nDestinatarios: WhatsApp y Meta (Meta Platforms Ireland Ltd.) intervienen como proveedores del servicio de mensajería y de los anuncios. Meta puede transferir datos fuera del Espacio Económico Europeo con las garantías del Marco de Privacidad de Datos UE-EE. UU. De los anuncios, HostelAI solo recibe estadísticas agregadas, no datos de quien los ve.\n\nConservación: mientras dure la conversación y, si no hay contratación, un máximo de 12 meses desde el último contacto. Después se borra."
+        },
+        {
+          title: "Base jurídica del formulario de contacto",
           content: "La base legal para el tratamiento de los datos es el consentimiento de la persona usuaria al enviar voluntariamente el formulario."
         },
         {
