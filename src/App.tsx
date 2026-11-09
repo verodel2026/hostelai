@@ -1330,7 +1330,7 @@ export default function App() {
           <div className="mb-20">
             <h3 className="text-2xl md:text-3xl font-serif text-brand-primary italic mb-4 text-center">Tu primer mes conmigo, semana a semana</h3>
             <p className="text-brand-secondary text-center max-w-2xl mx-auto mb-12">
-              No te cuento promesas: te cuento cómo fue el primer mes con mi primer cliente,
+              No te cuento promesas: te cuento cómo fue el primer mes con
               Bitácora de Santa Cristina (Perillo, Oleiros), en junio de 2026. Contigo sería parecido, porque el método es este:
             </p>
             <div className="ticket-zona">
